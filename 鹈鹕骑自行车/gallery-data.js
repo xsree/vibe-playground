@@ -19,6 +19,12 @@ window.PELICAN_RESULTS = [
   },
   {
     "harness": "Antigravity",
+    "model": "Claude-Sonnet-5.5",
+    "effort": "medium",
+    "file": "Antigravity-Claude-Sonnet-5.5-medium-pelican-riding-bicycle.svg"
+  },
+  {
+    "harness": "Antigravity",
     "model": "Gemini-3.1-Pro",
     "effort": "high",
     "file": "Antigravity-Gemini-3.1-Pro-high-pelican-riding-bicycle.svg"
@@ -79,6 +85,12 @@ window.PELICAN_RESULTS = [
   },
   {
     "harness": "opencode",
+    "model": "mimo-v2.6-flash-free",
+    "effort": "high",
+    "file": "opencode-mimo-v2.6-flash-free-high-pelican-riding-bicycle.svg"
+  },
+  {
+    "harness": "opencode",
     "model": "muse-spark-1.2-contributor-free",
     "effort": "high",
     "file": "opencode-muse-spark-1.2-contributor-free-high-pelican-riding-bicycle.svg"
@@ -112,6 +124,12 @@ window.PELICAN_RESULTS = [
     "model": "Qwen-3.8-Max",
     "effort": "high",
     "file": "QwenWork-Desktop-Qwen-3.8-Max-high-pelican-riding-bicycle.svg"
+  },
+  {
+    "harness": "WorkBuddy",
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "effort": "high",
+    "file": "WorkBuddy-DeepSeek-V4.1-Flash-1017-high-pelican-riding-bicycle.svg"
   },
   {
     "harness": "WorkBuddy",
@@ -160,5 +178,11 @@ window.PELICAN_RESULTS = [
     "model": "MiniMax-M3",
     "effort": "high",
     "file": "WorkBuddy-MiniMax-M3-high-pelican-riding-bicycle.svg"
+  },
+  {
+    "harness": "WorkBuddy",
+    "model": "Space-Bunny",
+    "effort": "high",
+    "file": "WorkBuddy-Space-Bunny-high-pelican-riding-bicycle.svg"
   }
 ];
