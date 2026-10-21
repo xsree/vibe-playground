@@ -1,0 +1,331 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450">
+  <defs>
+    <!-- Sky gradient: deep cerulean → pale sky -->
+    <linearGradient id="gSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#1b6faa"/>
+      <stop offset="55%"  stop-color="#5aaad8"/>
+      <stop offset="100%" stop-color="#aad8f0"/>
+    </linearGradient>
+    <!-- Pelican body: warm ivory radial -->
+    <radialGradient id="gBody" cx="38%" cy="30%" r="62%">
+      <stop offset="0%"   stop-color="#fffef6"/>
+      <stop offset="65%"  stop-color="#eeede4"/>
+      <stop offset="100%" stop-color="#d5d4ca"/>
+    </radialGradient>
+    <!-- Pelican head -->
+    <radialGradient id="gHead" cx="35%" cy="28%" r="65%">
+      <stop offset="0%"   stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e2e1d8"/>
+    </radialGradient>
+    <!-- Gular pouch: amber-orange -->
+    <linearGradient id="gPouch" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#f5b030"/>
+      <stop offset="100%" stop-color="#d4700f"/>
+    </linearGradient>
+    <!-- Drop shadow for pelican body -->
+    <filter id="fShadow" x="-20%" y="-20%" width="150%" height="160%">
+      <feDropShadow dx="3" dy="6" stdDeviation="5" flood-color="#00000028"/>
+    </filter>
+  </defs>
+
+  <!-- ========== SKY ========== -->
+  <rect width="600" height="450" fill="url(#gSky)"/>
+
+  <!-- Speed/motion streaks — suggests forward momentum -->
+  <g stroke="rgba(255,255,255,0.32)" stroke-linecap="round">
+    <line x1="0" y1="106" x2="192" y2="106" stroke-width="2.2"/>
+    <line x1="0" y1="129" x2="158" y2="129" stroke-width="1.6"/>
+    <line x1="0" y1="151" x2="204" y2="151" stroke-width="2.6"/>
+    <line x1="0" y1="169" x2="136" y2="169" stroke-width="1.4"/>
+    <line x1="0" y1="185" x2="178" y2="185" stroke-width="1.0"/>
+  </g>
+
+  <!-- Cloud cluster — left -->
+  <g fill="white" opacity="0.90">
+    <ellipse cx="86"  cy="68"  rx="56" ry="29"/>
+    <ellipse cx="126" cy="55"  rx="44" ry="25"/>
+    <ellipse cx="58"  cy="63"  rx="38" ry="21"/>
+    <ellipse cx="108" cy="84"  rx="30" ry="16"/>
+  </g>
+  <!-- Cloud cluster — right -->
+  <g fill="white" opacity="0.84">
+    <ellipse cx="510" cy="78"  rx="58" ry="28"/>
+    <ellipse cx="554" cy="63"  rx="44" ry="24"/>
+    <ellipse cx="474" cy="74"  rx="40" ry="21"/>
+    <ellipse cx="540" cy="96"  rx="28" ry="14"/>
+  </g>
+
+  <!-- ========== ROAD ========== -->
+  <!-- Asphalt base -->
+  <rect x="0" y="378" width="600" height="72" fill="#5e5e5e"/>
+  <!-- Surface highlight strip -->
+  <rect x="0" y="378" width="600" height="6" fill="#707070" opacity="0.6"/>
+  <!-- Yellow center dashes -->
+  <line x1="0" y1="393" x2="600" y2="393"
+        stroke="#e8d040" stroke-width="3.5" stroke-dasharray="50,28"/>
+  <!-- Road edge line -->
+  <line x1="0" y1="379" x2="600" y2="379" stroke="#787878" stroke-width="1.5"/>
+
+  <!-- Cast shadow from bicycle + rider -->
+  <ellipse cx="300" cy="381" rx="155" ry="9" fill="rgba(0,0,0,0.18)"/>
+
+  <!-- ========== REAR WHEEL  (center 155, 313 · r 67) ========== -->
+  <!-- Outer tire -->
+  <circle cx="155" cy="313" r="67" fill="none" stroke="#111" stroke-width="14"/>
+  <!-- Rim inner edge highlight -->
+  <circle cx="155" cy="313" r="59" fill="none" stroke="#c0c0c0" stroke-width="2.5"/>
+  <!-- 12 spokes -->
+  <g stroke="#b8b8b8" stroke-width="1.5" opacity="0.9">
+    <line x1="155" y1="313" x2="217" y2="313"/>
+    <line x1="155" y1="313" x2="209" y2="344"/>
+    <line x1="155" y1="313" x2="186" y2="367"/>
+    <line x1="155" y1="313" x2="155" y2="375"/>
+    <line x1="155" y1="313" x2="124" y2="367"/>
+    <line x1="155" y1="313" x2="101" y2="344"/>
+    <line x1="155" y1="313" x2="93"  y2="313"/>
+    <line x1="155" y1="313" x2="101" y2="282"/>
+    <line x1="155" y1="313" x2="124" y2="259"/>
+    <line x1="155" y1="313" x2="155" y2="251"/>
+    <line x1="155" y1="313" x2="186" y2="259"/>
+    <line x1="155" y1="313" x2="209" y2="282"/>
+  </g>
+  <!-- Hub flange -->
+  <circle cx="155" cy="313" r="11"  fill="#555" stroke="#333" stroke-width="2"/>
+  <circle cx="155" cy="313" r="5.5" fill="#bbb"/>
+  <!-- Rear sprocket -->
+  <circle cx="155" cy="313" r="17" fill="none" stroke="#3a3a3a" stroke-width="5"/>
+
+  <!-- ========== CHAIN (simplified, behind frame) ========== -->
+  <path d="M 250 322 Q 202 338 172 322"
+        stroke="#3a3a3a" stroke-width="3.5" fill="none"/>
+  <path d="M 252 292 Q 205 276 170 302"
+        stroke="#3a3a3a" stroke-width="2.5" fill="none"/>
+
+  <!-- ========== BICYCLE FRAME  (classic red) ========== -->
+  <g fill="none" stroke="#dc2626" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Chain stays: BB → rear axle -->
+    <line x1="268" y1="300" x2="155" y2="313" stroke-width="8"/>
+    <!-- Seat stays: lower seat → rear axle -->
+    <line x1="254" y1="236" x2="155" y2="313" stroke-width="7"/>
+    <!-- Seat tube: saddle → BB -->
+    <line x1="252" y1="215" x2="268" y2="300" stroke-width="9"/>
+    <!-- Top tube -->
+    <line x1="252" y1="215" x2="428" y2="228" stroke-width="9"/>
+    <!-- Down tube -->
+    <line x1="428" y1="228" x2="268" y2="300" stroke-width="9"/>
+    <!-- Head tube (thick) -->
+    <line x1="428" y1="228" x2="420" y2="262" stroke-width="13"/>
+    <!-- Fork (curved) -->
+    <path d="M 420 262 C 428 288 440 308 445 313" stroke-width="7"/>
+  </g>
+
+  <!-- Frame tube top-edge highlight -->
+  <g fill="none" stroke="#f05050" stroke-linecap="round" opacity="0.42">
+    <line x1="252" y1="214" x2="428" y2="227" stroke-width="3"/>
+    <line x1="252" y1="214" x2="268" y2="299" stroke-width="3"/>
+  </g>
+
+  <!-- Bottom bracket shell -->
+  <circle cx="268" cy="300" r="16" fill="#dc2626" stroke="#8b1a1a" stroke-width="2.5"/>
+  <!-- Chainring (large sprocket) -->
+  <circle cx="268" cy="300" r="25" fill="none" stroke="#4a4a4a" stroke-width="6"/>
+  <!-- Chainring inner spider ring -->
+  <circle cx="268" cy="300" r="11" fill="none" stroke="#333" stroke-width="3"/>
+  <!-- Tooth silhouette hint -->
+  <circle cx="268" cy="300" r="27" fill="none" stroke="#666" stroke-width="1.5"
+          stroke-dasharray="3,5.2"/>
+
+  <!-- ========== CRANK ARMS ========== -->
+  <g stroke="#222" stroke-width="7" stroke-linecap="round">
+    <!-- Right crank (~4:30 o'clock — pushing down) -->
+    <line x1="268" y1="300" x2="298" y2="318"/>
+    <!-- Left crank (~10:30 o'clock — lifting up) -->
+    <line x1="268" y1="300" x2="238" y2="282"/>
+  </g>
+
+  <!-- ========== PEDALS ========== -->
+  <g fill="#252525" stroke="#111" stroke-width="1.5">
+    <rect x="289" y="312" width="22" height="8" rx="2.5"/>
+    <rect x="229" y="276" width="22" height="8" rx="2.5"/>
+  </g>
+  <!-- Grip ridges -->
+  <g stroke="#555" stroke-width="0.9" opacity="0.8">
+    <line x1="293" y1="313" x2="293" y2="319"/>
+    <line x1="297" y1="313" x2="297" y2="319"/>
+    <line x1="301" y1="313" x2="301" y2="319"/>
+    <line x1="233" y1="277" x2="233" y2="283"/>
+    <line x1="237" y1="277" x2="237" y2="283"/>
+    <line x1="241" y1="277" x2="241" y2="283"/>
+  </g>
+
+  <!-- ========== SADDLE ========== -->
+  <!-- Seat post stub -->
+  <line x1="252" y1="215" x2="252" y2="230"
+        stroke="#b91c1c" stroke-width="8" stroke-linecap="round"/>
+  <!-- Saddle rail pair -->
+  <path d="M 216 214 Q 252 206 288 214"
+        stroke="#333" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Saddle leather body -->
+  <path d="M 218 213 Q 228 203 252 200 Q 276 203 286 213
+           Q 272 220 252 221 Q 232 220 218 213 Z"
+        fill="#111" stroke="#3a3a3a" stroke-width="1.5"/>
+  <!-- Saddle nose taper -->
+  <path d="M 218 213 Q 215 216 218 219 Q 224 217 228 214 Z"
+        fill="#1a1a1a"/>
+  <!-- Saddle sheen highlight -->
+  <path d="M 228 207 Q 252 202 276 207 Q 264 213 252 213 Q 240 213 228 207"
+        fill="#383838" opacity="0.55"/>
+
+  <!-- ========== HANDLEBARS ========== -->
+  <g stroke="#1c1c1c" stroke-linecap="round" fill="none">
+    <!-- Stem -->
+    <line x1="428" y1="228" x2="452" y2="208" stroke-width="7"/>
+    <!-- Drop bar tube -->
+    <path d="M 441 200 Q 460 193 482 202" stroke-width="6"/>
+  </g>
+  <!-- Stem clamp plate -->
+  <rect x="424" y="225" width="10" height="7" rx="2" fill="#2a2a2a" stroke="#111" stroke-width="1"/>
+  <!-- Bar end plugs -->
+  <circle cx="441" cy="200" r="6" fill="#1a1a1a"/>
+  <circle cx="482" cy="202" r="6" fill="#1a1a1a"/>
+  <!-- Brake hood -->
+  <path d="M 474 202 Q 482 199 486 207 Q 482 211 474 208 Z" fill="#3a3a3a"/>
+
+  <!-- ========== FRONT WHEEL  (center 445, 313 · r 67) ========== -->
+  <circle cx="445" cy="313" r="67" fill="none" stroke="#111" stroke-width="14"/>
+  <circle cx="445" cy="313" r="59" fill="none" stroke="#c0c0c0" stroke-width="2.5"/>
+  <g stroke="#b8b8b8" stroke-width="1.5" opacity="0.9">
+    <line x1="445" y1="313" x2="507" y2="313"/>
+    <line x1="445" y1="313" x2="499" y2="344"/>
+    <line x1="445" y1="313" x2="476" y2="367"/>
+    <line x1="445" y1="313" x2="445" y2="375"/>
+    <line x1="445" y1="313" x2="414" y2="367"/>
+    <line x1="445" y1="313" x2="391" y2="344"/>
+    <line x1="445" y1="313" x2="383" y2="313"/>
+    <line x1="445" y1="313" x2="391" y2="282"/>
+    <line x1="445" y1="313" x2="414" y2="259"/>
+    <line x1="445" y1="313" x2="445" y2="251"/>
+    <line x1="445" y1="313" x2="476" y2="259"/>
+    <line x1="445" y1="313" x2="499" y2="282"/>
+  </g>
+  <circle cx="445" cy="313" r="11"  fill="#555" stroke="#333" stroke-width="2"/>
+  <circle cx="445" cy="313" r="5.5" fill="#bbb"/>
+
+  <!-- ========== PELICAN ========== -->
+
+  <!-- LEGS — rendered below body so body overlaps them -->
+  <g stroke="#d96e12" stroke-linecap="round" fill="none">
+    <!-- Right leg: body base → knee → right pedal (pushing down) -->
+    <path d="M 284 250 Q 294 282 300 316" stroke-width="8"/>
+    <!-- Left leg: body base → knee → left pedal (pulling up) -->
+    <path d="M 264 256 Q 253 272 240 280" stroke-width="8"/>
+  </g>
+  <!-- Knee joints -->
+  <circle cx="293" cy="282" r="5.5" fill="#c86010"/>
+  <circle cx="253" cy="271" r="5.5" fill="#c86010"/>
+
+  <!-- WEBBED FEET — three-toed silhouette at each pedal -->
+  <g fill="#e07810" stroke="#b05808" stroke-width="1.5" stroke-linejoin="round">
+    <!-- Right foot (right pedal) -->
+    <path d="M 298 313 C 306 306 316 306 320 312 C 313 317 304 320 298 313 Z"/>
+    <path d="M 298 313 C 306 319 311 328 307 333 C 301 327 295 320 298 313 Z"/>
+    <path d="M 298 313 C 289 318 284 326 286 332 C 292 326 296 320 298 313 Z"/>
+    <circle cx="298" cy="315" r="4.5" fill="#c46010" stroke="none"/>
+    <!-- Left foot (left pedal) -->
+    <path d="M 238 278 C 246 271 256 271 260 277 C 253 282 244 284 238 278 Z"/>
+    <path d="M 238 278 C 246 284 250 293 246 298 C 240 292 234 285 238 278 Z"/>
+    <path d="M 238 278 C 229 283 224 291 226 297 C 232 291 236 285 238 278 Z"/>
+    <circle cx="238" cy="280" r="4.5" fill="#c46010" stroke="none"/>
+  </g>
+
+  <!-- TAIL / PRIMARY FEATHERS — black, drawn before body -->
+  <g fill="#1c1c1c" stroke="#101010" stroke-width="0.8">
+    <path d="M 206 234 C 192 254 188 274 190 286 L 196 273 C 200 262 204 251 208 242 Z"/>
+    <path d="M 211 241 C 198 263 195 284 198 296 L 203 282 C 207 269 211 257 214 249 Z"/>
+    <path d="M 216 248 C 205 270 203 293 206 307 L 211 292 C 214 278 218 265 220 255 Z"/>
+  </g>
+
+  <!-- ── PELICAN BODY ── -->
+  <ellipse cx="278" cy="208" rx="72" ry="46"
+           transform="rotate(-9, 278, 208)"
+           fill="url(#gBody)" stroke="#c2c1b7" stroke-width="1.8"
+           filter="url(#fShadow)"/>
+
+  <!-- Scapular wing-fold patch on top of body -->
+  <path d="M 230 194 Q 255 179 300 184 Q 332 188 352 202
+           Q 326 196 298 199 Q 264 202 240 211 Z"
+        fill="#e8e7dd" stroke="#bebdb3" stroke-width="1" opacity="0.9"/>
+
+  <!-- Secondary feather lines (subtle texture) -->
+  <g stroke="#c5c4ba" stroke-width="1.3" fill="none" opacity="0.65">
+    <path d="M 236 205 C 240 212 247 217 255 220"/>
+    <path d="M 242 201 C 246 208 253 213 262 216"/>
+    <path d="M 248 198 C 252 205 259 210 268 213"/>
+  </g>
+
+  <!-- ── NECK ── thick Bezier path, layered white-on-cream -->
+  <!-- Outer neck (creamy ivory) -->
+  <path d="M 318 192 C 344 166 354 138 344 114"
+        stroke="#d0cfc0" stroke-width="28" stroke-linecap="round" fill="none"/>
+  <!-- Inner neck (bright white highlight) -->
+  <path d="M 318 192 C 344 166 354 138 344 114"
+        stroke="#f6f5ed" stroke-width="16" stroke-linecap="round" fill="none"/>
+  <!-- Shadow accent on neck side -->
+  <path d="M 324 195 C 352 169 362 141 352 117"
+        stroke="#c5c4b5" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.42"/>
+
+  <!-- ── HEAD ── -->
+  <ellipse cx="340" cy="100" rx="26" ry="24"
+           fill="url(#gHead)" stroke="#c2c1b8" stroke-width="1.8"/>
+
+  <!-- Crown crest (golden) -->
+  <path d="M 330 82 C 332 70 334 60 336 52 C 339 62 341 73 340 84
+           C 337 75 334 68 330 82 Z"
+        fill="#e8c438" stroke="#c0a030" stroke-width="1"/>
+  <!-- Crest mid vein -->
+  <line x1="336" y1="52" x2="335" y2="82" stroke="#d4ac28" stroke-width="0.8" opacity="0.7"/>
+
+  <!-- Periorbital bare lore patch -->
+  <ellipse cx="352" cy="98" rx="16" ry="12" fill="#f0a820" opacity="0.42"/>
+
+  <!-- ── EYE ── -->
+  <circle cx="354" cy="96" r="10"  fill="#e8a420" stroke="#c07818" stroke-width="1.8"/>
+  <circle cx="355" cy="96" r="6"   fill="#101010"/>
+  <circle cx="352" cy="94" r="2.4" fill="rgba(255,255,255,0.90)"/>
+  <circle cx="357" cy="98" r="1.1" fill="#2a2a2a" opacity="0.5"/>
+
+  <!-- ── BEAK (upper mandible) ── -->
+  <path d="M 360 96 C 386 97 408 110 430 128 C 436 133 434 140 431 142
+           C 426 138 408 125 382 113 C 362 104 357 100 360 96 Z"
+        fill="#e07612" stroke="#b85a0a" stroke-width="1.2"/>
+  <!-- Culmen ridge highlight -->
+  <path d="M 362 96 C 386 98 408 111 430 128"
+        stroke="#f09428" stroke-width="1.5" fill="none" opacity="0.65"/>
+  <!-- Hooked nail tip — distinctive pelican feature -->
+  <path d="M 430 128 C 438 131 441 139 438 144 C 433 140 429 134 430 128 Z"
+        fill="#c05c0a" stroke="#9a4408" stroke-width="1"/>
+
+  <!-- ── BEAK (lower mandible) ── -->
+  <path d="M 360 104 C 382 110 404 120 430 132 C 424 133 404 122 380 115
+           C 365 109 359 106 360 104 Z"
+        fill="#c86410" stroke="#a04e08" stroke-width="1"/>
+  <!-- Mouth commissure line -->
+  <path d="M 363 100 C 386 104 406 116 428 130"
+        stroke="#6a3008" stroke-width="1" fill="none" opacity="0.52"/>
+
+  <!-- ── GULAR POUCH ── inflated orange throat sac -->
+  <path d="M 366 108 C 376 134 390 156 420 160
+           C 428 156 432 148 431 140 C 430 136 428 132 427 130
+           C 412 137 396 145 378 142 C 368 136 366 120 366 108 Z"
+        fill="url(#gPouch)" stroke="#c87018" stroke-width="1.8" opacity="0.95"/>
+  <!-- Pouch skin fold — light highlight -->
+  <path d="M 370 118 C 380 138 392 154 418 158"
+        stroke="rgba(248,188,72,0.60)" stroke-width="1.5" fill="none"/>
+  <!-- Pouch skin fold — mid tone -->
+  <path d="M 378 114 C 386 132 396 148 416 156"
+        stroke="rgba(220,150,40,0.42)" stroke-width="1.2" fill="none"/>
+  <!-- Pouch shadow — underside -->
+  <path d="M 372 136 C 382 148 394 156 418 159"
+        stroke="rgba(150,80,10,0.32)" stroke-width="1.5" fill="none"/>
+
+</svg>

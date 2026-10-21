@@ -1,0 +1,277 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="A pelican riding a bicycle, hand-drawn in SVG">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#cfe9ff"/>
+      <stop offset="1" stop-color="#f7fbff"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e7f3d4"/>
+      <stop offset="1" stop-color="#cfe7a8"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2a2f36"/>
+      <stop offset="0.5" stop-color="#5b6674"/>
+      <stop offset="1" stop-color="#20242a"/>
+    </linearGradient>
+    <linearGradient id="tire" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a1d22"/>
+      <stop offset="1" stop-color="#0b0d10"/>
+    </linearGradient>
+    <radialGradient id="rim" cx="50%" cy="45%" r="60%">
+      <stop offset="0" stop-color="#f3f6fb"/>
+      <stop offset="0.55" stop-color="#cfd7e4"/>
+      <stop offset="1" stop-color="#8b95a6"/>
+    </radialGradient>
+    <linearGradient id="pelicanBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#dfe6ef"/>
+    </linearGradient>
+    <linearGradient id="wing" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c3ccd8"/>
+      <stop offset="1" stop-color="#8d99aa"/>
+    </linearGradient>
+    <linearGradient id="beakTop" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffd07a"/>
+      <stop offset="1" stop-color="#f0a245"/>
+    </linearGradient>
+    <linearGradient id="pouch" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffb9a4"/>
+      <stop offset="1" stop-color="#f07b6a"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6" result="b"/>
+      <feOffset in="b" dx="0" dy="6" result="o"/>
+      <feColorMatrix in="o" type="matrix" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0   0 0 0 0.22 0" result="s"/>
+      <feMerge>
+        <feMergeNode in="s"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="1200" height="800" fill="url(#sky)"/>
+  <path d="M0,600 C180,560 280,640 420,612 C560,584 650,540 820,566 C990,592 1060,650 1200,620 L1200,800 L0,800 Z" fill="url(#ground)"/>
+
+  <!-- Subtle clouds -->
+  <g opacity="0.55" fill="#ffffff">
+    <path d="M150 140c30-30 80-25 98 10c26-18 64-8 72 20c36-8 70 10 72 40c2 34-30 52-64 52H210c-60 0-92-30-92-62c0-24 12-46 32-60z"/>
+    <path d="M820 120c22-26 60-22 76 8c18-14 46-8 54 14c28-10 56 4 60 28c4 28-18 46-48 46H862c-44 0-70-22-70-48c0-18 10-36 28-48z"/>
+  </g>
+
+  <!-- Ground shadow for bike and rider -->
+  <ellipse cx="640" cy="650" rx="420" ry="70" fill="#000" opacity="0.10"/>
+
+  <!-- Bicycle -->
+  <g id="bike" filter="url(#softShadow)" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Wheels -->
+    <g id="wheels">
+      <g transform="translate(420 640)">
+        <circle r="120" fill="url(#tire)"/>
+        <circle r="92" fill="url(#rim)"/>
+        <circle r="10" fill="#333"/>
+        <!-- spokes -->
+        <g stroke="#d7dde6" stroke-width="2" opacity="0.9">
+          <line x1="0" y1="0" x2="0" y2="-88"/>
+          <line x1="0" y1="0" x2="0" y2="88"/>
+          <line x1="0" y1="0" x2="88" y2="0"/>
+          <line x1="0" y1="0" x2="-88" y2="0"/>
+          <line x1="0" y1="0" x2="62" y2="-62"/>
+          <line x1="0" y1="0" x2="-62" y2="62"/>
+          <line x1="0" y1="0" x2="62" y2="62"/>
+          <line x1="0" y1="0" x2="-62" y2="-62"/>
+        </g>
+      </g>
+
+      <g transform="translate(860 640)">
+        <circle r="120" fill="url(#tire)"/>
+        <circle r="92" fill="url(#rim)"/>
+        <circle r="10" fill="#333"/>
+        <g stroke="#d7dde6" stroke-width="2" opacity="0.9">
+          <line x1="0" y1="0" x2="0" y2="-88"/>
+          <line x1="0" y1="0" x2="0" y2="88"/>
+          <line x1="0" y1="0" x2="88" y2="0"/>
+          <line x1="0" y1="0" x2="-88" y2="0"/>
+          <line x1="0" y1="0" x2="62" y2="-62"/>
+          <line x1="0" y1="0" x2="-62" y2="62"/>
+          <line x1="0" y1="0" x2="62" y2="62"/>
+          <line x1="0" y1="0" x2="-62" y2="-62"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- Frame -->
+    <g id="frame" stroke="url(#metal)" stroke-width="14">
+      <!-- main triangle -->
+      <path d="M520 640 L640 520 L770 640 Z" fill="none"/>
+      <!-- rear triangle -->
+      <path d="M520 640 L610 640 L640 520" fill="none"/>
+      <!-- top tube (slight curve) -->
+      <path d="M640 520 C670 500 720 500 750 520" fill="none"/>
+      <!-- down tube to crank -->
+      <path d="M640 520 C630 560 620 600 610 640" fill="none"/>
+      <!-- seat tube -->
+      <path d="M610 640 C605 600 605 570 620 540" fill="none"/>
+      <!-- fork -->
+      <path d="M770 640 C800 600 825 565 850 540" fill="none"/>
+    </g>
+
+    <!-- Seat & post -->
+    <g stroke-linecap="round" stroke-linejoin="round">
+      <path d="M616 540 L610 500" stroke="url(#metal)" stroke-width="10"/>
+      <path d="M575 495 C602 478 635 478 662 495 C635 520 602 520 575 495 Z" fill="#1d2026"/>
+    </g>
+
+    <!-- Handlebar -->
+    <g id="handle" stroke="url(#metal)" stroke-width="10">
+      <path d="M850 540 L872 500"/>
+      <path d="M832 500 C860 470 910 470 936 502" fill="none"/>
+      <path d="M930 500 C920 520 900 532 878 530" fill="none"/>
+      <path d="M936 502 C950 520 948 540 936 556" fill="none"/>
+      <path d="M828 502 C815 520 817 540 828 556" fill="none"/>
+    </g>
+
+    <!-- Crank & pedals -->
+    <g id="crank" transform="translate(610 640)">
+      <circle r="26" fill="#2a2f36"/>
+      <circle r="10" fill="#8b95a6"/>
+      <g stroke="#3a404a" stroke-width="8" fill="none">
+        <path d="M0 0 L70 20"/>
+        <path d="M0 0 L-60 -30"/>
+      </g>
+      <g fill="#1d2026">
+        <rect x="70" y="10" width="44" height="14" rx="7"/>
+        <rect x="-104" y="-40" width="44" height="14" rx="7"/>
+      </g>
+    </g>
+
+    <!-- Chainring hint -->
+    <g transform="translate(610 640)" fill="none" stroke="#7f8a9a" stroke-width="3" opacity="0.65">
+      <circle r="44"/>
+      <circle r="52"/>
+    </g>
+
+    <!-- Simple chain line -->
+    <path d="M610 640 C675 650 720 654 780 640" stroke="#7f8a9a" stroke-width="4" fill="none" opacity="0.65"/>
+  </g>
+
+  <!-- Pelican rider -->
+  <g id="pelican" filter="url(#softShadow)" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Body -->
+    <path d="M610 360
+             C560 360 520 402 520 458
+             C520 520 568 568 634 574
+             C700 580 758 546 782 494
+             C810 436 770 380 710 366
+             C680 360 648 360 610 360 Z"
+          fill="url(#pelicanBody)" stroke="#7b8796" stroke-width="4"/>
+
+    <!-- Wing (slung back like balancing) -->
+    <path d="M610 420
+             C562 420 530 468 548 510
+             C566 552 630 568 690 550
+             C738 536 760 500 748 470
+             C736 440 690 420 640 420 Z"
+          fill="url(#wing)" opacity="0.95" stroke="#677385" stroke-width="4"/>
+
+    <!-- Tail feathers -->
+    <g transform="translate(780 500)" fill="#9aa6b6" stroke="#6a7688" stroke-width="3">
+      <path d="M0 0 C30 10 50 30 56 54 C28 44 10 30 0 0 Z"/>
+      <path d="M-10 10 C20 20 36 44 38 70 C14 58 -2 40 -10 10 Z" opacity="0.9"/>
+      <path d="M-22 18 C2 32 14 58 10 86 C-6 70 -18 50 -22 18 Z" opacity="0.85"/>
+    </g>
+
+    <!-- Head -->
+    <g transform="translate(505 345)">
+      <path d="M120 48
+               C88 22 42 30 26 68
+               C10 106 34 150 78 154
+               C126 158 162 120 164 86
+               C166 64 148 56 120 48 Z"
+            fill="#f4f7fb" stroke="#7b8796" stroke-width="4"/>
+
+      <!-- Eye -->
+      <circle cx="92" cy="86" r="16" fill="#ffffff" stroke="#5c6675" stroke-width="3"/>
+      <circle cx="98" cy="90" r="7" fill="#1a1d22"/>
+      <circle cx="100" cy="88" r="2" fill="#ffffff"/>
+
+      <!-- Beak top -->
+      <path d="M160 88
+               C226 70 304 84 362 110
+               C292 148 218 160 158 146
+               C140 142 132 132 132 120
+               C132 104 142 94 160 88 Z"
+            fill="url(#beakTop)" stroke="#9a5a1a" stroke-width="4"/>
+
+      <!-- Beak pouch -->
+      <path d="M142 132
+               C224 132 306 152 360 186
+               C300 230 210 246 146 222
+               C110 208 98 184 102 164
+               C108 140 122 132 142 132 Z"
+            fill="url(#pouch)" stroke="#b5534a" stroke-width="4"/>
+
+      <!-- Smile line / pouch crease -->
+      <path d="M130 172 C190 198 276 198 342 174" fill="none" stroke="#b5534a" stroke-width="4" opacity="0.7"/>
+
+      <!-- Neck connection -->
+      <path d="M62 146 C48 188 58 230 86 262" fill="none" stroke="#7b8796" stroke-width="10"/>
+    </g>
+
+    <!-- Scarf/strap for fun -->
+    <path d="M554 430 C560 410 576 396 598 392 C628 386 658 400 672 430
+             C642 452 604 458 554 430 Z"
+          fill="#ff4d6d" opacity="0.85"/>
+
+    <!-- Legs -->
+    <g id="legs" fill="none" stroke="#d39a3a" stroke-width="10">
+      <!-- near leg to front pedal -->
+      <path d="M646 560 C678 590 708 612 740 626"/>
+      <path d="M740 626 C760 634 792 640 816 634"/>
+      <!-- far leg to rear pedal -->
+      <path d="M612 560 C584 592 560 612 536 626" opacity="0.9"/>
+      <path d="M536 626 C518 638 492 648 466 646" opacity="0.9"/>
+    </g>
+
+    <!-- Feet on pedals -->
+    <g fill="#f2c14e" stroke="#b77922" stroke-width="4">
+      <path d="M808 626 C834 616 860 622 874 640 C844 656 822 658 800 646 C794 642 796 632 808 626 Z"/>
+      <path d="M474 646 C450 632 424 632 406 646 C432 664 460 670 488 660 C496 656 492 650 474 646 Z" opacity="0.95"/>
+    </g>
+
+    <!-- Arms holding handlebar -->
+    <g fill="none" stroke="#cfd7e4" stroke-width="12">
+      <path d="M600 440 C650 438 700 440 742 456"/>
+      <path d="M742 456 C776 468 812 488 840 510"/>
+    </g>
+    <g fill="#f2c14e" stroke="#b77922" stroke-width="4">
+      <circle cx="842" cy="512" r="14"/>
+    </g>
+
+    <!-- Little motion lines to sell "riding" -->
+    <g stroke="#3b4350" stroke-width="4" opacity="0.35" fill="none">
+      <path d="M372 568 C330 560 312 548 288 528"/>
+      <path d="M910 560 C954 556 982 542 1010 520"/>
+    </g>
+  </g>
+
+  <!-- Foreground details: pebbles -->
+  <g opacity="0.35" fill="#7a8a60">
+    <ellipse cx="220" cy="692" rx="18" ry="10"/>
+    <ellipse cx="260" cy="710" rx="12" ry="7"/>
+    <ellipse cx="1020" cy="706" rx="16" ry="9"/>
+    <ellipse cx="980" cy="688" rx="10" ry="6"/>
+  </g>
+
+  <!-- Caption plaque (small, unobtrusive) -->
+  <g opacity="0.9">
+    <rect x="40" y="30" width="410" height="64" rx="14" fill="#ffffff" opacity="0.65"/>
+    <path d="M54 62 H432" stroke="#3b4350" stroke-width="2" opacity="0.25"/>
+    <text x="60" y="58" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="18" fill="#2b313a">
+      Pelican riding a bicycle (handwritten SVG)
+    </text>
+    <text x="60" y="82" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="14" fill="#556070" opacity="0.9">
+      Zed · GPT-5.2 · effort: none
+    </text>
+  </g>
+</svg>

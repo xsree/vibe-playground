@@ -1,1 +1,3 @@
-.workbuddy/memory/
+.vite/
+.workbuddy/
+node_modules/

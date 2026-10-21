@@ -1,0 +1,229 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1000" viewBox="0 0 1200 1000" role="img" aria-labelledby="title description">
+  <title id="title">The scenic route — a pelican riding a bicycle</title>
+  <desc id="description">An original hand-drawn vector seaside travel poster. A white pelican with a long golden bill and a deep orange throat pouch rides a coral-red bicycle to the right. One wing holds the handlebars; two orange webbed feet press opposite pedals. Cream-wall spoked wheels, a working-looking diamond frame, chain and curved fenders sit against a circular sea-and-sunset landscape. The caption reads: A little less hurry.</desc>
+  <metadata>Original handwritten SVG | Harness: Zed | Vendor: OpenAI | Model: GPT-6.1-Sol | Effort: high | 2026-10-21 | Static</metadata>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f3ddb1"/>
+      <stop offset="1" stop-color="#faecd0"/>
+    </linearGradient>
+    <linearGradient id="feathers" x1="0" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#fffdf1"/>
+      <stop offset="0.62" stop-color="#f6eedb"/>
+      <stop offset="1" stop-color="#d9d9c6"/>
+    </linearGradient>
+    <linearGradient id="pouch" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#f7bf64"/>
+      <stop offset="1" stop-color="#de8051"/>
+    </linearGradient>
+    <linearGradient id="bill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8d879"/>
+      <stop offset="1" stop-color="#e8a346"/>
+    </linearGradient>
+    <pattern id="paper" width="17" height="19" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="6" r="0.65" fill="#756a4c" opacity="0.12"/>
+      <circle cx="12" cy="15" r="0.45" fill="#756a4c" opacity="0.09"/>
+    </pattern>
+    <clipPath id="landscape-clip">
+      <circle cx="603" cy="436" r="283"/>
+    </clipPath>
+    <g id="spoke-pair" fill="none" stroke="#82968b" stroke-width="1.35">
+      <path d="M-7 1 0-129M7-1 0 129M-1-7 129 0M1 7-129 0"/>
+    </g>
+    <g id="wheel">
+      <circle r="151" fill="#253f40"/>
+      <circle r="141" fill="#e4cda0"/>
+      <circle r="134" fill="#faf3df"/>
+      <circle r="127" fill="#f6efdf" fill-opacity="0.72" stroke="#607a71" stroke-width="2"/>
+      <use href="#spoke-pair"/>
+      <use href="#spoke-pair" transform="rotate(30)"/>
+      <use href="#spoke-pair" transform="rotate(60)"/>
+      <circle r="123" fill="none" stroke="#b8bdab" stroke-width="1"/>
+      <circle r="13" fill="#d2d1b7" stroke="#314d49" stroke-width="3"/>
+      <circle r="5" fill="#314d49"/>
+      <path d="M90-103 95-109" stroke="#314d49" stroke-width="4" stroke-linecap="round"/>
+      <path d="M-123 62A138 138 0 0 1-115-76" fill="none" stroke="#fffaf0" stroke-width="3" opacity="0.7"/>
+    </g>
+    <g id="wave" fill="none" stroke="#f8f0d9" stroke-width="2" stroke-linecap="round">
+      <path d="M0 0h23m9 0h44m10 0h12"/>
+    </g>
+  </defs>
+
+  <!-- A printed-paper border keeps the composition self-contained at any scale. -->
+  <path fill="#eee4cf" d="M0 0h1200v1000H0z"/>
+  <rect x="25" y="25" width="1150" height="950" rx="18" fill="#faf3e3" stroke="#cfccb7" stroke-width="1.5"/>
+  <rect x="34" y="34" width="1132" height="932" rx="12" fill="none" stroke="#e0d8c3"/>
+  <g fill="#294c49" font-family="'Trebuchet MS', Arial, sans-serif">
+    <text x="81" y="65" font-size="11" font-weight="700" letter-spacing="3.4">COASTAL RAMBLERS</text>
+    <text x="1120" y="65" text-anchor="end" font-size="11" letter-spacing="2.4">FIELD NOTES / No. 08</text>
+    <text x="78" y="123" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-weight="700" letter-spacing="1">THE SCENIC ROUTE</text>
+    <path d="M83 143h1035" fill="none" stroke="#c5c6ae"/>
+  </g>
+
+  <!-- A circular coastal vignette, drawn independently of the rider. -->
+  <g clip-path="url(#landscape-clip)">
+    <path d="M310 145h590v590H310z" fill="url(#sky)"/>
+    <circle cx="754" cy="292" r="76" fill="#e69b6b"/>
+    <circle cx="754" cy="292" r="86" fill="none" stroke="#e6a97c" stroke-width="1.2" opacity="0.65"/>
+    <g fill="none" stroke="#fff5db" stroke-width="7" stroke-linecap="round" opacity="0.7">
+      <path d="M351 274h94m-69 15h43M744 373h96m-53 14h28"/>
+    </g>
+    <path d="M310 467Q409 453 506 466T706 466T907 464V735H310Z" fill="#8fb8a7"/>
+    <path d="M310 508Q426 487 555 507T909 504V735H310Z" fill="#6d9e90"/>
+    <path d="M310 565Q453 538 603 568T907 560V735H310Z" fill="#467e73"/>
+    <path d="M310 646Q450 602 576 632T907 628V735H310Z" fill="#315f59"/>
+    <g opacity="0.65">
+      <use href="#wave" x="333" y="488"/>
+      <use href="#wave" x="759" y="491"/>
+      <use href="#wave" x="684" y="537"/>
+      <use href="#wave" x="358" y="574"/>
+      <use href="#wave" x="776" y="595"/>
+      <use href="#wave" x="546" y="620"/>
+      <use href="#wave" x="716" y="673"/>
+    </g>
+    <path d="M310 448 350 423 384 430 400 448 431 456 450 475H310Z" fill="#466e60"/>
+    <path d="M356 425 361 370h17l6 60Z" fill="#fcf2d8"/>
+    <path d="M359 386h21l1 10h-23Z" fill="#ca7458"/>
+    <path d="M357 370h25l-3-7h-19Z" fill="#2d514b"/>
+    <path d="M361 363v-12h16v12" fill="#d5ae68" stroke="#2d514b" stroke-width="2"/>
+    <path d="m358 351 11-8 11 8Z" fill="#2d514b"/>
+    <path d="M831 438h28l-7 7h-15Z" fill="#faf1d9"/>
+    <path d="M846 407v29m-3-23-14 21h14Z" fill="#faf1d9" stroke="#faf1d9" stroke-width="1.5"/>
+  </g>
+  <circle cx="603" cy="436" r="283" fill="none" stroke="#c5c7a9" stroke-width="1.3"/>
+  <g fill="none" stroke="#4e7166" stroke-width="2.5" stroke-linecap="round">
+    <path d="M930 306q11-12 22 0 11-13 22-2M982 275q7-8 14 0 7-9 14-1"/>
+  </g>
+
+  <!-- Contact shadows and a few windswept stems anchor the wheels. -->
+  <ellipse cx="594" cy="824" rx="409" ry="16" fill="#3b5142" opacity="0.11"/>
+  <g fill="none" stroke="#768f72" stroke-width="3" stroke-linecap="round">
+    <path d="M177 816q8-19 3-37m0 19-13-12m14 15 13-17M1011 818q-5-21 5-39m-4 26 15-12m-15 1-8-12"/>
+    <path d="M160 821h53m778 2h49" stroke="#c5c8ac" stroke-width="2"/>
+  </g>
+
+  <g id="bicycle" stroke-linecap="round" stroke-linejoin="round">
+    <use href="#wheel" x="370" y="665"/>
+    <use href="#wheel" x="825" y="665"/>
+    <g fill="none">
+      <path d="M216 640A156 156 0 0 1 493 569M704 568A156 156 0 0 1 979 640" stroke="#294b46" stroke-width="12"/>
+      <path d="M216 638A156 156 0 0 1 493 567M704 566A156 156 0 0 1 979 638" stroke="#c2d0b2" stroke-width="7"/>
+      <path d="M235 602 370 665 465 542M719 551 825 665 957 599" stroke="#6c8476" stroke-width="2.4"/>
+    </g>
+    <path d="M213 629v19" fill="none" stroke="#c7684f" stroke-width="7"/>
+
+    <!-- The far leg and crank are behind the front triangle. -->
+    <path d="M490 448 553 514 603 598" fill="none" stroke="#6d5536" stroke-width="16"/>
+    <path d="M490 448 553 514 603 598" fill="none" stroke="#ca8b45" stroke-width="10"/>
+    <circle cx="553" cy="514" r="7" fill="#cf914c"/>
+    <path d="m570 660 49-49" fill="none" stroke="#334d46" stroke-width="10"/>
+    <path d="M600 615h38" fill="none" stroke="#273e39" stroke-width="9"/>
+    <path d="M599 589q-6 12 1 19l-7 8q15 3 24-3l18 1-7-9-16-9-3-12Z" fill="#dc9a46" stroke="#6d5536" stroke-width="2.6"/>
+    <path d="m607 601 10 12m-5-12 15 10" fill="none" stroke="#a46b33" stroke-width="1.5"/>
+
+    <!-- Chain loop, rear cog and the two load-bearing triangles. -->
+    <path d="M370 650 566 625a35 35 0 0 1 4 70L370 681a16 16 0 0 1 0-31Z" fill="none" stroke="#314b43" stroke-width="5"/>
+    <path d="M370 650 566 625a35 35 0 0 1 4 70L370 681a16 16 0 0 1 0-31Z" fill="none" stroke="#b7b99e" stroke-width="1.5" stroke-dasharray="2 5"/>
+    <circle cx="370" cy="665" r="18" fill="#aaa98e" stroke="#355147" stroke-width="3"/>
+    <g fill="none">
+      <path d="M370 665 510 482 570 660 370 665M510 482 741 494 570 660" stroke="#294b45" stroke-width="20"/>
+      <path d="M370 665 510 482 570 660 370 665M510 482 741 494 570 660" stroke="#d87958" stroke-width="12"/>
+      <path d="m388 643 115-150m22 0 199 10m-192 14 37 111m25 7 132-122" stroke="#f2b185" stroke-width="2.3"/>
+      <path d="M731 464 751 529 823 665" stroke="#294b45" stroke-width="20"/>
+      <path d="M731 464 751 529 823 665" stroke="#d87958" stroke-width="12"/>
+      <path d="M740 486 750 518" stroke="#ead7a8" stroke-width="14"/>
+      <path d="M510 482 503 457" stroke="#314f47" stroke-width="11"/>
+      <path d="M510 482 503 457" stroke="#a5af98" stroke-width="5"/>
+    </g>
+    <path d="M465 462q32-6 68 1 10 2 7 10-3 9-25 8l-43-4q-17-1-17-8 0-5 10-7Z" fill="#76593d" stroke="#294b45" stroke-width="3.5"/>
+    <path d="M469 464q31-3 61 2" fill="none" stroke="#bc9365" stroke-width="2"/>
+    <circle cx="570" cy="660" r="34" fill="#e6d9b4" stroke="#314d43" stroke-width="4"/>
+    <circle cx="570" cy="660" r="25" fill="none" stroke="#929c83" stroke-width="2"/>
+    <path d="m570 635 1 15m24 10h-15m-10 25v-15m-25-10h15" fill="none" stroke="#a7ac91" stroke-width="5"/>
+    <path d="m570 660-49 50" fill="none" stroke="#314b43" stroke-width="10"/>
+    <path d="m570 660-49 50" fill="none" stroke="#a4ae96" stroke-width="4"/>
+    <circle cx="570" cy="660" r="8" fill="#314b43"/>
+    <circle cx="370" cy="665" r="5" fill="#faf2d9"/>
+    <circle cx="825" cy="665" r="7" fill="#d2d4ba" stroke="#314b43" stroke-width="3"/>
+    <path d="M500 713h41" fill="none" stroke="#29453f" stroke-width="10"/>
+    <path d="M505 710h31" fill="none" stroke="#b4b599" stroke-width="2"/>
+    <g fill="none">
+      <path d="m732 466-12-42q-4-15 12-22l30-11q15-5 21 7 5 10-7 16l-18 7" stroke="#294b45" stroke-width="11"/>
+      <path d="m732 466-12-42q-4-15 12-22l30-11q15-5 21 7" stroke="#b5bca3" stroke-width="5"/>
+      <path d="m775 414-17 7" stroke="#735b3f" stroke-width="13"/>
+      <path d="M762 424q-36 29-9 78" stroke="#294b45" stroke-width="2"/>
+    </g>
+    <path d="m714 416-26 10" fill="none" stroke="#735b3f" stroke-width="13"/>
+    <path d="m713 413-22 9" fill="none" stroke="#b0875d" stroke-width="2.5"/>
+    <path d="M740 398q-3-17 12-19 15 0 16 15Z" fill="#d8b35b" stroke="#344f43" stroke-width="2.5"/>
+    <circle cx="753" cy="379" r="3" fill="#344f43"/>
+    <path d="m646 535 38-34" stroke="#fae6bd" stroke-width="3"/>
+    <text x="592" y="494" transform="rotate(3 592 494)" fill="#fff0d3" font-family="Arial, sans-serif" font-size="8" font-weight="700" letter-spacing="2">TIDELINE</text>
+  </g>
+
+  <g id="pelican" stroke="#354d41" stroke-linecap="round" stroke-linejoin="round">
+    <!-- The near leg bends forward onto the lower pedal, not through the wheel. -->
+    <path d="M469 445 440 535 504 679" fill="none" stroke="#6d5536" stroke-width="18"/>
+    <path d="M469 445 440 535 504 679" fill="none" stroke="#dfa04f" stroke-width="11"/>
+    <path d="m447 549 51 115" fill="none" stroke="#f3c170" stroke-width="2.5"/>
+    <circle cx="440" cy="535" r="8" fill="#d79a4a" stroke="#a57539" stroke-width="1.5"/>
+    <path d="M498 674q-5 15 3 25l-12 12q13 7 27-1l23 2-6-10-19-11-6-17Z" fill="#e8a84d" stroke="#6d5536" stroke-width="3"/>
+    <path d="m504 692 12 18m-6-20 22 17m-29-9-9 11" fill="none" stroke="#ae7535" stroke-width="1.7"/>
+
+    <!-- A broad body, folded flight feathers and a thick, unmistakably pelican neck. -->
+    <path d="m301 351 45 7q20-43 83-36c37 3 57 18 75 29 21 14 42-2 39-29-3-23-19-39-9-70 9-28 31-47 58-54 4-30 31-49 58-41 32 9 46 29 37 54l-14 34c8 38-31 62-57 79-17 13-29 36-32 66-4 40-40 66-88 70-47 7-98 0-126-24-29-14-43-39-69-85Z" fill="url(#feathers)" stroke-width="4"/>
+    <path d="m302 352 48 28-18 1 31 20-14 2 30 23" fill="#c1c6b1" stroke-width="2.3"/>
+    <path d="M386 331q34-15 75 7M380 340q30-10 56-3" fill="none" stroke="#fffdf2" stroke-width="4"/>
+    <path d="M550 388c6-40 1-56 0-77-1-24-7-44 9-65" fill="none" stroke="#d7d9c3" stroke-width="12"/>
+    <path d="M566 304q10 20 6 45" fill="none" stroke="#fffdf2" stroke-width="5"/>
+    <path d="M538 412q-13 26-42 31m-2-1-13 6m-6-5-12 5" fill="none" stroke="#b8c2ab" stroke-width="2"/>
+    <path d="M347 356c48-26 99-7 139 22 22 15 41 24 57 30-22 11-38 24-61 24-45 3-91-27-135-76Z" fill="#455d54" stroke-width="3"/>
+    <path d="M355 353c46-16 90 1 121 25-14 8-30 8-45 0-27-14-49-21-76-25Z" fill="#e7e7d4" stroke="#abb6a1" stroke-width="2"/>
+    <g fill="none" stroke="#a6b19a" stroke-width="2.2">
+      <path d="M365 371q52 29 107 46M385 368q50 30 106 49M411 374q47 28 97 37M441 381q38 23 81 27"/>
+    </g>
+    <path d="M379 390q38 36 72 39m-48-29q42 29 76 29m-44-25q31 19 62 20" fill="none" stroke="#2b443e" stroke-width="3.4"/>
+
+    <!-- The suspended throat pouch sits below a long, shallow upper bill. -->
+    <path d="m659 222 242 17c-34 21-66 51-107 61-44 11-83 7-106-14-17-16-26-38-29-64Z" fill="url(#pouch)" stroke-width="3.5"/>
+    <path d="M679 242c8 23 25 44 54 49 37 7 79-3 114-26" fill="none" stroke="#f6d08b" stroke-width="3.5"/>
+    <g fill="none" stroke="#bf7a47" stroke-width="1.5" opacity="0.65">
+      <path d="M701 245q4 27 28 46M723 248q4 27 24 47M747 251q1 24 14 43M772 253q-3 23 6 37"/>
+    </g>
+    <path d="M677 197c64 6 153 14 223 30 11 2 21 8 20 16-1 9-7 14-15 16l-2-16-225-17-15-11Z" fill="url(#bill)" stroke-width="3.5"/>
+    <path d="m681 218 222 20" fill="none" stroke="#956a35" stroke-width="2"/>
+    <path d="M692 204q105 8 184 24" fill="none" stroke="#fff0b5" stroke-width="3"/>
+    <path d="m902 231 8 4" fill="none" stroke="#f8df94" stroke-width="2"/>
+    <path d="M662 202q10 6 15 18-7 6-17 8" fill="#e5b566" stroke-width="2"/>
+    <path d="M594 197q10-16 23-19" fill="none" stroke="#fffdf2" stroke-width="5"/>
+    <path d="m600 174-8-8 16 1-2-10 13 7" fill="#f4eedb" stroke-width="2.5"/>
+    <path d="M629 197q13-11 26-2" fill="none" stroke="#c1c5a5" stroke-width="6"/>
+    <circle cx="641" cy="200" r="9" fill="#edc76b" stroke-width="2"/>
+    <circle cx="644" cy="200" r="4.5" fill="#203e36" stroke="none"/>
+    <circle cx="645.5" cy="197.5" r="1.8" fill="#fffdf1" stroke="none"/>
+    <path d="m672 210 7 1" fill="none" stroke="#956a35" stroke-width="2.5"/>
+
+    <!-- Windblown scarf and the forward wing make the riding pose explicit. -->
+    <path d="M546 294q-41 4-66-10-21-11-44-2l22 8-21 13q33-7 56 5 27 14 56 6Z" fill="#c76e50" stroke-width="2.8"/>
+    <path d="M535 302q-27 3-49-4m-12-5-20-2" fill="none" stroke="#f0b68a" stroke-width="2"/>
+    <path d="M539 291q22 15 49 15l-6 15q-26 1-43-12Z" fill="#d38156" stroke-width="2.8"/>
+    <path d="M548 296q12 10 29 12" fill="none" stroke="#edbd85" stroke-width="2"/>
+    <path d="M512 350c22-3 37 9 57 25l33 26 78 24q10 3 16-5l5-6 12 3-3 14q-6 14-22 12l-94-27c-33-9-57-14-75-28" fill="url(#feathers)" stroke-width="3.5"/>
+    <path d="m534 368 52 38 88 27" fill="none" stroke="#c1c9b2" stroke-width="3"/>
+    <path d="m696 421 9 3m-12 4 11 3m-17 4 10 3" fill="none" stroke="#7b8e76" stroke-width="2"/>
+    <path d="M513 354q-9 13 4 28" fill="none" stroke="#d8dcc6" stroke-width="3"/>
+  </g>
+
+  <g fill="#35584e" font-family="'Trebuchet MS', Arial, sans-serif">
+    <path d="M82 862h1036" fill="none" stroke="#c5c6ae"/>
+    <text x="84" y="913" font-family="Georgia, 'Times New Roman', serif" font-size="36" font-style="italic">A little less hurry.</text>
+    <text x="85" y="939" font-size="10" letter-spacing="2.6">SALT IN THE AIR. NOT A CARE IN THE WORLD.</text>
+    <g transform="translate(939 902)" fill="none" stroke="#547361" stroke-width="1.6">
+      <circle r="29"/>
+      <path d="M-21 4q7-8 14 0t14 0 14 0M-18 12q6-7 12 0t12 0 12 0M0-22v17m-8-12L0-9l8-8"/>
+    </g>
+    <text x="991" y="899" font-size="12" font-weight="700" letter-spacing="2">MORE SEA.</text>
+    <text x="991" y="920" font-size="12" font-weight="700" letter-spacing="2">LESS SPEED.</text>
+  </g>
+  <rect x="26" y="26" width="1148" height="948" rx="17" fill="url(#paper)" pointer-events="none"/>
+</svg>

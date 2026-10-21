@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title description">
+  <title id="title">The long way home: a pelican riding a bicycle</title>
+  <desc id="description">A cream and coral pelican pedals a teal bicycle along a quiet seaside road beneath a golden sun.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e8f1e8"/>
+      <stop offset="1" stop-color="#f7edda"/>
+    </linearGradient>
+    <linearGradient id="feather" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fffaf0"/>
+      <stop offset="1" stop-color="#e8dcc4"/>
+    </linearGradient>
+    <filter id="soft-shadow" x="-30%" y="-30%" width="160%" height="180%">
+      <feGaussianBlur stdDeviation="13"/>
+    </filter>
+    <g id="wheel-spokes" fill="none" stroke="#79918a" stroke-width="2.2" opacity=".85">
+      <path d="M0-18V-118 M0-18V-118"/>
+      <path d="M0-18V-118" transform="rotate(30)"/>
+      <path d="M0-18V-118" transform="rotate(60)"/>
+      <path d="M0-18V-118" transform="rotate(90)"/>
+      <path d="M0-18V-118" transform="rotate(120)"/>
+      <path d="M0-18V-118" transform="rotate(150)"/>
+      <path d="M0-18V-118" transform="rotate(180)"/>
+      <path d="M0-18V-118" transform="rotate(210)"/>
+      <path d="M0-18V-118" transform="rotate(240)"/>
+      <path d="M0-18V-118" transform="rotate(270)"/>
+      <path d="M0-18V-118" transform="rotate(300)"/>
+      <path d="M0-18V-118" transform="rotate(330)"/>
+    </g>
+    <g id="wheel">
+      <circle r="139" fill="#f8f2e5" stroke="#203d3d" stroke-width="18"/>
+      <circle r="119" fill="none" stroke="#d2cbb8" stroke-width="3"/>
+      <use href="#wheel-spokes"/>
+      <circle r="13" fill="#e5a35e" stroke="#203d3d" stroke-width="4"/>
+      <circle r="4" fill="#f8f2e5"/>
+    </g>
+  </defs>
+
+  <!-- A quiet, sun-warmed coastal morning. -->
+  <rect width="1200" height="900" rx="34" fill="#f7f0e2"/>
+  <rect x="36" y="36" width="1128" height="828" rx="24" fill="url(#sky)" stroke="#294849" stroke-width="3"/>
+  <circle cx="929" cy="244" r="111" fill="#efbf5a"/>
+  <circle cx="929" cy="244" r="91" fill="#f4cd75"/>
+  <g fill="none" stroke="#e3ab49" stroke-width="5" stroke-linecap="round" opacity=".8">
+    <path d="M929 93v-23 M929 418v-23 M778 244h-23 M1103 244h-23 M822 137l-17-17 M1053 368l-17-17 M1036 137l17-17 M805 368l17-17"/>
+  </g>
+  <path d="M83 526c112-44 207-37 301-3 94 35 182 26 271-3 88-29 177-27 257 4 66 26 133 29 204 5v218H83z" fill="#b5d1c2"/>
+  <path d="M83 571c113-34 224-19 323 8 102 28 190 22 281-8 99-32 181-29 273 0 55 17 100 18 156 7v169H83z" fill="#87b5ad"/>
+  <path d="M84 632c145-20 259 6 368 24 117 20 234 7 340-20 118-30 216-26 324 6v105H84z" fill="#d4aa70"/>
+  <path d="M84 704c155-20 264-3 380 10 128 14 241 4 353-15 111-18 207-16 299 6v99H84z" fill="#e6c994"/>
+  <g fill="none" stroke="#f3ead8" stroke-width="5" stroke-linecap="round" opacity=".78">
+    <path d="M127 556c36-9 69-8 103 1 M190 585c30-5 58-4 85 3 M958 562c33-8 64-7 95 2 M1021 591c22-4 42-3 61 2"/>
+  </g>
+  <g fill="#294849" opacity=".8">
+    <path d="M157 470q18-19 36 0 18-19 36 0" fill="none" stroke="#294849" stroke-width="4" stroke-linecap="round"/>
+    <path d="M273 435q14-15 28 0 14-15 28 0" fill="none" stroke="#294849" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M1023 474q17-18 34 0 17-18 34 0" fill="none" stroke="#294849" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <!-- Letterpress-like title and small route marker. -->
+  <g fill="#203d3d">
+    <text x="91" y="129" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="700" letter-spacing="5">COASTAL CRUISE CLUB</text>
+    <text x="88" y="195" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-weight="700" letter-spacing="1">THE LONG WAY HOME</text>
+    <text x="93" y="229" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="3">SALT AIR · SLOW PEDALS · NO PARTICULAR RUSH</text>
+  </g>
+  <g transform="translate(1051 109)">
+    <circle r="33" fill="#294849"/>
+    <text y="7" text-anchor="middle" fill="#f8f2e5" font-family="Georgia, serif" font-size="21" font-weight="700">07</text>
+    <path d="M-17 47h34" stroke="#294849" stroke-width="2"/>
+  </g>
+
+  <!-- Grounding shadow. -->
+  <ellipse cx="584" cy="773" rx="387" ry="27" fill="#324b43" opacity=".19" filter="url(#soft-shadow)"/>
+
+  <!-- Bicycle: two unmistakable wheels and a complete, readable frame. -->
+  <g transform="translate(365 620)"><use href="#wheel"/></g>
+  <g transform="translate(800 620)"><use href="#wheel"/></g>
+  <g fill="none" stroke="#20545a" stroke-width="13" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M365 620 520 460 585 620 365 620"/>
+    <path d="M520 460 766 438 585 620"/>
+    <path d="M766 438 800 620"/>
+    <path d="M520 460 510 421"/>
+    <path d="M766 438 783 405"/>
+  </g>
+  <g fill="none" stroke="#d0784e" stroke-width="4" stroke-linecap="round" opacity=".95">
+    <path d="M520 460 585 620 365 620"/>
+    <path d="M766 438 800 620"/>
+  </g>
+  <circle cx="585" cy="620" r="37" fill="none" stroke="#20545a" stroke-width="6"/>
+  <circle cx="585" cy="620" r="8" fill="#e5a35e" stroke="#203d3d" stroke-width="4"/>
+  <path d="M585 620 631 620 M585 620 539 620" stroke="#203d3d" stroke-width="7" stroke-linecap="round"/>
+  <path d="M625 611v18 M533 611v18" stroke="#e5a35e" stroke-width="9" stroke-linecap="round"/>
+  <path d="M487 453q32-20 69-3l8 8q-38 11-78 2z" fill="#bb654b" stroke="#203d3d" stroke-width="4"/>
+  <path d="M779 400 815 394q12 1 17 12l-3 9-44-1" fill="none" stroke="#203d3d" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M799 620q-2 13 11 14" fill="none" stroke="#203d3d" stroke-width="5"/>
+
+  <!-- Pelican's long legs reach the pedals; webbed feet rest on the cranks. -->
+  <g fill="none" stroke="#d86d4d" stroke-width="13" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M542 423q9 57 19 99l-21 63q-3 13-1 30"/>
+    <path d="M586 425q-8 54-32 91l28 70q8 16 1 29"/>
+  </g>
+  <g fill="#e77a52" stroke="#203d3d" stroke-width="3.5" stroke-linejoin="round">
+    <path d="M539 612q-8 8-4 17l-16 7q-8 5-3 11 5 5 17-1l16 1q11 0 10-8l-8-8 2-14z"/>
+    <path d="M580 608q-2 10 8 16l-5 16q-1 9 7 10 7 1 10-12l10-11q6-9-2-13l-11 1-9-12z"/>
+  </g>
+  <path d="M526 639l22 6 M585 641l19 2" stroke="#ffd39b" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Pelican body, seated over the saddle. -->
+  <path d="M484 354c14-45 58-72 112-65 45 6 83 39 91 78 7 34-13 69-48 83-34 14-86 17-126 1-37-15-49-55-29-97z" fill="url(#feather)" stroke="#203d3d" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M503 362c30-29 79-41 115-19 22 13 36 34 37 55-29 27-83 38-126 23-20-7-33-26-26-59z" fill="#b7c6b4" stroke="#203d3d" stroke-width="5" stroke-linejoin="round"/>
+  <g fill="none" stroke="#71877e" stroke-width="4" stroke-linecap="round">
+    <path d="M520 391q27 18 54 20 M535 376q28 18 59 19 M558 365q22 15 49 17"/>
+  </g>
+  <path d="M514 421q46 28 103 12" fill="none" stroke="#fff9ee" stroke-width="10" stroke-linecap="round" opacity=".9"/>
+
+  <!-- Curved neck, round head, and signature long bill with a hanging pouch. -->
+  <path d="M610 356c22-20 33-48 36-77 3-31 19-54 46-63l28 35c-23 13-30 34-25 61 6 33-5 68-34 89z" fill="#f7f0e2" stroke="#203d3d" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M636 293c7-22 18-38 35-47 16 1 27 10 37 23-18 8-31 25-35 46-5 27-14 45-30 59l-19-19c12-18 17-39 12-62z" fill="#d8d0bd" opacity=".8"/>
+  <path d="M665 214c1-25 19-43 44-44 26-1 45 16 47 41 2 27-15 48-41 50-27 2-51-19-50-47z" fill="#fff7e7" stroke="#203d3d" stroke-width="8"/>
+  <path d="M674 206c7-18 21-27 37-26" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".9"/>
+  <circle cx="728" cy="207" r="6.5" fill="#203d3d"/>
+  <circle cx="730" cy="205" r="1.8" fill="#fff9ee"/>
+  <path d="M748 211c43-5 93 2 156 17l-7 17c-60 5-106 1-153-12z" fill="#e89a43" stroke="#203d3d" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M751 230c46 8 91 11 141 8-4 37-27 71-63 87-25-11-43-31-55-56z" fill="#e97955" stroke="#203d3d" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M770 244q28 15 58 12" fill="none" stroke="#f6b279" stroke-width="5" stroke-linecap="round"/>
+  <path d="M891 225l21 8-18 10" fill="#f3ca75" stroke="#203d3d" stroke-width="5" stroke-linejoin="round"/>
+
+  <!-- Near wing reaches the handlebar: the rider is actively steering. -->
+  <path d="M600 326c30-15 62-15 91-1 32 15 65 35 100 60 20 14 34 31 40 48-8 12-20 17-33 13-14-5-26-18-38-30-31-29-61-43-97-52-24-6-48-8-69-4z" fill="#f8f1e4" stroke="#203d3d" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M635 340c32-1 63 12 92 33 25 18 47 37 67 55-14 3-25-4-37-16-24-23-51-39-78-48-17-6-33-8-48-7z" fill="#d3c6ae" stroke="#203d3d" stroke-width="4" stroke-linejoin="round"/>
+  <g fill="none" stroke="#9c9c82" stroke-width="3.5" stroke-linecap="round">
+    <path d="M653 343q37 11 71 37 M647 357q33 11 60 34 M640 371q29 10 52 30"/>
+  </g>
+  <path d="M815 427q10 8 18 5 8-4 13-13" fill="none" stroke="#e77a52" stroke-width="10" stroke-linecap="round"/>
+  <path d="M827 424q9-13 17-8 5 4 0 12" fill="none" stroke="#203d3d" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Little details make the ride feel lived in. -->
+  <g fill="#203d3d">
+    <circle cx="259" cy="743" r="4"/><circle cx="316" cy="758" r="3"/><circle cx="883" cy="746" r="4"/>
+    <circle cx="933" cy="734" r="3"/><circle cx="396" cy="762" r="3"/><circle cx="732" cy="757" r="3"/>
+  </g>
+  <g transform="translate(135 746)">
+    <path d="M0 0v-33 M0-21q-19-18-22-4 6 11 22 9 M0-12q18-18 23-4-5 11-23 10" fill="none" stroke="#547e68" stroke-width="4" stroke-linecap="round"/>
+    <circle cy="-34" r="7" fill="#e97955"/><circle cx="-23" cy="-26" r="6" fill="#efbf5a"/><circle cx="24" cy="-26" r="6" fill="#efbf5a"/>
+  </g>
+  <g transform="translate(1055 750)">
+    <path d="M0 0v-29 M0-17q-15-15-19-4 5 9 19 8 M0-10q15-15 20-4-5 9-20 8" fill="none" stroke="#547e68" stroke-width="4" stroke-linecap="round"/>
+    <circle cy="-30" r="6" fill="#e97955"/><circle cx="-20" cy="-21" r="5" fill="#efbf5a"/><circle cx="20" cy="-21" r="5" fill="#efbf5a"/>
+  </g>
+  <path d="M91 814h1018" stroke="#294849" stroke-width="2" opacity=".42"/>
+  <text x="92" y="842" fill="#294849" font-family="Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="3">ONE BIRD · TWO WHEELS · ALL AFTERNOON</text>
+  <text x="1107" y="842" text-anchor="end" fill="#294849" font-family="Georgia, serif" font-size="14" font-style="italic">shoreline, somewhere</text>
+</svg>

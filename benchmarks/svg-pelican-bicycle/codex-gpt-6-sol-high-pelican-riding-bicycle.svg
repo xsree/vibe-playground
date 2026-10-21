@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 700" role="img" aria-labelledby="title desc">
+  <title id="title">The Pelican Express</title>
+  <desc id="desc">A cheerful white pelican pedals a teal bicycle across a sunny coastal road, its enormous golden bill and pouch leading the way.</desc>
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#d9ece8"/><stop offset="1" stop-color="#fff5dc"/></linearGradient>
+    <linearGradient id="feathers" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fffdf1"/><stop offset=".64" stop-color="#f4f0db"/><stop offset="1" stop-color="#d7dfd0"/></linearGradient>
+    <linearGradient id="pouch" x1="0" x2=".9" y2="1"><stop stop-color="#f9c866"/><stop offset=".55" stop-color="#ed9e45"/><stop offset="1" stop-color="#d97840"/></linearGradient>
+    <linearGradient id="bill" x2="0" y2="1"><stop stop-color="#ffdc84"/><stop offset="1" stop-color="#eaa65a"/></linearGradient>
+    <pattern id="road-dots" width="28" height="18" patternUnits="userSpaceOnUse"><circle cx="4" cy="5" r="1.2" fill="#dfceb0"/><circle cx="20" cy="14" r=".8" fill="#dfceb0"/></pattern>
+    <g id="wheel">
+      <circle r="108" fill="#fffdf3" stroke="#223f48" stroke-width="12"/>
+      <circle r="99" fill="none" stroke="#e0ad70" stroke-width="3"/>
+      <g stroke="#90a7a0" stroke-width="2">
+        <path d="M0-95V95 M-95 0H95 M-67-67 67 67 M67-67-67 67"/>
+        <path d="M-36-88 36 88 M36-88-36 88 M-88-36 88 36 M-88 36 88-36"/>
+      </g>
+      <circle r="14" fill="#e4a152" stroke="#223f48" stroke-width="5"/>
+      <circle r="4" fill="#fff8e8"/>
+    </g>
+    <filter id="soft" x="-30%" y="-60%" width="160%" height="220%"><feGaussianBlur stdDeviation="9"/></filter>
+  </defs>
+
+  <!-- Warm, hand-printed coastal poster setting -->
+  <rect width="1000" height="700" fill="url(#sky)"/>
+  <circle cx="793" cy="133" r="94" fill="#ffd98a" opacity=".75"/>
+  <circle cx="793" cy="133" r="116" fill="none" stroke="#e9b970" stroke-width="2" opacity=".38"/>
+  <path d="M0 456 Q109 399 219 449 T447 445 Q552 392 674 442 T1000 432 V609 H0Z" fill="#bfd9ca" opacity=".55"/>
+  <path d="M0 514 Q139 475 267 505 T527 504 Q679 470 827 501 T1000 492 V609 H0Z" fill="#93bdb0" opacity=".42"/>
+  <g fill="none" stroke="#fffdf0" stroke-width="5" stroke-linecap="round" opacity=".9">
+    <path d="M87 135 q15-12 30 0 q13-12 27-1 M151 164 q11-8 22 0 q10-8 20 0"/>
+    <path d="M761 333 q18-13 36 0 q15-12 29 0 M824 313 q12-9 25 0"/>
+  </g>
+  <path d="M0 610 Q510 602 1000 610 V700 H0Z" fill="#f6ead0"/>
+  <rect y="611" width="1000" height="89" fill="url(#road-dots)"/>
+  <path d="M0 608 H1000" stroke="#5d817c" stroke-width="5"/>
+  <path d="M66 655 h119 M316 655 h117 M564 655 h117 M815 655 h119" stroke="#e9cc9c" stroke-width="6" stroke-linecap="round"/>
+  <ellipse cx="501" cy="613" rx="391" ry="18" fill="#42636a" opacity=".16" filter="url(#soft)"/>
+
+  <!-- Poster lettering and little flying companions -->
+  <g fill="#23444b">
+    <text x="72" y="78" font-family="Georgia,serif" font-size="27" font-style="italic" letter-spacing="2">THE PELICAN</text>
+    <text x="71" y="115" font-family="Arial,sans-serif" font-size="32" font-weight="800" letter-spacing="5">EXPRESS</text>
+    <path d="M74 127 h259" stroke="#db8952" stroke-width="4"/>
+  </g>
+  <text x="76" y="154" fill="#66817b" font-family="Arial,sans-serif" font-size="12" letter-spacing="3">COASTAL DELIVERY · EST. 1924</text>
+  <g fill="none" stroke="#507770" stroke-linecap="round" stroke-width="3" opacity=".75"><path d="M383 98 q12-12 24 0 q12-12 24 0 M449 124 q9-8 19 0 q9-8 18 0"/></g>
+
+  <!-- Wheels, mudguards, rack, and the bicycle's clear diamond frame -->
+  <use xlink:href="#wheel" transform="translate(250 500)"/>
+  <use xlink:href="#wheel" transform="translate(748 500)"/>
+  <g fill="none" stroke="#23484e" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M144 473 A109 109 0 0 1 349 467 M643 470 A108 108 0 0 1 847 467" stroke-width="8"/>
+    <path d="M167 385 h127 l35 36 M176 384 l-19 57 M294 385 l25 49" stroke-width="8"/>
+    <path d="M247 501 408 339 478 500Z M408 339 628 345 478 500 M628 345 748 500" stroke-width="12"/>
+  </g>
+  <g fill="none" stroke="#4d9a91" stroke-linecap="round" stroke-linejoin="round" stroke-width="5">
+    <path d="M247 501 408 339 478 500Z M408 339 628 345 478 500 M628 345 748 500"/>
+  </g>
+  <path d="M628 345 748 500" stroke="#23484e" stroke-width="17" stroke-linecap="round"/>
+  <path d="M628 345 748 500" stroke="#8bb2a7" stroke-width="5" stroke-linecap="round"/>
+  <path d="M628 345 652 291 700 288" fill="none" stroke="#23484e" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M694 289 h32" stroke="#d2744a" stroke-width="13" stroke-linecap="round"/>
+  <path d="M406 341 400 308" stroke="#23484e" stroke-width="11" stroke-linecap="round"/>
+  <path d="M361 315 Q390 306 440 315 Q447 325 428 329 H375 Q359 328 361 315Z" fill="#23484e"/>
+  <path d="M365 316 Q397 311 434 317" fill="none" stroke="#d18b5a" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="478" cy="500" r="29" fill="#f6ead0" stroke="#23484e" stroke-width="8"/>
+  <circle cx="478" cy="500" r="11" fill="#d38c57" stroke="#23484e" stroke-width="4"/>
+  <path d="M478 500 508 470 M478 500 448 530" stroke="#23484e" stroke-width="9" stroke-linecap="round"/>
+  <path d="M491 470 h39 M428 530 h39" stroke="#23484e" stroke-width="10" stroke-linecap="round"/>
+  <path d="M267 500 478 500" stroke="#d19b62" stroke-width="3" stroke-dasharray="7 6" opacity=".9"/>
+  <path d="M663 330 690 342" fill="none" stroke="#23484e" stroke-width="5" stroke-linecap="round"/>
+  <path d="M689 343 l31-10 14 16-27 8Z" fill="#f4b55e" stroke="#23484e" stroke-width="4"/>
+  <circle cx="721" cy="345" r="4" fill="#fff4cf"/>
+
+  <!-- The cyclist's legs reach the two pedals. -->
+  <g fill="none" stroke="#e28c57" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M423 310 Q448 351 456 404 L508 466" stroke-width="19"/>
+    <path d="M399 306 Q406 364 421 411 L448 527" stroke-width="17"/>
+  </g>
+  <g fill="#edaa67" stroke="#a9573b" stroke-width="4" stroke-linejoin="round">
+    <path d="M497 457 q18 4 24 13 q12 5 19 2 q3 10-9 13 h-34 q-15-5-10-15Z"/>
+    <path d="M436 516 q17 0 24 11 q12 5 18 3 q3 10-11 13 h-32 q-13-7-11-16Z"/>
+  </g>
+
+  <!-- Pelican tail, body, long neck and signature throat pouch. -->
+  <path d="M375 268 Q333 269 292 243 Q300 278 341 292 Q315 294 293 286 Q320 315 376 310Z" fill="#f7f4df" stroke="#26474d" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M493 240 Q525 209 520 163 Q519 113 545 91 Q567 72 593 88 Q626 104 620 133 Q616 162 587 179 Q561 196 553 224 Q547 248 564 278 L528 298 Q505 270 493 240Z" fill="url(#feathers)" stroke="#26474d" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M522 170 Q536 192 526 221 M542 114 Q528 138 532 157" fill="none" stroke="#cddaca" stroke-width="4" stroke-linecap="round"/>
+  <path d="M366 244 C371 211 414 193 468 201 C511 206 550 234 546 276 C541 321 499 345 446 334 C398 325 361 290 366 244Z" fill="url(#feathers)" stroke="#26474d" stroke-width="6"/>
+  <path d="M386 278 Q431 310 489 307 Q517 297 531 282" fill="none" stroke="#dce5d2" stroke-width="4" stroke-linecap="round"/>
+  <path d="M626 144 C687 156 768 157 807 143 C794 184 769 236 726 257 Q691 274 666 245 Q639 211 626 144Z" fill="url(#pouch)" stroke="#9e623e" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M657 174 Q685 232 719 243 Q754 240 783 184" fill="none" stroke="#ffd689" stroke-width="5" opacity=".65" stroke-linecap="round"/>
+  <path d="M612 128 Q704 128 811 139 Q824 141 813 152 Q710 169 621 159Z" fill="url(#bill)" stroke="#9e623e" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M637 142 Q712 148 789 146" fill="none" stroke="#fff0b2" stroke-width="4" stroke-linecap="round"/>
+  <path d="M621 159 Q710 170 808 153" fill="none" stroke="#b77544" stroke-width="3"/>
+  <circle cx="585" cy="122" r="10" fill="#fff7dc" stroke="#26474d" stroke-width="3"/>
+  <circle cx="587" cy="122" r="4.7" fill="#23444b"/>
+  <circle cx="589" cy="120" r="1.5" fill="white"/>
+  <path d="M562 104 q15-10 29-5" fill="none" stroke="#26474d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M542 87 Q569 56 602 80 L616 96 Q574 89 545 103Z" fill="#3e827e" stroke="#26474d" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M550 91 Q576 79 608 92" fill="none" stroke="#a5c7b4" stroke-width="4" stroke-linecap="round"/>
+  <path d="M607 94 Q630 92 642 104 Q628 110 612 106Z" fill="#d17b52" stroke="#26474d" stroke-width="3"/>
+  <path d="M545 186 Q564 204 598 196 Q606 209 591 224 Q567 225 550 211Z" fill="#d16e4b" stroke="#9e523d" stroke-width="3"/>
+  <path d="M547 202 Q527 207 513 204" fill="none" stroke="#d16e4b" stroke-width="11" stroke-linecap="round"/>
+  <path d="M407 244 C449 217 499 226 524 254 Q545 275 574 284 L680 289 Q692 288 697 299 L682 309 Q612 313 563 306 Q515 295 489 287 Q440 310 401 285Z" fill="#e7ecdb" stroke="#26474d" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M421 262 Q464 248 494 267 M442 281 Q480 278 501 288 M531 277 Q553 294 595 297" fill="none" stroke="#bbccc3" stroke-width="4" stroke-linecap="round"/>
+  <path d="M675 291 q20-3 28 4 q5 8-2 13 l-24 2" fill="#f5f1dc" stroke="#26474d" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Bell, motion, and a small optimistic sign-off. -->
+  <path d="M658 313 q4-9 13-8 q9 0 12 8Z" fill="#f5b357" stroke="#23484e" stroke-width="3"/>
+  <circle cx="671" cy="318" r="3" fill="#23484e"/>
+  <g stroke="#cc8b63" fill="none" stroke-width="4" stroke-linecap="round" opacity=".75">
+    <path d="M90 458 h51 M76 486 h69 M856 451 h54 M867 478 h69"/>
+  </g>
+  <text x="772" y="681" fill="#57716c" font-family="Georgia,serif" font-size="18" font-style="italic">a better way to fly</text>
+</svg>
