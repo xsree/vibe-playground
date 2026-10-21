@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1000" viewBox="0 0 1200 1000" role="img" aria-labelledby="title description">
+  <title id="title">A little less hurry — a pelican riding a bicycle</title>
+  <desc id="description">An original hand-drawn vector illustration of a white pelican with an enormous golden bill and a sea-green scarf, pedalling a vermilion touring bicycle along a quiet coastal path. Fine spokes, a working diamond frame, webbed feet on opposing pedals and a wing resting on the handlebars complete the scene.</desc>
+  <metadata>Handwritten SVG · Codex · OpenAI · GPT-6.1-Sol · high · 2026-10-21</metadata>
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1">
+      <stop stop-color="#f4ebda"/>
+      <stop offset="1" stop-color="#faf5e9"/>
+    </linearGradient>
+    <linearGradient id="feather" x1="0" y1="0" x2="0.8" y2="1">
+      <stop stop-color="#fffdf3"/>
+      <stop offset="0.65" stop-color="#f8f5e8"/>
+      <stop offset="1" stop-color="#d7dfd4"/>
+    </linearGradient>
+    <linearGradient id="pouch" x1="0" y1="0" x2="0.3" y2="1">
+      <stop stop-color="#f1bb64"/>
+      <stop offset="1" stop-color="#df8c57"/>
+    </linearGradient>
+    <linearGradient id="sea" x2="0" y2="1">
+      <stop stop-color="#c2d8ce"/>
+      <stop offset="1" stop-color="#dce5d7"/>
+    </linearGradient>
+    <pattern id="paper" width="13" height="17" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="5" r="0.65" fill="#8c846d" opacity="0.12"/>
+      <circle cx="10" cy="13" r="0.45" fill="#fff" opacity="0.65"/>
+    </pattern>
+    <g id="spokes" stroke="#547276" stroke-width="1.3" opacity="0.64">
+      <path d="M0-133 0 133M-133 0H133M-94-94 94 94M-94 94 94-94M-51-123 51 123M-123-51 123 51M-123 51 123-51M-51 123 51-123"/>
+      <path d="M-26-130 26 130M-130-26 130 26M-74-111 74 111M-111-74 111 74M-111 74 111-74M-74 111 74-111M-130 26 130-26M-26 130 26-130" opacity="0.65"/>
+    </g>
+    <g id="wheel">
+      <circle r="149" fill="#f4efdd" stroke="#243f45" stroke-width="13"/>
+      <circle r="141" fill="none" stroke="#e9cb98" stroke-width="4"/>
+      <circle r="134" fill="#e9eadd" fill-opacity="0.25" stroke="#72898a" stroke-width="2"/>
+      <use href="#spokes"/>
+      <circle r="13" fill="#e8e5d5" stroke="#29474b" stroke-width="3"/>
+      <circle r="5" fill="#b3bdb2" stroke="#29474b" stroke-width="2"/>
+      <path d="M-110-76A134 134 0 0 1 59-120" fill="none" stroke="#fff9e7" stroke-width="3" opacity="0.7"/>
+      <path d="m47-124 5-12" stroke="#29474b" stroke-width="3"/>
+    </g>
+  </defs>
+
+  <!-- 海风、纸色和留白构成背景。 -->
+  <path fill="url(#sky)" d="M0 0H1200V1000H0z"/>
+  <path fill="url(#paper)" d="M0 0H1200V1000H0z"/>
+  <g fill="#31555b" font-family="Georgia, 'Times New Roman', serif">
+    <text x="84" y="89" font-size="16" letter-spacing="4">THE COAST IS CALLING</text>
+    <text x="81" y="146" font-size="49" letter-spacing="-1.5">A little less hurry.</text>
+  </g>
+  <g fill="#69817a" font-family="Arial, sans-serif" font-size="10" letter-spacing="2.2">
+    <text x="1116" y="83" text-anchor="end">FIELD NOTES / 01</text>
+    <text x="1116" y="104" text-anchor="end">A GOOD DAY TO GO SLOW</text>
+  </g>
+  <circle cx="900" cy="346" r="147" fill="#e8c98a" opacity="0.53"/>
+  <circle cx="900" cy="346" r="123" fill="none" stroke="#e9d6ad" stroke-width="1"/>
+  <path d="M80 568C196 548 260 573 368 558S554 537 652 557 827 578 941 553 1067 551 1120 560V789H80Z" fill="url(#sea)"/>
+  <path d="M80 568C196 548 260 573 368 558S554 537 652 557 827 578 941 553 1067 551 1120 560" fill="none" stroke="#9cbdb3" stroke-width="2"/>
+  <g fill="none" stroke="#f9f7e9" stroke-width="3" stroke-linecap="round" opacity="0.8">
+    <path d="M118 602h90m-54 16h38m763-26h104m-60 24h67M147 659h111m692-2h120m-57 20h37"/>
+    <path d="M85 723c66-12 116-11 161-3m719 10c54-10 104-10 155-1"/>
+  </g>
+  <g fill="none" stroke="#6c8b84" stroke-width="2.5" stroke-linecap="round">
+    <path d="M159 323q13-12 26 0 13-13 25-3m-75 39q9-8 17 0 10-9 18-1"/>
+    <path d="M1004 209q11-9 22 1 11-11 23-2"/>
+  </g>
+  <path d="M80 804Q571 763 1120 796V902H80Z" fill="#e7dec8"/>
+  <path d="M80 804Q571 763 1120 796" fill="none" stroke="#faf4e4" stroke-width="7"/>
+  <ellipse cx="601" cy="887" rx="419" ry="16" fill="#7d8977" opacity="0.13"/>
+  <g stroke="#b6ae93" stroke-width="2" stroke-linecap="round">
+    <path d="M147 855h37m846-18h26M639 867h31m-466 30h48m758-5h30"/>
+  </g>
+
+  <!-- 两个等径车轮与真实闭合的三角车架。 -->
+  <use href="#wheel" transform="translate(350 735)"/>
+  <use href="#wheel" transform="translate(850 735)"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M199 721A154 154 0 0 1 482 652M708 675A154 154 0 0 1 997 691" stroke="#31575a" stroke-width="6"/>
+    <path d="M205 711A149 149 0 0 1 474 647M716 670A149 149 0 0 1 991 689" stroke="#829e93" stroke-width="2"/>
+    <path d="M244 604h151m-138-9h122m-135 9-24 56m175-56 18 45" stroke="#31575a" stroke-width="5"/>
+    <path d="m263 610 87 125m37-125-37 125" stroke="#748e87" stroke-width="2"/>
+  </g>
+  <!-- 远侧腿位于车架之后，脚掌落在左下踏板上。 -->
+  <g stroke="#334a47" stroke-linejoin="round">
+    <path d="M443 475q-10 55 16 103l32 131 16-3-20-143-16-81" fill="#d8a057" stroke-width="3.5"/>
+    <path d="M491 702q-12 9-11 18l20 5 30-7-19-15-4-10" fill="#ce8b4c" stroke-width="3"/>
+    <path d="m489 715 12 1m4-7 9 8" fill="none" stroke="#ae713f" stroke-width="2"/>
+  </g>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m350 735 97-204 103 169-200 35m97-204 282-3 39 78-218 94" stroke="#943f35" stroke-width="13"/>
+    <path d="m350 735 97-204 103 169-200 35m97-204 282-3 39 78-218 94" stroke="#d25b47" stroke-width="8"/>
+    <path d="m452 536 271-3M455 546l87 144m20 4 198-87" stroke="#ed9b78" stroke-width="2.3"/>
+    <path d="m729 528 39 78 82 129" stroke="#943f35" stroke-width="12"/>
+    <path d="m729 528 39 78 82 129" stroke="#d25b47" stroke-width="7"/>
+    <path d="m439 514 15 29" stroke="#29484c" stroke-width="9"/>
+    <path d="m716 502 18 35" stroke="#d4d9cb" stroke-width="11"/>
+    <path d="m716 502-15-31q-6-12 8-17l40-8q29-5 31 14 2 13-17 14" stroke="#2e4c4f" stroke-width="9"/>
+    <path d="m714 456 32-7" stroke="#d6d9c9" stroke-width="4"/>
+    <path d="M765 477q39 67 7 120" stroke="#385b59" stroke-width="2.5"/>
+    <path d="m733 524 30-14" stroke="#f0c79b" stroke-width="5"/>
+  </g>
+  <path d="M405 499q-9 1-8 10 1 10 26 11l47-5q16-1 14-10-1-7-18-8Z" fill="#29474b" stroke="#203c40" stroke-width="3"/>
+  <path d="m410 503 51-1" stroke="#9aaf9e" stroke-width="2" stroke-linecap="round"/>
+  <path d="M350 725 547 679Q577 679 577 700T547 723L350 746" fill="#d1d7c8" fill-opacity="0.7" stroke="#456361" stroke-width="3"/>
+  <path d="m353 731 190-45m-190 54 190-25" stroke="#f7efdc" stroke-width="2"/>
+  <g transform="translate(550 700)">
+    <circle r="29" fill="#385655" stroke="#234346" stroke-width="3"/>
+    <circle r="23" fill="none" stroke="#b4c1ad" stroke-width="4" stroke-dasharray="2 6"/>
+    <circle r="15" fill="#e8e5d2"/>
+    <path d="m-52 19 104-38" stroke="#24464a" stroke-width="8" stroke-linecap="round"/>
+    <path d="m-50 18 100-36" stroke="#adc0b3" stroke-width="3" stroke-linecap="round"/>
+    <circle r="6" fill="#28474a"/>
+  </g>
+  <g fill="#2b494a" stroke="#203e40" stroke-width="2">
+    <rect x="480" y="720" width="37" height="9" rx="3"/>
+    <rect x="583" y="683" width="40" height="9" rx="3"/>
+  </g>
+  <path d="M486 724h24m79-37h27" stroke="#dbb87b" stroke-width="2"/>
+  <g transform="translate(727 476)">
+    <path d="m0 0-1-12" stroke="#3b5856" stroke-width="3"/>
+    <path d="M-11-12q0-13 11-13t11 13Z" fill="#e0b76b" stroke="#365250" stroke-width="2"/>
+    <path d="M-12-11h24" stroke="#365250" stroke-width="3" stroke-linecap="round"/>
+    <circle cy="-26" r="2" fill="#365250"/>
+  </g>
+
+  <!-- 鹈鹕：长喙、喉囊、弯曲长颈、丰满身体和黑色飞羽。 -->
+  <path d="m309 394-81-38 29 47-43-9 55 40-25 1 52 25" fill="#344f53" stroke="#28454b" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="m239 368 66 44m-69-10 64 28" fill="none" stroke="#80928a" stroke-width="3"/>
+  <path d="M287 388C321 346 373 331 421 346c38 11 57 31 79 35 27-16 28-59 48-103 16-36 44-66 81-70 35-14 65 5 65 35 1 22-16 35-42 38-29 25-10 58-28 91-13 27-43 51-64 84-23 35-55 49-109 49-68 0-133-34-164-73-13-17-15-28 0-46Z" fill="url(#feather)" stroke="#2c494d" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M549 424c33-36 57-58 60-89 3-27-4-38 9-59-33 29-29 57-40 83-12 29-31 41-51 55Z" fill="#d8e1d7"/>
+  <path d="M306 440c44 43 100 57 149 52 37-3 60-18 79-41-59 17-125 10-180-17Z" fill="#d0dbd1" opacity="0.8"/>
+  <path d="M584 252q-4-23 13-37m3 18q0-26 17-35m-1 31q6-24 24-29" fill="none" stroke="#2e4b4e" stroke-width="3" stroke-linecap="round"/>
+  <path d="M587 251q8-14 21-17" fill="none" stroke="#c1cfc3" stroke-width="4" stroke-linecap="round"/>
+  <!-- 金色上喙与具有弧度的独立喉囊。 -->
+  <path d="M673 258 944 268C902 304 852 333 789 335c-56 0-84-28-116-58Z" fill="url(#pouch)" stroke="#2d494b" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M686 277c40 32 72 46 110 46 46 0 85-17 112-34" fill="none" stroke="#f6ce8a" stroke-width="3" stroke-linecap="round"/>
+  <path d="m696 286 19 14m1-9 19 16m1-10 19 16" fill="none" stroke="#c98c58" stroke-width="1.5" opacity="0.7"/>
+  <path d="M677 245c59 0 152 7 268 22 9 1 12 5 3 9-98 4-191 1-272-9Z" fill="#edb94f" stroke="#2c494d" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="m692 251 227 17" fill="none" stroke="#ffe0a1" stroke-width="3" stroke-linecap="round"/>
+  <path d="m944 267 7 4-12 6" fill="#b46b43"/>
+  <path d="m698 260 12 1" stroke="#806641" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M674 251q-7 8-17 9" fill="none" stroke="#b9bca6" stroke-width="2"/>
+  <ellipse cx="657" cy="240" rx="11" ry="12" fill="#e1bb6e"/>
+  <circle cx="659" cy="239" r="6" fill="#263f45"/>
+  <circle cx="661" cy="237" r="2" fill="#fffdf0"/>
+  <path d="M644 223q10-7 20-2" fill="none" stroke="#2c494d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M640 267q-5 8-8 15" fill="none" stroke="#b8c6b9" stroke-width="3" stroke-linecap="round"/>
+  <!-- 围巾被海风吹向身后。 -->
+  <path d="M585 312c-42-19-75-43-127-32l16 17-18 14c48-15 70 24 115 24Z" fill="#568f85" stroke="#2e5554" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M570 322c-30-4-45 12-69 7l9 17-13 8c35 7 50-20 78-16" fill="#80a59a" stroke="#2e5554" stroke-width="3" stroke-linejoin="round"/>
+  <path d="m469 288 12 4m-13 11 12-4m26 38 10 2m-10 6 9-1" stroke="#d0dbbd" stroke-width="2" stroke-linecap="round"/>
+  <path d="M572 305q26 17 55 16l-6 22q-33 2-58-17Z" fill="#629a8e" stroke="#2e5554" stroke-width="3"/>
+  <path d="M578 313q16 12 40 14m-42-4 16 8" fill="none" stroke="#b3c9b2" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M567 319q-12 8-5 18 8 8 19-2l5-10Z" fill="#41786e" stroke="#2e5554" stroke-width="2.5"/>
+
+  <!-- 近侧腿弯曲到前上方踏板，蹼趾清晰可见。 -->
+  <path d="M489 478q-7 23 14 49l66 45 22 100 16-3-13-116-68-65" fill="#e6b46a" stroke="#304b4b" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="m511 522 68 43 19 94" fill="none" stroke="#f4d294" stroke-width="4" stroke-linecap="round"/>
+  <path d="M587 663q-6 8-4 16l18 6 37-4-14-12-17-7-2-8" fill="#e5a554" stroke="#304b4b" stroke-width="3" stroke-linejoin="round"/>
+  <path d="m600 666 5 12m6-9 7 10m-26-6 10 8" fill="none" stroke="#b97d42" stroke-width="2" stroke-linecap="round"/>
+  <path d="M469 466q8 26 26 31m-7-39q9 27 25 37m-5-35 21 30" fill="none" stroke="#a7b9ac" stroke-width="3" stroke-linecap="round"/>
+  <!-- 翼尖伸向把手，翼面保留叠覆羽片。 -->
+  <path d="M337 392c36-31 95-27 137 0 27 18 42 28 78 34l154 20c22 0 35 4 44 12 4 5 1 10-6 10l-21-5c13 9 9 16 2 14l-27-13c-50 2-110-1-159-6-47 18-95 12-135-2-37-13-57-34-67-64Z" fill="url(#feather)" stroke="#2c494d" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M353 398c51-16 76 9 102 28 22 17 52 27 84 32-55 11-109 0-141-19-22-13-35-26-45-41Z" fill="#e1e6da"/>
+  <g fill="none" stroke="#a3b6a8" stroke-width="2.3" stroke-linecap="round">
+    <path d="M365 399q41 1 76 30t76 23M365 413q43 11 66 30m-50-13q22 15 42 20M476 420q21 18 50 23m15-3 81 10m-75 0 71 7m18-7 45 5"/>
+  </g>
+  <path d="M343 391q15-9 30-9" fill="none" stroke="#fffef5" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- 前景的小草、海贝与边注。 -->
+  <g fill="none" stroke="#6a8974" stroke-width="3" stroke-linecap="round">
+    <path d="M105 872q4-43-11-66m13 66q8-36 27-51m-25 50q-12-24-28-29m1001 47q-3-48 18-72m-17 71q-9-36-26-49m27 40q11-23 28-29"/>
+  </g>
+  <g fill="#8da38a">
+    <path d="M96 824q-16-6-16-22 16 2 16 22m28 9q-2-18 15-24 0 17-15 24m946 17q-19-3-20-20 18 1 20 20m23-15q-4-18 12-28 5 17-12 28"/>
+  </g>
+  <path d="M965 879q14-25 29-2Z" fill="#f7efda" stroke="#b8aa8d" stroke-width="2"/>
+  <path d="m971 875 5 3m3-8 1 7m5-6-2 6" stroke="#c8b89b" stroke-width="1.5"/>
+  <g fill="#426260" font-family="Arial, sans-serif" font-size="11" letter-spacing="2.6">
+    <text x="84" y="948">SALT AIR. TWO WHEELS. NO DEADLINE.</text>
+    <text x="1116" y="948" text-anchor="end">PELICAN CYCLING CLUB</text>
+  </g>
+  <path d="M84 920h1032" stroke="#c2c5ad" stroke-width="1"/>
+</svg>

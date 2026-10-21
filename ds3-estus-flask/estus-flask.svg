@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 520" width="680" height="520" role="img">
+<title>黑暗之魂3 元素瓶</title>
+<desc>矢量插画：琥珀金玻璃元素瓶，圆腹、短粗颈、外翻敞口，瓶内是翻涌发光的原素液。</desc>
+<defs>
+<clipPath id="glass">
+<path d="M 284 200 L 289 262 C 282 278 244 312 244 372 C 244 420 260 448 296 462 C 312 468 326 472 340 473 C 354 472 368 468 384 462 C 420 448 436 420 436 372 C 436 312 398 278 391 262 L 396 200 Z"/>
+</clipPath>
+<clipPath id="outer">
+<path d="M 272 190 L 277 262 C 268 278 230 310 230 371 C 230 424 248 458 290 474 C 308 481 324 485 340 487 C 356 485 372 481 390 474 C 432 458 450 424 450 371 C 450 310 412 278 403 262 L 408 190 Z"/>
+</clipPath>
+</defs>
+
+<ellipse cx="345" cy="484" rx="112" ry="14" fill="#9C4802" opacity="0.2"/>
+<ellipse cx="345" cy="484" rx="58" ry="8" fill="#CE7C03" opacity="0.2"/>
+
+<g transform="rotate(22 340 330)">
+
+<path d="M 272 190 L 277 262 C 268 278 230 310 230 371 C 230 424 248 458 290 474 C 308 481 324 485 340 487 C 356 485 372 481 390 474 C 432 458 450 424 450 371 C 450 310 412 278 403 262 L 408 190 Z"
+      fill="#8A3C02" stroke="#F9E007" stroke-width="2.5" stroke-linejoin="round"/>
+
+<path d="M 284 200 L 289 262 C 282 278 244 312 244 372 C 244 420 260 448 296 462 C 312 468 326 472 340 473 C 354 472 368 468 384 462 C 420 448 436 420 436 372 C 436 312 398 278 391 262 L 396 200 Z"
+      fill="#C05A02"/>
+
+<g clip-path="url(#glass)">
+  <rect x="230" y="302" width="220" height="200" fill="#D97406"/>
+  <ellipse cx="340" cy="394" rx="94" ry="68" fill="#F0A50C"/>
+  <ellipse cx="340" cy="424" rx="66" ry="46" fill="#F9E007"/>
+  <ellipse cx="334" cy="446" rx="36" ry="25" fill="#FBF79B"/>
+  <ellipse cx="340" cy="302" rx="80" ry="9" fill="#FBF79B" opacity="0.85"/>
+</g>
+
+<g clip-path="url(#glass)">
+  <path d="M 284 200 L 289 262 C 282 278 244 312 244 372 C 244 420 260 448 296 462 C 312 468 326 472 340 473 C 354 472 368 468 384 462 C 420 448 436 420 436 372 C 436 312 398 278 391 262 L 396 200 Z"
+        fill="none" stroke="#7A3202" stroke-width="22" opacity="0.45"/>
+</g>
+
+<g clip-path="url(#glass)" opacity="0.8">
+  <circle cx="278" cy="330" r="9"  fill="#FBF79B" opacity="0.24"/>
+  <circle cx="310" cy="316" r="6"  fill="#FBF79B" opacity="0.3"/>
+  <circle cx="352" cy="312" r="7"  fill="#FBF79B" opacity="0.22"/>
+  <circle cx="392" cy="330" r="8"  fill="#FBF79B" opacity="0.26"/>
+  <circle cx="260" cy="372" r="11" fill="#FBF79B" opacity="0.2"/>
+  <circle cx="296" cy="366" r="5"  fill="#FBF79B" opacity="0.32"/>
+  <circle cx="334" cy="362" r="9"  fill="#FBF79B" opacity="0.24"/>
+  <circle cx="378" cy="368" r="6"  fill="#FBF79B" opacity="0.3"/>
+  <circle cx="414" cy="380" r="9"  fill="#FBF79B" opacity="0.2"/>
+  <circle cx="256" cy="410" r="7"  fill="#FBF79B" opacity="0.26"/>
+  <circle cx="292" cy="404" r="10" fill="#FBF79B" opacity="0.2"/>
+  <circle cx="330" cy="398" r="6"  fill="#FBF79B" opacity="0.28"/>
+  <circle cx="372" cy="406" r="8"  fill="#FBF79B" opacity="0.22"/>
+  <circle cx="410" cy="418" r="7"  fill="#FBF79B" opacity="0.26"/>
+  <circle cx="276" cy="440" r="8"  fill="#FBF79B" opacity="0.22"/>
+  <circle cx="312" cy="434" r="6"  fill="#FBF79B" opacity="0.28"/>
+  <circle cx="350" cy="430" r="10" fill="#FBF79B" opacity="0.2"/>
+  <circle cx="388" cy="438" r="6"  fill="#FBF79B" opacity="0.26"/>
+  <circle cx="408" cy="452" r="8"  fill="#FBF79B" opacity="0.22"/>
+  <circle cx="300" cy="458" r="5"  fill="#FBF79B" opacity="0.24"/>
+  <circle cx="340" cy="456" r="7"  fill="#FBF79B" opacity="0.22"/>
+  <circle cx="376" cy="458" r="5"  fill="#FBF79B" opacity="0.24"/>
+</g>
+
+<g clip-path="url(#glass)">
+  <ellipse cx="340" cy="470" rx="62" ry="16" fill="#8A3C02" opacity="0.4"/>
+  <path d="M 284 462 A 56 15 0 0 0 396 462" fill="none" stroke="#F0A50C" stroke-width="4" opacity="0.5"/>
+  <path d="M 274 322 C 256 352 254 392 268 424 L 284 418 C 270 386 272 356 290 328 Z" fill="#FBF79B" opacity="0.45"/>
+  <circle cx="300" cy="340" r="9" fill="#FFF8CF" opacity="0.85"/>
+  <path d="M 388 292 C 404 326 436 342 436 384" fill="none" stroke="#F9E007" stroke-width="6" stroke-linecap="round" opacity="0.45"/>
+</g>
+
+<g clip-path="url(#outer)">
+  <rect x="292" y="206" width="13" height="58" fill="#FBF79B" opacity="0.38"/>
+  <rect x="382" y="206" width="11" height="58" fill="#5A2402" opacity="0.42"/>
+</g>
+
+<ellipse cx="340" cy="190" rx="72" ry="17" fill="#C05A02"/>
+<ellipse cx="340" cy="190" rx="72" ry="17" fill="none" stroke="#5A2402" stroke-width="2" opacity="0.65"/>
+<ellipse cx="340" cy="191" rx="53" ry="12" fill="#5A2402"/>
+<ellipse cx="340" cy="191" rx="53" ry="12" fill="none" stroke="#E8950A" stroke-width="3" opacity="0.85"/>
+<path d="M 268 190 A 72 17 0 0 1 412 190" fill="none" stroke="#FBF79B" stroke-width="5" stroke-linecap="round" opacity="0.9"/>
+<path d="M 288 193 A 53 12 0 0 0 392 193" fill="none" stroke="#F0A50C" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+
+</g>
+
+<circle cx="176" cy="246" r="4" fill="#E8A614" opacity="0.45"/>
+<circle cx="520" cy="212" r="3" fill="#E8A614" opacity="0.4"/>
+<circle cx="548" cy="330" r="4.5" fill="#E8A614" opacity="0.24"/>
+<circle cx="156" cy="386" r="3" fill="#E8A614" opacity="0.34"/>
+<circle cx="512" cy="428" r="3.5" fill="#E8A614" opacity="0.22"/>
+<circle cx="212" cy="156" r="2.5" fill="#E8A614" opacity="0.3"/>
+<circle cx="490" cy="276" r="2.5" fill="#E8A614" opacity="0.28"/>
+<circle cx="252" cy="112" r="3" fill="#E8A614" opacity="0.24"/>
+<circle cx="462" cy="128" r="3.5" fill="#E8A614" opacity="0.22"/>
+<circle cx="126" cy="312" r="2.5" fill="#E8A614" opacity="0.26"/>
+</svg>
