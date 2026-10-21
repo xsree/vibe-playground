@@ -1,6 +1,6 @@
-﻿# Agent Guidelines & Repository Architecture
+# Agent Guidelines & Repository Architecture
 
-本仓库（c:\Users\lizp0\Documents\ChatGPT\web\）作为**多项目聚合目录（Multi-Vibe Hub）**，供存放不同主题、不同 Vibe 的独立前端项目。
+本仓库（vibe-playground，本地路径 c:\Users\lizp0\Documents\ChatGPT\vibe-playground\）作为**多项目聚合目录（Multi-Vibe Hub）**，供存放不同主题、不同 Vibe 的独立前端项目。
 
 ---
 
