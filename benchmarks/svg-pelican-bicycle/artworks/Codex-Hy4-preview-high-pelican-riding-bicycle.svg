@@ -1,0 +1,250 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-labelledby="ttl dsc">
+  <title id="ttl">鹈鹕骑自行车 / Pelican Riding a Bicycle</title>
+  <desc id="dsc">Golden-hour illustration: a white pelican with a long orange beak and throat pouch pedals a red bicycle along a country road, dust kicking up behind the rear wheel.</desc>
+
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3f8fbd"/>
+      <stop offset="0.38" stop-color="#8fc9e2"/>
+      <stop offset="0.72" stop-color="#ffdca8"/>
+      <stop offset="1" stop-color="#ffbe79"/>
+    </linearGradient>
+
+    <radialGradient id="sunCore" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fffbe8"/>
+      <stop offset="0.6" stop-color="#ffe08a"/>
+      <stop offset="1" stop-color="#ffc257"/>
+    </radialGradient>
+    <radialGradient id="sunGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffe9ae" stop-opacity="0.75"/>
+      <stop offset="0.55" stop-color="#ffd88f" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#ffcf80" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8fbb78"/>
+      <stop offset="0.4" stop-color="#6ea165"/>
+      <stop offset="1" stop-color="#4b7b53"/>
+    </linearGradient>
+
+    <linearGradient id="road" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6b7078"/>
+      <stop offset="0.45" stop-color="#575d66"/>
+      <stop offset="1" stop-color="#3f444c"/>
+    </linearGradient>
+
+    <linearGradient id="plumage" gradientUnits="userSpaceOnUse" x1="440" y1="190" x2="640" y2="470">
+      <stop offset="0" stop-color="#fffdf8"/>
+      <stop offset="0.5" stop-color="#f7f2e7"/>
+      <stop offset="1" stop-color="#dbd3c2"/>
+    </linearGradient>
+    <linearGradient id="wingGrad" gradientUnits="userSpaceOnUse" x1="540" y1="330" x2="700" y2="470">
+      <stop offset="0" stop-color="#fbf6ea"/>
+      <stop offset="1" stop-color="#cfc6b3"/>
+    </linearGradient>
+    <linearGradient id="beakTop" gradientUnits="userSpaceOnUse" x1="820" y1="220" x2="1030" y2="320">
+      <stop offset="0" stop-color="#ffdd93"/>
+      <stop offset="0.55" stop-color="#ffb43f"/>
+      <stop offset="1" stop-color="#ef8a22"/>
+    </linearGradient>
+    <linearGradient id="pouchGrad" gradientUnits="userSpaceOnUse" x1="830" y1="246" x2="990" y2="360">
+      <stop offset="0" stop-color="#ffcf74"/>
+      <stop offset="1" stop-color="#ea7f26"/>
+    </linearGradient>
+    <linearGradient id="frameGrad" gradientUnits="userSpaceOnUse" x1="540" y1="440" x2="790" y2="600">
+      <stop offset="0" stop-color="#ff7a52"/>
+      <stop offset="1" stop-color="#cf3520"/>
+    </linearGradient>
+
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+    <filter id="dust" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+
+    <g id="wheel" fill="none">
+      <circle r="78" stroke="#22262d" stroke-width="11"/>
+      <circle r="78" stroke="#3a3f47" stroke-width="3" opacity="0.7"/>
+      <circle r="66" stroke="#dbe2ea" stroke-width="5"/>
+      <circle r="63" stroke="#9ba6b2" stroke-width="1.5" opacity="0.8"/>
+      <g stroke="#eef2f7" stroke-width="1.8" opacity="0.85">
+        <line x1="0" y1="-64" x2="0" y2="-10"/>
+        <line x1="0" y1="-64" x2="0" y2="-10" transform="rotate(30)"/>
+        <line x1="0" y1="-64" x2="0" y2="-10" transform="rotate(60)"/>
+        <line x1="0" y1="-64" x2="0" y2="-10" transform="rotate(90)"/>
+        <line x1="0" y1="-64" x2="0" y2="-10" transform="rotate(120)"/>
+        <line x1="0" y1="-64" x2="0" y2="-10" transform="rotate(150)"/>
+        <line x1="0" y1="-64" x2="0" y2="-10" transform="rotate(180)"/>
+        <line x1="0" y1="-64" x2="0" y2="-10" transform="rotate(210)"/>
+        <line x1="0" y1="-64" x2="0" y2="-10" transform="rotate(240)"/>
+        <line x1="0" y1="-64" x2="0" y2="-10" transform="rotate(270)"/>
+        <line x1="0" y1="-64" x2="0" y2="-10" transform="rotate(300)"/>
+        <line x1="0" y1="-64" x2="0" y2="-10" transform="rotate(330)"/>
+      </g>
+      <circle r="9" fill="#98a2ae" stroke="#5b636e" stroke-width="2.5"/>
+    </g>
+  </defs>
+
+  <!-- ============ 背景 / sky & ground ============ -->
+  <rect width="1200" height="800" fill="url(#sky)"/>
+  <circle cx="962" cy="128" r="150" fill="url(#sunGlow)"/>
+  <circle cx="962" cy="128" r="58" fill="url(#sunCore)"/>
+
+  <g fill="#ffffff" opacity="0.55">
+    <ellipse cx="230" cy="180" rx="86" ry="26"/>
+    <ellipse cx="290" cy="164" rx="58" ry="22"/>
+    <ellipse cx="170" cy="192" rx="52" ry="18"/>
+  </g>
+  <g fill="#ffffff" opacity="0.4">
+    <ellipse cx="1060" cy="300" rx="70" ry="20"/>
+    <ellipse cx="1112" cy="288" rx="46" ry="16"/>
+  </g>
+
+  <g stroke="#2f4c5e" stroke-width="3" fill="none" opacity="0.5" stroke-linecap="round">
+    <path d="M 150 250 q 12 -10 24 0 q 12 -10 24 0"/>
+    <path d="M 300 210 q 9 -8 18 0 q 9 -8 18 0"/>
+    <path d="M 1150 220 q 8 -7 16 0 q 8 -7 16 0"/>
+  </g>
+
+  <path d="M 0 562 C 120 520 190 492 280 500 C 360 507 420 536 500 546 C 590 557 660 540 760 528 C 880 514 990 526 1080 546 C 1130 556 1170 560 1200 558 L 1200 800 L 0 800 Z" fill="#9ec0a2" opacity="0.85"/>
+  <path d="M 0 578 C 130 552 240 542 340 556 C 450 571 540 596 640 592 C 760 587 860 560 980 560 C 1080 560 1150 570 1200 578 L 1200 800 L 0 800 Z" fill="url(#ground)"/>
+
+  <polygon points="520,558 682,558 1310,800 -110,800" fill="url(#road)"/>
+  <polygon points="512,558 528,558 -96,800 -150,800" fill="#e9e3d5" opacity="0.55"/>
+  <polygon points="676,558 692,558 1318,800 1262,800" fill="#e9e3d5" opacity="0.55"/>
+  <g fill="#f4e7c4" opacity="0.85">
+    <polygon points="576,700 624,700 629,762 571,762"/>
+    <polygon points="585,622 615,622 618,674 582,674"/>
+    <polygon points="592,572 608,572 609,600 591,600"/>
+  </g>
+  <ellipse cx="640" cy="792" rx="560" ry="14" fill="#3c2f22" opacity="0.12" filter="url(#soft)"/>
+
+  <!-- ============ 速度线与尘土 / speed & dust ============ -->
+  <g stroke="#ffffff" stroke-linecap="round" fill="none">
+    <path d="M 104 468 C 186 458 272 462 336 474" stroke-width="9" opacity="0.5"/>
+    <path d="M 78 522 C 178 512 292 518 366 530" stroke-width="6" opacity="0.36"/>
+    <path d="M 132 574 C 224 564 316 568 384 578" stroke-width="5" opacity="0.28"/>
+  </g>
+  <g fill="#e6d6b6" opacity="0.55" filter="url(#dust)">
+    <circle cx="352" cy="656" r="18"/>
+    <circle cx="306" cy="666" r="24"/>
+    <circle cx="258" cy="656" r="15"/>
+    <circle cx="214" cy="664" r="9"/>
+  </g>
+
+  <!-- ============ 投影 / ground shadow ============ -->
+  <ellipse cx="606" cy="678" rx="252" ry="19" fill="#2b2118" opacity="0.24" filter="url(#soft)"/>
+
+  <!-- ============ 远侧腿（先画，位于车架之后）/ far leg ============ -->
+  <g stroke="#b96618" stroke-width="14" stroke-linecap="round" fill="none" opacity="0.85">
+    <path d="M 556 436 C 542 468 536 492 546 514"/>
+    <path d="M 546 514 C 534 552 540 594 548 616"/>
+  </g>
+  <path d="M 540 618 C 534 610 542 604 554 606 L 574 610 C 581 612 581 620 573 622 L 549 626 Z" fill="#b96618" opacity="0.9"/>
+
+  <!-- ============ 车轮 / wheels ============ -->
+  <use href="#wheel" x="430" y="590"/>
+  <use href="#wheel" x="780" y="590"/>
+
+  <!-- ============ 车架 / frame ============ -->
+  <g stroke-linecap="round" fill="none">
+    <path d="M 600 592 L 549 451" stroke="url(#frameGrad)" stroke-width="13"/>
+    <path d="M 600 592 L 752 478" stroke="url(#frameGrad)" stroke-width="13"/>
+    <path d="M 552 458 L 766 444" stroke="url(#frameGrad)" stroke-width="11"/>
+    <path d="M 552 458 L 430 590" stroke="#2f3540" stroke-width="8"/>
+    <path d="M 600 592 L 430 590" stroke="#2f3540" stroke-width="9"/>
+    <path d="M 752 478 L 768 446" stroke="#2f3540" stroke-width="14"/>
+    <path d="M 747 487 Q 766 542 780 590" stroke="#2f3540" stroke-width="9"/>
+    <path d="M 600 592 L 549 451" stroke="#ffffff" stroke-width="2" opacity="0.25"/>
+    <path d="M 600 592 L 752 478" stroke="#ffffff" stroke-width="2" opacity="0.25"/>
+  </g>
+
+  <!-- 车把 / handlebar -->
+  <g stroke="#2f3540" stroke-width="10" stroke-linecap="round" fill="none">
+    <path d="M 768 446 L 802 432"/>
+    <path d="M 800 432 C 838 426 854 448 846 470 C 840 488 820 494 804 486"/>
+  </g>
+
+  <!-- 鞍座 / saddle -->
+  <path d="M 505 445 C 513 431 585 428 591 440 C 594 448 574 452 550 450 C 526 448 500 452 505 445 Z" fill="#3a3027" stroke="#241d16" stroke-width="3"/>
+  <path d="M 512 442 C 528 434 574 433 586 440" stroke="#6a5a48" stroke-width="2.5" fill="none" opacity="0.8"/>
+
+  <!-- 传动 / drivetrain -->
+  <g stroke="#7c8794" stroke-width="4.5" fill="none" stroke-linecap="round">
+    <path d="M 601 566 L 430 580"/>
+    <path d="M 601 618 L 430 600"/>
+  </g>
+  <circle cx="430" cy="590" r="12" fill="none" stroke="#8b95a2" stroke-width="5"/>
+  <circle cx="430" cy="590" r="12" fill="none" stroke="#c3cbd5" stroke-width="4" stroke-dasharray="2 4"/>
+  <circle cx="600" cy="592" r="29" fill="none" stroke="#c7d1dc" stroke-width="7"/>
+  <circle cx="600" cy="592" r="32" fill="none" stroke="#9aa5b2" stroke-width="4" stroke-dasharray="3 5"/>
+  <circle cx="600" cy="592" r="7" fill="#5f6874"/>
+
+  <!-- 远侧曲柄 / far crank -->
+  <g stroke="#8d96a3" stroke-width="9" stroke-linecap="round" fill="none" opacity="0.9">
+    <path d="M 600 592 L 548 624"/>
+  </g>
+  <path d="M 534 620 L 558 632 L 552 642 L 528 630 Z" fill="#8d96a3" opacity="0.9"/>
+
+  <!-- ============ 鹈鹕 / pelican ============ -->
+  <!-- 尾羽 -->
+  <g fill="#efe9dc" stroke="#b9b0a0" stroke-width="3" stroke-linejoin="round">
+    <path d="M 474 344 C 438 348 404 360 382 378 C 406 384 440 386 468 382 Z"/>
+    <path d="M 472 366 C 444 374 416 392 398 412 C 426 410 458 402 478 390 Z"/>
+    <path d="M 478 386 C 458 400 440 420 430 440 C 454 432 480 416 494 400 Z"/>
+  </g>
+
+  <!-- 脖子（先描粗边再填色）-->
+  <path d="M 578 350 C 598 298 648 244 748 246" stroke="#b9b0a0" stroke-width="56" stroke-linecap="round" fill="none"/>
+  <path d="M 578 350 C 598 298 648 244 748 246" stroke="url(#plumage)" stroke-width="50" stroke-linecap="round" fill="none"/>
+  <path d="M 606 356 C 626 314 668 272 744 268" stroke="#d8cfbe" stroke-width="12" stroke-linecap="round" fill="none" opacity="0.55"/>
+
+  <!-- 身体 -->
+  <path d="M 452 356 C 462 316 512 296 556 306 C 598 316 616 358 600 396 C 586 430 546 450 508 442 C 474 434 448 400 452 356 Z" fill="url(#plumage)" stroke="#b9b0a0" stroke-width="3.5"/>
+  <path d="M 470 430 C 508 452 562 446 592 404" fill="none" stroke="#cdc4b2" stroke-width="7" opacity="0.6" stroke-linecap="round"/>
+  <path d="M 470 372 C 500 350 552 348 584 366" fill="none" stroke="#ffffff" stroke-width="8" opacity="0.5" stroke-linecap="round"/>
+
+  <!-- 喙与喉囊 -->
+  <path d="M 828 252 C 862 306 906 344 962 356 C 1000 363 1026 346 1024 318 C 1014 333 976 340 946 332 C 896 318 858 288 826 244 Z" fill="url(#pouchGrad)" stroke="#d9822b" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M 856 268 C 892 306 934 332 984 344" fill="none" stroke="#d7761f" stroke-width="3" opacity="0.5"/>
+  <path d="M 830 222 C 890 220 966 250 1030 312 C 1034 316 1030 324 1024 322 C 958 301 890 273 826 252 Z" fill="url(#beakTop)" stroke="#d9822b" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M 838 232 C 892 234 958 264 1012 318" fill="none" stroke="#fff0c0" stroke-width="4" opacity="0.55" stroke-linecap="round"/>
+
+  <!-- 头 -->
+  <path d="M 760 268 C 748 234 768 206 796 204 C 826 202 848 226 844 256 C 840 286 812 302 786 296 C 770 292 764 282 760 268 Z" fill="url(#plumage)" stroke="#b9b0a0" stroke-width="3.5"/>
+  <ellipse cx="806" cy="247" rx="24" ry="19" fill="#fff8ea" opacity="0.85"/>
+  <circle cx="809" cy="246" r="9" fill="#20262f"/>
+  <circle cx="812" cy="243" r="3.2" fill="#ffffff"/>
+  <path d="M 792 232 C 802 226 816 227 824 233" fill="none" stroke="#a89e8c" stroke-width="2.6" stroke-linecap="round"/>
+  <g stroke="#e2dac9" stroke-width="5" stroke-linecap="round" fill="none">
+    <path d="M 772 214 C 758 196 764 178 782 172"/>
+    <path d="M 786 206 C 776 186 786 170 804 166"/>
+    <path d="M 800 202 C 794 182 806 168 822 166"/>
+  </g>
+
+  <!-- 翅膀（抓车把）-->
+  <path d="M 552 340 C 598 326 650 346 684 380 C 718 414 762 428 812 434 C 826 436 826 452 812 454 C 758 456 706 442 668 418 C 640 400 592 372 552 340 Z" fill="url(#wingGrad)" stroke="#b0a795" stroke-width="3.2" stroke-linejoin="round"/>
+  <g fill="none" stroke="#bdb4a2" stroke-width="2.6" opacity="0.85" stroke-linecap="round">
+    <path d="M 588 356 C 618 372 646 392 668 414"/>
+    <path d="M 604 342 C 636 358 668 380 692 404"/>
+    <path d="M 622 332 C 656 348 692 372 716 396"/>
+    <path d="M 700 404 C 736 418 776 428 808 434"/>
+  </g>
+  <!-- 翼尖握住车把 -->
+  <path d="M 792 424 C 812 419 834 428 838 442 C 842 456 824 464 806 459 C 792 455 784 437 792 424 Z" fill="#f3ece0" stroke="#b0a795" stroke-width="3.2"/>
+  <path d="M 800 432 C 814 429 828 434 830 443" fill="none" stroke="#bdb4a2" stroke-width="2.4"/>
+
+  <!-- 近侧腿 + 脚踏 -->
+  <g stroke="#e0872f" stroke-width="17" stroke-linecap="round" fill="none">
+    <path d="M 566 436 C 590 456 606 470 614 494"/>
+  </g>
+  <g stroke="#d97b24" stroke-width="14" stroke-linecap="round" fill="none">
+    <path d="M 614 494 C 632 524 646 542 658 558"/>
+  </g>
+  <g stroke="#5f6874" stroke-width="10" stroke-linecap="round" fill="none">
+    <path d="M 600 592 L 654 560"/>
+  </g>
+  <path d="M 640 550 L 674 564 L 668 574 L 634 560 Z" fill="#3f444c"/>
+  <path d="M 646 556 C 640 545 649 538 662 541 L 682 546 C 689 548 689 557 680 559 L 656 563 Z" fill="#e0872f" stroke="#b96618" stroke-width="2.5"/>
+</svg>

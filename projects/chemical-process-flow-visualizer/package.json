@@ -1,0 +1,33 @@
+{
+  "name": "chemical-process-flow-visualizer",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "start": "tsx --env-file-if-exists=.env --env-file-if-exists=.env.local server/index.ts",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@xyflow/react": "^12.8.6",
+    "ajv": "^8.17.1",
+    "elkjs": "^0.10.0",
+    "html-to-image": "^1.11.13",
+    "lucide-react": "^1.40.0",
+    "openai": "^7.9.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.4.1",
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "@vitejs/plugin-react": "^5.0.2",
+    "tsx": "^4.23.13",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.4",
+    "vitest": "^3.2.4"
+  }
+}

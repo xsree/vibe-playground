@@ -1,0 +1,1307 @@
+{
+  "schemaVersion": "1.0",
+  "title": "二甲戊灵合成流程",
+  "description": "根据12步工艺流程描述生成的完整测试数据。明确串联的设备逐台展开，未明确内部连接的同类设备组采用聚合节点。",
+  "functionalAreas": [
+    {
+      "id": "area_feed_salt",
+      "name": "原料配制与成盐",
+      "description": "完成硝酸配制、计量、预成盐、成盐及成盐液分离。",
+      "nodeIds": ["src_concentrated_nitric_acid", "src_dilute_nitric_acid", "src_pentylamine", "eq_R1008", "eq_V1064", "eq_91ab02fe", "eq_X1001", "eq_R1010", "eq_R1020", "eq_M1003"]
+    },
+    {
+      "id": "area_nitration",
+      "name": "连续硝化",
+      "description": "成盐液经三级连续硝化，并汇集处理硝化气相。",
+      "nodeIds": ["src_metered_nitric_acid", "eq_a3f61c9d", "eq_R1012A", "eq_R1012B", "eq_R1012C", "eq_f3190b7e", "sink_nitration_offgas"]
+    },
+    {
+      "id": "area_neutralization",
+      "name": "中和分相与水洗",
+      "description": "硝化液完成中和、油水分离、水洗和暂存。",
+      "nodeIds": ["src_acid", "src_alkali", "src_process_water", "src_wash_water", "eq_R1013AB", "eq_M1006AB", "eq_R1014AB", "eq_V1038AB", "sink_acid_water_recovery"]
+    },
+    {
+      "id": "area_deazotization",
+      "name": "脱亚硝",
+      "description": "硝化液转料后加入辅助物料脱亚硝，并冷凝处理气相。",
+      "nodeIds": ["src_hydrochloric_acid", "src_sulfamic_acid", "eq_75ce091b", "eq_TC125", "eq_R1015AE", "eq_E1008AE", "sink_deazotization_condensate"]
+    },
+    {
+      "id": "area_post_wash",
+      "name": "脱亚硝后水洗",
+      "description": "脱亚硝物料经水洗和沉降分层，分出油相与废水。",
+      "nodeIds": ["eq_R1025AB", "eq_R1026AB", "sink_wastewater_treatment"]
+    },
+    {
+      "id": "area_solvent_recovery",
+      "name": "脱溶与溶剂回收",
+      "description": "油相脱除二氯乙烷，并对冷凝溶剂进行接收和分流。",
+      "nodeIds": ["eq_R1022BE", "eq_E1011BE", "eq_V1063AB", "sink_dce_reuse", "sink_offspec_disposal"]
+    },
+    {
+      "id": "area_refining",
+      "name": "精制与产品成型",
+      "description": "粗品经精制、重结晶、固液分离、热储和切片形成产品。",
+      "nodeIds": ["src_refining_solvent", "eq_43d7c102", "eq_5c8a31ef", "sink_mother_liquor", "eq_R1027", "eq_M1012", "eq_V1060"]
+    },
+    {
+      "id": "area_packaging",
+      "name": "包装与粉尘收集",
+      "description": "切片产品进入包装线，包装和切片粉尘统一收集。",
+      "nodeIds": ["eq_M1013_C2001", "eq_M1021_M1027", "sink_collected_dust", "sink_finished_goods_warehouse"]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "src_concentrated_nitric_acid",
+      "kind": "source",
+      "tag": null,
+      "name": "浓硝酸",
+      "equipmentType": null,
+      "shapeKey": "boundary.source",
+      "ports": [
+        { "id": "out-1", "direction": "out", "role": "material" }
+      ],
+      "attributes": {}
+    },
+    {
+      "id": "src_dilute_nitric_acid",
+      "kind": "source",
+      "tag": null,
+      "name": "稀硝酸",
+      "equipmentType": null,
+      "shapeKey": "boundary.source",
+      "ports": [
+        { "id": "out-1", "direction": "out", "role": "material" }
+      ],
+      "attributes": {}
+    },
+    {
+      "id": "src_pentylamine",
+      "kind": "source",
+      "tag": null,
+      "name": "戊胺",
+      "equipmentType": null,
+      "shapeKey": "boundary.source",
+      "ports": [
+        { "id": "out-1", "direction": "out", "role": "material" }
+      ],
+      "attributes": {}
+    },
+    {
+      "id": "src_metered_nitric_acid",
+      "kind": "source",
+      "tag": null,
+      "name": "硝化用计量硝酸",
+      "equipmentType": null,
+      "shapeKey": "boundary.source",
+      "ports": [
+        { "id": "out-1", "direction": "out", "role": "material" }
+      ],
+      "attributes": {}
+    },
+    {
+      "id": "src_acid",
+      "kind": "source",
+      "tag": null,
+      "name": "中和调节用酸",
+      "equipmentType": null,
+      "shapeKey": "boundary.source",
+      "ports": [
+        { "id": "out-1", "direction": "out", "role": "material" }
+      ],
+      "attributes": {}
+    },
+    {
+      "id": "src_alkali",
+      "kind": "source",
+      "tag": null,
+      "name": "中和用碱",
+      "equipmentType": null,
+      "shapeKey": "boundary.source",
+      "ports": [
+        { "id": "out-1", "direction": "out", "role": "material" }
+      ],
+      "attributes": {}
+    },
+    {
+      "id": "src_process_water",
+      "kind": "source",
+      "tag": null,
+      "name": "中和调节用水",
+      "equipmentType": null,
+      "shapeKey": "boundary.source",
+      "ports": [
+        { "id": "out-1", "direction": "out", "role": "utility" }
+      ],
+      "attributes": {}
+    },
+    {
+      "id": "src_wash_water",
+      "kind": "source",
+      "tag": null,
+      "name": "洗涤水",
+      "equipmentType": null,
+      "shapeKey": "boundary.source",
+      "ports": [
+        { "id": "out-1", "direction": "out", "role": "utility" }
+      ],
+      "attributes": {}
+    },
+    {
+      "id": "src_hydrochloric_acid",
+      "kind": "source",
+      "tag": null,
+      "name": "盐酸",
+      "equipmentType": null,
+      "shapeKey": "boundary.source",
+      "ports": [
+        { "id": "out-1", "direction": "out", "role": "material" }
+      ],
+      "attributes": {}
+    },
+    {
+      "id": "src_sulfamic_acid",
+      "kind": "source",
+      "tag": null,
+      "name": "氨基磺酸",
+      "equipmentType": null,
+      "shapeKey": "boundary.source",
+      "ports": [
+        { "id": "out-1", "direction": "out", "role": "material" }
+      ],
+      "attributes": {}
+    },
+    {
+      "id": "src_refining_solvent",
+      "kind": "source",
+      "tag": null,
+      "name": "精制溶剂",
+      "equipmentType": null,
+      "shapeKey": "boundary.source",
+      "ports": [
+        { "id": "out-1", "direction": "out", "role": "material" }
+      ],
+      "attributes": {}
+    },
+    {
+      "id": "eq_R1008",
+      "kind": "equipment",
+      "tag": "R1008",
+      "name": "硝酸配制釜",
+      "equipmentType": "硝酸配制釜",
+      "shapeKey": "vessel.stirred",
+      "ports": [
+        { "id": "in-concentrated", "direction": "in", "role": "material", "label": "浓硝酸入口" },
+        { "id": "in-dilute", "direction": "in", "role": "material", "label": "稀硝酸入口" },
+        { "id": "out-1", "direction": "out", "role": "material" }
+      ],
+      "attributes": { "operation": "硝酸浓度调整" }
+    },
+    {
+      "id": "eq_V1064",
+      "kind": "equipment",
+      "tag": "V1064",
+      "name": "配酸罐",
+      "equipmentType": "硝酸暂存罐",
+      "shapeKey": "tank.vertical",
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "material" },
+        { "id": "out-1", "direction": "out", "role": "material" }
+      ],
+      "attributes": { "operation": "合格硝酸暂存" }
+    },
+    {
+      "id": "eq_91ab02fe",
+      "kind": "equipment",
+      "tag": null,
+      "name": "硝酸计量输送设备",
+      "equipmentType": "计量输送设备",
+      "shapeKey": "machine.metering",
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "material" },
+        { "id": "out-1", "direction": "out", "role": "material" }
+      ],
+      "attributes": { "generatedId": true }
+    },
+    {
+      "id": "eq_X1001",
+      "kind": "equipment",
+      "tag": "X1001",
+      "name": "预成盐管式反应器",
+      "equipmentType": "管式反应器",
+      "shapeKey": "reactor.tubular",
+      "ports": [
+        { "id": "in-amine", "direction": "in", "role": "material", "label": "戊胺入口" },
+        { "id": "in-nitric", "direction": "in", "role": "material", "label": "硝酸入口" },
+        { "id": "out-1", "direction": "out", "role": "material" }
+      ],
+      "attributes": { "operation": "连续预成盐" }
+    },
+    {
+      "id": "eq_R1010",
+      "kind": "equipment",
+      "tag": "R1010",
+      "name": "成盐釜",
+      "equipmentType": "成盐反应釜",
+      "shapeKey": "vessel.stirred",
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "material" },
+        { "id": "out-1", "direction": "out", "role": "material" }
+      ],
+      "attributes": { "operation": "完成成盐" }
+    },
+    {
+      "id": "eq_R1020",
+      "kind": "equipment",
+      "tag": "R1020",
+      "name": "热储釜",
+      "equipmentType": "保温储存釜",
+      "shapeKey": "vessel.heated",
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "material" },
+        { "id": "out-1", "direction": "out", "role": "material" }
+      ],
+      "attributes": { "operation": "保温暂存" }
+    },
+    {
+      "id": "eq_M1003",
+      "kind": "equipment",
+      "tag": "M1003",
+      "name": "成盐分离器",
+      "equipmentType": "液液分离器",
+      "shapeKey": "separator.phase",
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "material" },
+        { "id": "out-salt", "direction": "out", "role": "material", "label": "成盐液" },
+        { "id": "out-water", "direction": "out", "role": "waste", "label": "水相或酸水" }
+      ],
+      "attributes": { "operation": "相分离" }
+    },
+    {
+      "id": "eq_a3f61c9d",
+      "kind": "equipment",
+      "tag": null,
+      "name": "连续硝化进料系统",
+      "equipmentType": "进料系统",
+      "shapeKey": "system.feeding",
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "material" },
+        { "id": "out-1", "direction": "out", "role": "material" }
+      ],
+      "attributes": { "generatedId": true }
+    },
+    {
+      "id": "eq_R1012A",
+      "kind": "equipment",
+      "tag": "R1012A",
+      "name": "一级硝化釜",
+      "equipmentType": "连续硝化釜",
+      "shapeKey": "vessel.stirred",
+      "ports": [
+        { "id": "in-salt", "direction": "in", "role": "material" },
+        { "id": "in-nitric", "direction": "in", "role": "material" },
+        { "id": "out-1", "direction": "out", "role": "material" },
+        { "id": "out-gas", "direction": "out", "role": "gas" }
+      ],
+      "attributes": { "seriesOrder": 1 }
+    },
+    {
+      "id": "eq_R1012B",
+      "kind": "equipment",
+      "tag": "R1012B",
+      "name": "二级硝化釜",
+      "equipmentType": "连续硝化釜",
+      "shapeKey": "vessel.stirred",
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "material" },
+        { "id": "out-1", "direction": "out", "role": "material" },
+        { "id": "out-gas", "direction": "out", "role": "gas" }
+      ],
+      "attributes": { "seriesOrder": 2 }
+    },
+    {
+      "id": "eq_R1012C",
+      "kind": "equipment",
+      "tag": "R1012C",
+      "name": "三级硝化釜",
+      "equipmentType": "连续硝化釜",
+      "shapeKey": "vessel.stirred",
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "material" },
+        { "id": "out-1", "direction": "out", "role": "material" },
+        { "id": "out-gas", "direction": "out", "role": "gas" }
+      ],
+      "attributes": { "seriesOrder": 3 }
+    },
+    {
+      "id": "eq_f3190b7e",
+      "kind": "equipment",
+      "tag": null,
+      "name": "硝化气相冷凝放空系统",
+      "equipmentType": "冷凝放空系统",
+      "shapeKey": "system.offgas",
+      "ports": [
+        { "id": "in-a", "direction": "in", "role": "gas" },
+        { "id": "in-b", "direction": "in", "role": "gas" },
+        { "id": "in-c", "direction": "in", "role": "gas" },
+        { "id": "out-1", "direction": "out", "role": "gas" }
+      ],
+      "attributes": { "generatedId": true }
+    },
+    {
+      "id": "eq_R1013AB",
+      "kind": "equipment",
+      "tag": "R1013A/B",
+      "name": "中和釜组",
+      "equipmentType": "中和釜",
+      "shapeKey": "vessel.stirred",
+      "quantity": 2,
+      "ports": [
+        { "id": "in-process", "direction": "in", "role": "material" },
+        { "id": "in-acid", "direction": "in", "role": "material" },
+        { "id": "in-alkali", "direction": "in", "role": "material" },
+        { "id": "in-water", "direction": "in", "role": "utility" },
+        { "id": "out-1", "direction": "out", "role": "material" }
+      ],
+      "attributes": { "members": ["R1013A", "R1013B"], "displayMode": "aggregate" }
+    },
+    {
+      "id": "eq_M1006AB",
+      "kind": "equipment",
+      "tag": "M1006A/B",
+      "name": "中和分离器组",
+      "equipmentType": "油水分离器",
+      "shapeKey": "separator.phase",
+      "quantity": 2,
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "material" },
+        { "id": "out-oil", "direction": "out", "role": "material" },
+        { "id": "out-water", "direction": "out", "role": "waste" }
+      ],
+      "attributes": { "members": ["M1006A", "M1006B"], "displayMode": "aggregate" }
+    },
+    {
+      "id": "eq_R1014AB",
+      "kind": "equipment",
+      "tag": "R1014A/B",
+      "name": "硝化液水洗釜组",
+      "equipmentType": "水洗釜",
+      "shapeKey": "vessel.stirred",
+      "quantity": 2,
+      "ports": [
+        { "id": "in-oil", "direction": "in", "role": "material" },
+        { "id": "in-water", "direction": "in", "role": "utility" },
+        { "id": "out-product", "direction": "out", "role": "material" },
+        { "id": "out-water", "direction": "out", "role": "waste" }
+      ],
+      "attributes": { "members": ["R1014A", "R1014B"], "displayMode": "aggregate" }
+    },
+    {
+      "id": "eq_V1038AB",
+      "kind": "equipment",
+      "tag": "V1038A/B",
+      "name": "硝化液储罐组",
+      "equipmentType": "硝化液储罐",
+      "shapeKey": "tank.vertical",
+      "quantity": 2,
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "material" },
+        { "id": "out-1", "direction": "out", "role": "material" }
+      ],
+      "attributes": { "members": ["V1038A", "V1038B"], "displayMode": "aggregate" }
+    },
+    {
+      "id": "eq_75ce091b",
+      "kind": "equipment",
+      "tag": null,
+      "name": "硝化液转料系统",
+      "equipmentType": "转料输送设备",
+      "shapeKey": "machine.transfer",
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "material" },
+        { "id": "out-1", "direction": "out", "role": "material" }
+      ],
+      "attributes": { "generatedId": true }
+    },
+    {
+      "id": "eq_R1015AE",
+      "kind": "equipment",
+      "tag": "R1015A-E",
+      "name": "脱亚硝釜组",
+      "equipmentType": "脱亚硝反应釜",
+      "shapeKey": "vessel.stirred",
+      "quantity": 5,
+      "ports": [
+        { "id": "in-process", "direction": "in", "role": "material" },
+        { "id": "in-hcl", "direction": "in", "role": "material" },
+        { "id": "in-sulfamic", "direction": "in", "role": "material" },
+        { "id": "out-product", "direction": "out", "role": "material" },
+        { "id": "out-gas", "direction": "out", "role": "gas" }
+      ],
+      "attributes": {
+        "members": ["R1015A", "R1015B", "R1015C", "R1015D", "R1015E"],
+        "displayMode": "aggregate"
+      }
+    },
+    {
+      "id": "eq_TC125",
+      "kind": "equipment",
+      "tag": "TC125",
+      "name": "管链机",
+      "equipmentType": "管链输送机",
+      "shapeKey": "conveyor.chain",
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "material" },
+        { "id": "out-1", "direction": "out", "role": "material" }
+      ],
+      "attributes": { "operation": "氨基磺酸输送" }
+    },
+    {
+      "id": "eq_E1008AE",
+      "kind": "equipment",
+      "tag": "E1008A-E",
+      "name": "脱亚硝冷凝器组",
+      "equipmentType": "冷凝器",
+      "shapeKey": "heat-exchanger.condenser",
+      "quantity": 5,
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "gas" },
+        { "id": "out-1", "direction": "out", "role": "waste" }
+      ],
+      "attributes": {
+        "members": ["E1008A", "E1008B", "E1008C", "E1008D", "E1008E"],
+        "displayMode": "aggregate"
+      }
+    },
+    {
+      "id": "eq_R1025AB",
+      "kind": "equipment",
+      "tag": "R1025A/B",
+      "name": "脱亚硝后水洗釜组",
+      "equipmentType": "水洗釜",
+      "shapeKey": "vessel.stirred",
+      "quantity": 2,
+      "ports": [
+        { "id": "in-process", "direction": "in", "role": "material" },
+        { "id": "in-water", "direction": "in", "role": "utility" },
+        { "id": "out-1", "direction": "out", "role": "material" }
+      ],
+      "attributes": { "members": ["R1025A", "R1025B"], "displayMode": "aggregate" }
+    },
+    {
+      "id": "eq_R1026AB",
+      "kind": "equipment",
+      "tag": "R1026A/B",
+      "name": "沉降分层设备组",
+      "equipmentType": "沉降分离器",
+      "shapeKey": "separator.settling",
+      "quantity": 2,
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "material" },
+        { "id": "out-oil", "direction": "out", "role": "material" },
+        { "id": "out-water", "direction": "out", "role": "waste" }
+      ],
+      "attributes": { "members": ["R1026A", "R1026B"], "displayMode": "aggregate" }
+    },
+    {
+      "id": "eq_R1022BE",
+      "kind": "equipment",
+      "tag": "R1022B-E",
+      "name": "粗脱及脱溶釜组",
+      "equipmentType": "真空脱溶釜",
+      "shapeKey": "vessel.vacuum",
+      "quantity": 4,
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "material" },
+        { "id": "out-bottom", "direction": "out", "role": "material" },
+        { "id": "out-vapor", "direction": "out", "role": "gas" }
+      ],
+      "attributes": {
+        "members": ["R1022B", "R1022C", "R1022D", "R1022E"],
+        "displayMode": "aggregate",
+        "operation": "真空脱二氯乙烷"
+      }
+    },
+    {
+      "id": "eq_E1011BE",
+      "kind": "equipment",
+      "tag": "E1011B-E",
+      "name": "二氯乙烷冷凝器组",
+      "equipmentType": "冷凝器",
+      "shapeKey": "heat-exchanger.condenser",
+      "quantity": 4,
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "gas" },
+        { "id": "out-1", "direction": "out", "role": "recycle" }
+      ],
+      "attributes": {
+        "members": ["E1011B", "E1011C", "E1011D", "E1011E"],
+        "displayMode": "aggregate"
+      }
+    },
+    {
+      "id": "eq_V1063AB",
+      "kind": "equipment",
+      "tag": "V1063A/B",
+      "name": "回收二氯乙烷接收罐组",
+      "equipmentType": "溶剂接收罐",
+      "shapeKey": "tank.vertical",
+      "quantity": 2,
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "recycle" },
+        { "id": "out-reuse", "direction": "out", "role": "recycle" },
+        { "id": "out-disposal", "direction": "out", "role": "waste" }
+      ],
+      "attributes": { "members": ["V1063A", "V1063B"], "displayMode": "aggregate" }
+    },
+    {
+      "id": "eq_43d7c102",
+      "kind": "equipment",
+      "tag": null,
+      "name": "精制与重结晶设备",
+      "equipmentType": "精制重结晶设备",
+      "shapeKey": "system.refining",
+      "ports": [
+        { "id": "in-crude", "direction": "in", "role": "material" },
+        { "id": "in-solvent", "direction": "in", "role": "material" },
+        { "id": "out-1", "direction": "out", "role": "material" }
+      ],
+      "attributes": {
+        "generatedId": true,
+        "detailStatus": "设备位号和内部连接顺序未明确"
+      }
+    },
+    {
+      "id": "eq_5c8a31ef",
+      "kind": "equipment",
+      "tag": null,
+      "name": "固液分离设备",
+      "equipmentType": "压滤机或离心机",
+      "shapeKey": "separator.solid-liquid",
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "material" },
+        { "id": "out-product", "direction": "out", "role": "material" },
+        { "id": "out-mother", "direction": "out", "role": "waste" }
+      ],
+      "attributes": {
+        "generatedId": true,
+        "alternatives": ["压滤机", "离心机"]
+      }
+    },
+    {
+      "id": "eq_R1027",
+      "kind": "equipment",
+      "tag": "R1027",
+      "name": "产品热储釜",
+      "equipmentType": "产品保温储存釜",
+      "shapeKey": "vessel.heated",
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "material" },
+        { "id": "out-1", "direction": "out", "role": "product" }
+      ],
+      "attributes": { "operation": "产品保温暂存" }
+    },
+    {
+      "id": "eq_M1012",
+      "kind": "equipment",
+      "tag": "M1012",
+      "name": "切片机",
+      "equipmentType": "冷却切片机",
+      "shapeKey": "machine.slicer",
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "product" },
+        { "id": "out-product", "direction": "out", "role": "product" },
+        { "id": "out-dust", "direction": "out", "role": "waste" }
+      ],
+      "attributes": { "operation": "冷却固化与切片" }
+    },
+    {
+      "id": "eq_V1060",
+      "kind": "equipment",
+      "tag": "V1060",
+      "name": "料仓",
+      "equipmentType": "产品缓冲料仓",
+      "shapeKey": "hopper",
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "product" },
+        { "id": "out-1", "direction": "out", "role": "product" }
+      ],
+      "attributes": { "operation": "切片产品缓冲" }
+    },
+    {
+      "id": "eq_M1013_C2001",
+      "kind": "equipment",
+      "tag": "M1013/C2001",
+      "name": "除尘支路",
+      "equipmentType": "粉尘收集系统",
+      "shapeKey": "collector.dust",
+      "quantity": 2,
+      "ports": [
+        { "id": "in-slicer", "direction": "in", "role": "waste" },
+        { "id": "in-packaging", "direction": "in", "role": "waste" },
+        { "id": "out-1", "direction": "out", "role": "waste" }
+      ],
+      "attributes": { "members": ["M1013", "C2001"], "displayMode": "aggregate" }
+    },
+    {
+      "id": "eq_M1021_M1027",
+      "kind": "equipment",
+      "tag": "M1021-M1027",
+      "name": "包装线",
+      "equipmentType": "产品计量装袋封装线",
+      "shapeKey": "line.packaging",
+      "quantity": 7,
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "product" },
+        { "id": "out-product", "direction": "out", "role": "product" },
+        { "id": "out-dust", "direction": "out", "role": "waste" }
+      ],
+      "attributes": {
+        "members": ["M1021", "M1022", "M1023", "M1024", "M1025", "M1026", "M1027"],
+        "displayMode": "aggregate"
+      }
+    },
+    {
+      "id": "sink_acid_water_recovery",
+      "kind": "sink",
+      "tag": null,
+      "name": "酸水回收或处理系统",
+      "equipmentType": null,
+      "shapeKey": "boundary.sink",
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "waste" }
+      ],
+      "attributes": {}
+    },
+    {
+      "id": "sink_nitration_offgas",
+      "kind": "sink",
+      "tag": null,
+      "name": "硝化尾气处理",
+      "equipmentType": null,
+      "shapeKey": "boundary.sink",
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "gas" }
+      ],
+      "attributes": {}
+    },
+    {
+      "id": "sink_deazotization_condensate",
+      "kind": "sink",
+      "tag": null,
+      "name": "脱亚硝冷凝物处理",
+      "equipmentType": null,
+      "shapeKey": "boundary.sink",
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "waste" }
+      ],
+      "attributes": {}
+    },
+    {
+      "id": "sink_wastewater_treatment",
+      "kind": "sink",
+      "tag": null,
+      "name": "水相回收或处理系统",
+      "equipmentType": null,
+      "shapeKey": "boundary.sink",
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "waste" }
+      ],
+      "attributes": {}
+    },
+    {
+      "id": "sink_dce_reuse",
+      "kind": "sink",
+      "tag": null,
+      "name": "前端二氯乙烷回用工序",
+      "equipmentType": null,
+      "shapeKey": "boundary.sink",
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "recycle" }
+      ],
+      "attributes": { "destinationDetail": "具体回用设备未明确" }
+    },
+    {
+      "id": "sink_offspec_disposal",
+      "kind": "sink",
+      "tag": null,
+      "name": "不合格回收物料处置系统",
+      "equipmentType": null,
+      "shapeKey": "boundary.sink",
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "waste" }
+      ],
+      "attributes": {}
+    },
+    {
+      "id": "sink_mother_liquor",
+      "kind": "sink",
+      "tag": null,
+      "name": "母液回收套用或处理系统",
+      "equipmentType": null,
+      "shapeKey": "boundary.sink",
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "waste" }
+      ],
+      "attributes": {}
+    },
+    {
+      "id": "sink_collected_dust",
+      "kind": "sink",
+      "tag": null,
+      "name": "收集粉尘去向",
+      "equipmentType": null,
+      "shapeKey": "boundary.sink",
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "waste" }
+      ],
+      "attributes": {}
+    },
+    {
+      "id": "sink_finished_goods_warehouse",
+      "kind": "sink",
+      "tag": null,
+      "name": "成品库",
+      "equipmentType": null,
+      "shapeKey": "warehouse",
+      "ports": [
+        { "id": "in-1", "direction": "in", "role": "product" }
+      ],
+      "attributes": {}
+    }
+  ],
+  "edges": [
+    {
+      "id": "flow_001",
+      "source": { "nodeId": "src_concentrated_nitric_acid", "portId": "out-1" },
+      "target": { "nodeId": "eq_R1008", "portId": "in-concentrated" },
+      "label": "浓硝酸",
+      "streamType": "feed",
+      "material": { "name": "浓硝酸", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_002",
+      "source": { "nodeId": "src_dilute_nitric_acid", "portId": "out-1" },
+      "target": { "nodeId": "eq_R1008", "portId": "in-dilute" },
+      "label": "稀硝酸",
+      "streamType": "feed",
+      "material": { "name": "稀硝酸", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_003",
+      "source": { "nodeId": "eq_R1008", "portId": "out-1" },
+      "target": { "nodeId": "eq_V1064", "portId": "in-1" },
+      "label": "配制合格硝酸",
+      "streamType": "main",
+      "material": { "name": "配制合格硝酸", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_004",
+      "source": { "nodeId": "eq_V1064", "portId": "out-1" },
+      "target": { "nodeId": "eq_91ab02fe", "portId": "in-1" },
+      "label": "暂存硝酸",
+      "streamType": "main",
+      "material": { "name": "硝酸", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_005",
+      "source": { "nodeId": "eq_91ab02fe", "portId": "out-1" },
+      "target": { "nodeId": "eq_X1001", "portId": "in-nitric" },
+      "label": "计量硝酸",
+      "streamType": "feed",
+      "material": { "name": "计量硝酸", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_006",
+      "source": { "nodeId": "src_pentylamine", "portId": "out-1" },
+      "target": { "nodeId": "eq_X1001", "portId": "in-amine" },
+      "label": "戊胺",
+      "streamType": "feed",
+      "material": { "name": "戊胺", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_007",
+      "source": { "nodeId": "eq_X1001", "portId": "out-1" },
+      "target": { "nodeId": "eq_R1010", "portId": "in-1" },
+      "label": "预成盐物料",
+      "streamType": "main",
+      "material": { "name": "预成盐物料", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_008",
+      "source": { "nodeId": "eq_R1010", "portId": "out-1" },
+      "target": { "nodeId": "eq_R1020", "portId": "in-1" },
+      "label": "成盐物料",
+      "streamType": "main",
+      "material": { "name": "成盐物料", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_009",
+      "source": { "nodeId": "eq_R1020", "portId": "out-1" },
+      "target": { "nodeId": "eq_M1003", "portId": "in-1" },
+      "label": "热储成盐物料",
+      "streamType": "main",
+      "material": { "name": "热储成盐物料", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_010",
+      "source": { "nodeId": "eq_M1003", "portId": "out-salt" },
+      "target": { "nodeId": "eq_a3f61c9d", "portId": "in-1" },
+      "label": "合格成盐液",
+      "streamType": "main",
+      "material": { "name": "合格成盐液", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_011",
+      "source": { "nodeId": "eq_M1003", "portId": "out-water" },
+      "target": { "nodeId": "sink_acid_water_recovery", "portId": "in-1" },
+      "label": "水相或酸水",
+      "streamType": "waste",
+      "material": { "name": "水相或酸水", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_012",
+      "source": { "nodeId": "eq_a3f61c9d", "portId": "out-1" },
+      "target": { "nodeId": "eq_R1012A", "portId": "in-salt" },
+      "label": "成盐液",
+      "streamType": "main",
+      "material": { "name": "成盐液", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_013",
+      "source": { "nodeId": "src_metered_nitric_acid", "portId": "out-1" },
+      "target": { "nodeId": "eq_R1012A", "portId": "in-nitric" },
+      "label": "计量硝酸",
+      "streamType": "feed",
+      "material": { "name": "计量硝酸", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_014",
+      "source": { "nodeId": "eq_R1012A", "portId": "out-1" },
+      "target": { "nodeId": "eq_R1012B", "portId": "in-1" },
+      "label": "一级硝化液",
+      "streamType": "main",
+      "material": { "name": "一级硝化液", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_015",
+      "source": { "nodeId": "eq_R1012B", "portId": "out-1" },
+      "target": { "nodeId": "eq_R1012C", "portId": "in-1" },
+      "label": "二级硝化液",
+      "streamType": "main",
+      "material": { "name": "二级硝化液", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_016",
+      "source": { "nodeId": "eq_R1012A", "portId": "out-gas" },
+      "target": { "nodeId": "eq_f3190b7e", "portId": "in-a" },
+      "label": "一级硝化气相",
+      "streamType": "gas",
+      "material": { "name": "硝化气相", "phase": "gas" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_017",
+      "source": { "nodeId": "eq_R1012B", "portId": "out-gas" },
+      "target": { "nodeId": "eq_f3190b7e", "portId": "in-b" },
+      "label": "二级硝化气相",
+      "streamType": "gas",
+      "material": { "name": "硝化气相", "phase": "gas" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_018",
+      "source": { "nodeId": "eq_R1012C", "portId": "out-gas" },
+      "target": { "nodeId": "eq_f3190b7e", "portId": "in-c" },
+      "label": "三级硝化气相",
+      "streamType": "gas",
+      "material": { "name": "硝化气相", "phase": "gas" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_019",
+      "source": { "nodeId": "eq_f3190b7e", "portId": "out-1" },
+      "target": { "nodeId": "sink_nitration_offgas", "portId": "in-1" },
+      "label": "处理后尾气",
+      "streamType": "gas",
+      "material": { "name": "处理后尾气", "phase": "gas" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_020",
+      "source": { "nodeId": "eq_R1012C", "portId": "out-1" },
+      "target": { "nodeId": "eq_R1013AB", "portId": "in-process" },
+      "label": "末级硝化液",
+      "streamType": "main",
+      "material": { "name": "末级硝化液", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_021",
+      "source": { "nodeId": "src_acid", "portId": "out-1" },
+      "target": { "nodeId": "eq_R1013AB", "portId": "in-acid" },
+      "label": "调节用酸",
+      "streamType": "feed",
+      "material": { "name": "调节用酸", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_022",
+      "source": { "nodeId": "src_alkali", "portId": "out-1" },
+      "target": { "nodeId": "eq_R1013AB", "portId": "in-alkali" },
+      "label": "中和用碱",
+      "streamType": "feed",
+      "material": { "name": "中和用碱", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_023",
+      "source": { "nodeId": "src_process_water", "portId": "out-1" },
+      "target": { "nodeId": "eq_R1013AB", "portId": "in-water" },
+      "label": "调节用水",
+      "streamType": "utility",
+      "material": { "name": "水", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_024",
+      "source": { "nodeId": "eq_R1013AB", "portId": "out-1" },
+      "target": { "nodeId": "eq_M1006AB", "portId": "in-1" },
+      "label": "中和混合物",
+      "streamType": "main",
+      "material": { "name": "中和混合物", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_025",
+      "source": { "nodeId": "eq_M1006AB", "portId": "out-oil" },
+      "target": { "nodeId": "eq_R1014AB", "portId": "in-oil" },
+      "label": "硝化油相",
+      "streamType": "main",
+      "material": { "name": "硝化油相", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_026",
+      "source": { "nodeId": "eq_M1006AB", "portId": "out-water" },
+      "target": { "nodeId": "sink_acid_water_recovery", "portId": "in-1" },
+      "label": "中和水相",
+      "streamType": "waste",
+      "material": { "name": "中和水相", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_027",
+      "source": { "nodeId": "src_wash_water", "portId": "out-1" },
+      "target": { "nodeId": "eq_R1014AB", "portId": "in-water" },
+      "label": "洗涤水",
+      "streamType": "utility",
+      "material": { "name": "洗涤水", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_028",
+      "source": { "nodeId": "eq_R1014AB", "portId": "out-product" },
+      "target": { "nodeId": "eq_V1038AB", "portId": "in-1" },
+      "label": "水洗硝化液",
+      "streamType": "main",
+      "material": { "name": "水洗硝化液", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_029",
+      "source": { "nodeId": "eq_R1014AB", "portId": "out-water" },
+      "target": { "nodeId": "sink_wastewater_treatment", "portId": "in-1" },
+      "label": "水洗水相",
+      "streamType": "waste",
+      "material": { "name": "水洗水相", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_030",
+      "source": { "nodeId": "eq_V1038AB", "portId": "out-1" },
+      "target": { "nodeId": "eq_75ce091b", "portId": "in-1" },
+      "label": "暂存硝化液",
+      "streamType": "main",
+      "material": { "name": "暂存硝化液", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_031",
+      "source": { "nodeId": "eq_75ce091b", "portId": "out-1" },
+      "target": { "nodeId": "eq_R1015AE", "portId": "in-process" },
+      "label": "硝化液",
+      "streamType": "main",
+      "material": { "name": "硝化液", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_032",
+      "source": { "nodeId": "src_hydrochloric_acid", "portId": "out-1" },
+      "target": { "nodeId": "eq_R1015AE", "portId": "in-hcl" },
+      "label": "盐酸",
+      "streamType": "feed",
+      "material": { "name": "盐酸", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_033",
+      "source": { "nodeId": "src_sulfamic_acid", "portId": "out-1" },
+      "target": { "nodeId": "eq_TC125", "portId": "in-1" },
+      "label": "氨基磺酸",
+      "streamType": "feed",
+      "material": { "name": "氨基磺酸", "phase": "solid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_034",
+      "source": { "nodeId": "eq_TC125", "portId": "out-1" },
+      "target": { "nodeId": "eq_R1015AE", "portId": "in-sulfamic" },
+      "label": "输送氨基磺酸",
+      "streamType": "feed",
+      "material": { "name": "氨基磺酸", "phase": "solid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_035",
+      "source": { "nodeId": "eq_R1015AE", "portId": "out-gas" },
+      "target": { "nodeId": "eq_E1008AE", "portId": "in-1" },
+      "label": "脱亚硝气相或蒸气",
+      "streamType": "gas",
+      "material": { "name": "脱亚硝气相或蒸气", "phase": "gas" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_036",
+      "source": { "nodeId": "eq_E1008AE", "portId": "out-1" },
+      "target": { "nodeId": "sink_deazotization_condensate", "portId": "in-1" },
+      "label": "脱亚硝冷凝物",
+      "streamType": "waste",
+      "material": { "name": "脱亚硝冷凝物", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_037",
+      "source": { "nodeId": "eq_R1015AE", "portId": "out-product" },
+      "target": { "nodeId": "eq_R1025AB", "portId": "in-process" },
+      "label": "脱亚硝物料",
+      "streamType": "main",
+      "material": { "name": "脱亚硝物料", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_038",
+      "source": { "nodeId": "src_wash_water", "portId": "out-1" },
+      "target": { "nodeId": "eq_R1025AB", "portId": "in-water" },
+      "label": "脱亚硝后洗涤水",
+      "streamType": "utility",
+      "material": { "name": "洗涤水", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_039",
+      "source": { "nodeId": "eq_R1025AB", "portId": "out-1" },
+      "target": { "nodeId": "eq_R1026AB", "portId": "in-1" },
+      "label": "水洗油水混合物",
+      "streamType": "main",
+      "material": { "name": "水洗油水混合物", "phase": "mixed" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_040",
+      "source": { "nodeId": "eq_R1026AB", "portId": "out-water" },
+      "target": { "nodeId": "sink_wastewater_treatment", "portId": "in-1" },
+      "label": "脱亚硝后水洗水相",
+      "streamType": "waste",
+      "material": { "name": "脱亚硝后水洗水相", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_041",
+      "source": { "nodeId": "eq_R1026AB", "portId": "out-oil" },
+      "target": { "nodeId": "eq_R1022BE", "portId": "in-1" },
+      "label": "含二氯乙烷油相",
+      "streamType": "main",
+      "material": {
+        "name": "含二氯乙烷油相",
+        "phase": "liquid",
+        "components": ["二甲戊灵粗品", "二氯乙烷"]
+      },
+      "attributes": {}
+    },
+    {
+      "id": "flow_042",
+      "source": { "nodeId": "eq_R1022BE", "portId": "out-vapor" },
+      "target": { "nodeId": "eq_E1011BE", "portId": "in-1" },
+      "label": "二氯乙烷蒸气",
+      "streamType": "gas",
+      "material": { "name": "二氯乙烷蒸气", "phase": "gas", "components": ["二氯乙烷"] },
+      "attributes": {}
+    },
+    {
+      "id": "flow_043",
+      "source": { "nodeId": "eq_E1011BE", "portId": "out-1" },
+      "target": { "nodeId": "eq_V1063AB", "portId": "in-1" },
+      "label": "回收二氯乙烷冷凝液",
+      "streamType": "recycle",
+      "material": { "name": "回收二氯乙烷", "phase": "liquid", "components": ["二氯乙烷"] },
+      "attributes": {}
+    },
+    {
+      "id": "flow_044",
+      "source": { "nodeId": "eq_V1063AB", "portId": "out-reuse" },
+      "target": { "nodeId": "sink_dce_reuse", "portId": "in-1" },
+      "label": "合格回收二氯乙烷",
+      "streamType": "recycle",
+      "material": { "name": "合格回收二氯乙烷", "phase": "liquid", "components": ["二氯乙烷"] },
+      "attributes": {}
+    },
+    {
+      "id": "flow_045",
+      "source": { "nodeId": "eq_V1063AB", "portId": "out-disposal" },
+      "target": { "nodeId": "sink_offspec_disposal", "portId": "in-1" },
+      "label": "不合格回收物料",
+      "streamType": "waste",
+      "material": { "name": "不合格回收物料", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_046",
+      "source": { "nodeId": "eq_R1022BE", "portId": "out-bottom" },
+      "target": { "nodeId": "eq_43d7c102", "portId": "in-crude" },
+      "label": "脱溶二甲戊灵粗品",
+      "streamType": "main",
+      "material": { "name": "二甲戊灵粗品", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_047",
+      "source": { "nodeId": "src_refining_solvent", "portId": "out-1" },
+      "target": { "nodeId": "eq_43d7c102", "portId": "in-solvent" },
+      "label": "精制溶剂",
+      "streamType": "feed",
+      "material": { "name": "精制溶剂", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_048",
+      "source": { "nodeId": "eq_43d7c102", "portId": "out-1" },
+      "target": { "nodeId": "eq_5c8a31ef", "portId": "in-1" },
+      "label": "重结晶固液混合物",
+      "streamType": "main",
+      "material": { "name": "重结晶固液混合物", "phase": "mixed" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_049",
+      "source": { "nodeId": "eq_5c8a31ef", "portId": "out-product" },
+      "target": { "nodeId": "eq_R1027", "portId": "in-1" },
+      "label": "精制二甲戊灵产品",
+      "streamType": "main",
+      "material": { "name": "精制二甲戊灵产品", "phase": "solid", "components": ["二甲戊灵"] },
+      "attributes": {}
+    },
+    {
+      "id": "flow_050",
+      "source": { "nodeId": "eq_5c8a31ef", "portId": "out-mother" },
+      "target": { "nodeId": "sink_mother_liquor", "portId": "in-1" },
+      "label": "精制母液",
+      "streamType": "waste",
+      "material": { "name": "精制母液", "phase": "liquid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_051",
+      "source": { "nodeId": "eq_R1027", "portId": "out-1" },
+      "target": { "nodeId": "eq_M1012", "portId": "in-1" },
+      "label": "热储二甲戊灵产品",
+      "streamType": "product",
+      "material": { "name": "二甲戊灵产品", "phase": "liquid", "components": ["二甲戊灵"] },
+      "attributes": {}
+    },
+    {
+      "id": "flow_052",
+      "source": { "nodeId": "eq_M1012", "portId": "out-product" },
+      "target": { "nodeId": "eq_V1060", "portId": "in-1" },
+      "label": "切片产品",
+      "streamType": "product",
+      "material": { "name": "二甲戊灵切片", "phase": "solid", "components": ["二甲戊灵"] },
+      "attributes": {}
+    },
+    {
+      "id": "flow_053",
+      "source": { "nodeId": "eq_M1012", "portId": "out-dust" },
+      "target": { "nodeId": "eq_M1013_C2001", "portId": "in-slicer" },
+      "label": "切片粉尘",
+      "streamType": "waste",
+      "material": { "name": "切片粉尘", "phase": "solid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_054",
+      "source": { "nodeId": "eq_V1060", "portId": "out-1" },
+      "target": { "nodeId": "eq_M1021_M1027", "portId": "in-1" },
+      "label": "料仓切片产品",
+      "streamType": "product",
+      "material": { "name": "二甲戊灵切片", "phase": "solid", "components": ["二甲戊灵"] },
+      "attributes": {}
+    },
+    {
+      "id": "flow_055",
+      "source": { "nodeId": "eq_M1021_M1027", "portId": "out-dust" },
+      "target": { "nodeId": "eq_M1013_C2001", "portId": "in-packaging" },
+      "label": "包装粉尘",
+      "streamType": "waste",
+      "material": { "name": "包装粉尘", "phase": "solid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_056",
+      "source": { "nodeId": "eq_M1013_C2001", "portId": "out-1" },
+      "target": { "nodeId": "sink_collected_dust", "portId": "in-1" },
+      "label": "收集粉尘",
+      "streamType": "waste",
+      "material": { "name": "收集粉尘", "phase": "solid" },
+      "attributes": {}
+    },
+    {
+      "id": "flow_057",
+      "source": { "nodeId": "eq_M1021_M1027", "portId": "out-product" },
+      "target": { "nodeId": "sink_finished_goods_warehouse", "portId": "in-1" },
+      "label": "包装合格二甲戊灵产品",
+      "streamType": "product",
+      "material": { "name": "包装二甲戊灵产品", "phase": "solid", "components": ["二甲戊灵"] },
+      "attributes": {}
+    }
+  ],
+  "layout": {
+    "mode": "auto",
+    "algorithm": "layered",
+    "direction": "RIGHT",
+    "nodes": {},
+    "edges": {}
+  },
+  "settings": {
+    "defaultRouting": "orthogonal",
+    "nodeSpacing": 80,
+    "layerSpacing": 160,
+    "preventNodeOverlap": true
+  }
+}

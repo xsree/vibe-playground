@@ -1,0 +1,4 @@
+- [ ] mineru能一条命令处理文件夹下的所有文件，现在是一条命令处理一个文件，用循环来处理所有文件，这样需要启动关闭mineru进程多次
+- [ ] mineru输出的content_list中有每个chunk的原pdf页码，为了让AI的回答可溯源，在markdown中添加来源页码。
+- [ ] markdown中的图片替换为MinIO链接
+- [ ] 如何处理大量的pdf，初始化工作区目录

@@ -1,11 +1,11 @@
 "use strict";
 
-const results = window.PELICAN_RESULTS;
+let results = window.PELICAN_RESULTS;
 const $ = selector => document.querySelector(selector);
 const collator = new Intl.Collator('en', {numeric: true, sensitivity: 'base'});
 
 // All unique harnesses
-const allHarnesses = [...new Set(results.map(item => item.harness))].sort(collator.compare);
+let allHarnesses = [...new Set(results.map(item => item.harness))].sort(collator.compare);
 $('#summary').textContent = `${results.length} 件作品 / ${allHarnesses.length} 个 Harness`;
 
 function element(tag, text, className) {
@@ -34,6 +34,32 @@ const filterState = {
   effort: '',
   type: ''    // '' | 'static' | 'animated'
 };
+
+const FILTER_STORAGE_KEY = 'svg-pelican-bicycle:filters:v1';
+
+function restoreFilters() {
+  try {
+    const saved = JSON.parse(window.localStorage.getItem(FILTER_STORAGE_KEY));
+    if (!saved || typeof saved !== 'object' || Array.isArray(saved)) return;
+    for (const key of Object.keys(filterState)) {
+      if (typeof saved[key] === 'string') filterState[key] = saved[key];
+    }
+  } catch {
+    // 本地存储不可用或数据损坏时，继续使用默认筛选。
+  }
+}
+
+function saveFilters() {
+  try {
+    if (Object.values(filterState).some(Boolean)) {
+      window.localStorage.setItem(FILTER_STORAGE_KEY, JSON.stringify(filterState));
+    } else {
+      window.localStorage.removeItem(FILTER_STORAGE_KEY);
+    }
+  } catch {
+    // 浏览器限制本地存储时，筛选功能仍可正常使用。
+  }
+}
 
 const CHECK_ICON_HTML = '<svg class="option-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>';
 const CHEVRON_RIGHT_HTML = '<svg class="vendor-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>';
@@ -149,9 +175,10 @@ function initStandardSelect(containerId, defaultLabel, filterKey, onSelectCallba
       const validValues = ['', ...newOptions.map(o => o.value !== undefined ? o.value : o)];
       if (resetIfInvalid && !validValues.includes(filterState[filterKey])) {
         filterState[filterKey] = '';
-        valueDisplay.textContent = defaultLabel;
-        trigger.classList.remove('has-value');
       }
+      const selectedOption = newOptions.find(o => (o.value !== undefined ? o.value : o) === filterState[filterKey]);
+      valueDisplay.textContent = selectedOption ? (selectedOption.label || selectedOption) : defaultLabel;
+      trigger.classList.toggle('has-value', Boolean(filterState[filterKey]));
       renderList();
     },
     reset() {
@@ -380,9 +407,11 @@ typeCtrl = initStandardSelect('#select-type', '全部形态', 'type', () => {
 });
 
 // Initial Setup
-harnessCtrl.setOptions(allHarnesses, false);
-effortCtrl.setOptions(getAvailableEfforts(), false);
-typeCtrl.setOptions(typeOptions, false);
+restoreFilters();
+harnessCtrl.setOptions(allHarnesses);
+modelCtrl.updateCascade();
+effortCtrl.setOptions(getAvailableEfforts());
+typeCtrl.setOptions(typeOptions);
 
 $('#btn-reset').addEventListener('click', () => {
   filterState.harness = '';
@@ -413,6 +442,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 function render() {
+  saveFilters();
   const selected = results.filter(item => {
     if (filterState.harness && item.harness !== filterState.harness) return false;
     if (filterState.vendor && getVendor(item).id !== filterState.vendor) return false;
@@ -508,3 +538,47 @@ $('#viewer').addEventListener('click', event => {
 });
 
 render();
+
+// 使用普通脚本轮询，兼容直接以 file:// 打开页面。
+let dataSnapshot = JSON.stringify(results);
+let dataCheckPending = false;
+
+function checkForDataUpdates() {
+  if (document.hidden || dataCheckPending) return;
+  dataCheckPending = true;
+
+  const script = document.createElement('script');
+  const source = new URL('gallery-data.js', document.baseURI);
+  source.searchParams.set('_check', Date.now());
+  script.src = source.href;
+
+  function cleanup() {
+    script.remove();
+    dataCheckPending = false;
+  }
+
+  script.onload = () => {
+    cleanup();
+    const nextResults = window.PELICAN_RESULTS;
+    if (!Array.isArray(nextResults)) return;
+    const nextSnapshot = JSON.stringify(nextResults);
+    if (nextSnapshot === dataSnapshot) return;
+
+    results = nextResults;
+    dataSnapshot = nextSnapshot;
+    allHarnesses = [...new Set(results.map(item => item.harness))].sort(collator.compare);
+    $('#summary').textContent = `${results.length} 件作品 / ${allHarnesses.length} 个 Harness`;
+    harnessCtrl.setOptions(allHarnesses);
+    modelCtrl.updateCascade();
+    effortCtrl.setOptions(getAvailableEfforts());
+    typeCtrl.setOptions(typeOptions);
+    render();
+  };
+  script.onerror = cleanup;
+  document.head.appendChild(script);
+}
+
+setInterval(checkForDataUpdates, 3000);
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) checkForDataUpdates();
+});

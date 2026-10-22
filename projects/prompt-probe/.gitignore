@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Ignore captured files but keep the captures directory
+captures/*
+!captures/.gitkeep

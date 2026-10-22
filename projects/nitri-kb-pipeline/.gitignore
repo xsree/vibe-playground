@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+
+# 虚拟环境
+.venv/
+venv/
+env/
+
+# 环境变量（含 API Key 等敏感信息）
+.env
+.env.*
+!.env.example
+
+# IDE / 编辑器
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 操作系统
+Thumbs.db
+.DS_Store
+
+# 日志 / 临时文件
+*.log
+*.tmp
+
+# 工作区数据文件（不纳入版本控制，通过 init-workspace 命令初始化）
+workspace/
+
+# Python 版本文件（可选，视团队约定决定是否跟踪）
+# .python-version
+"}
