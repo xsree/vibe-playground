@@ -107,56 +107,56 @@ window.PELICAN_RESULTS = [
     "file": "artworks/MiniMax-Code-MiniMax-M3.1-Flash-max-pelican-riding-bicycle.svg"
   },
   {
-    "harness": "opencode",
+    "harness": "OpenCode",
     "vendor": "匿名模型",
     "model": "big-pickle",
     "effort": "high",
     "file": "artworks/opencode-big-pickle-high-pelican-riding-bicycle.svg"
   },
   {
-    "harness": "opencode",
+    "harness": "OpenCode",
     "vendor": "Ant",
     "model": "ling-3.0-flash-fin-free",
     "effort": "high",
     "file": "artworks/opencode-ling-3.0-flash-fin-free-high-pelican-riding-bicycle.svg"
   },
   {
-    "harness": "opencode",
+    "harness": "OpenCode",
     "vendor": "小米",
     "model": "mimo-v2.5-free",
     "effort": "high",
     "file": "artworks/opencode-mimo-v2.5-free-high-pelican-riding-bicycle.svg"
   },
   {
-    "harness": "opencode",
+    "harness": "OpenCode",
     "vendor": "小米",
     "model": "mimo-v2.6-flash-free",
     "effort": "high",
     "file": "artworks/opencode-mimo-v2.6-flash-free-high-pelican-riding-bicycle.svg"
   },
   {
-    "harness": "opencode",
+    "harness": "OpenCode",
     "vendor": "Meta",
     "model": "muse-spark-1.2-contributor-free",
     "effort": "high",
     "file": "artworks/opencode-muse-spark-1.2-contributor-free-high-pelican-riding-bicycle.svg"
   },
   {
-    "harness": "opencode",
+    "harness": "OpenCode",
     "vendor": "Meta",
     "model": "muse-spark-1.3-contributor-free",
     "effort": "high",
     "file": "artworks/opencode-muse-spark-1.3-contributor-free-high-pelican-riding-bicycle.svg"
   },
   {
-    "harness": "opencode",
+    "harness": "OpenCode",
     "vendor": "NVIDIA",
     "model": "nemotron-3-ultra-free",
     "effort": "high",
     "file": "artworks/opencode-nemotron-3-ultra-free-high-pelican-riding-bicycle.svg"
   },
   {
-    "harness": "opencode",
+    "harness": "OpenCode",
     "vendor": "NVIDIA",
     "model": "nemotron-3.5-lightning",
     "effort": "high",
@@ -277,12 +277,12 @@ window.PELICAN_RESULTS = [
     "file": "artworks/Codex-GPT-6.1-Sol-high-pelican-riding-bicycle.svg"
   },
   {
-    "harness": "TraeCode",
+    "harness": "Trae",
     "vendor": "StepFun",
     "model": "Step-5-Preview",
     "effort": "high",
     "animated": true,
-    "file": "artworks/TraeCode-Step-5-Preview-high-animated-pelican-riding-bicycle.svg"
+    "file": "artworks/Trae-Step-5-Preview-high-animated-pelican-riding-bicycle.svg"
   },
   {
     "harness": "Codex",
@@ -293,11 +293,11 @@ window.PELICAN_RESULTS = [
     "file": "artworks/Codex-GPT-6.1-Sol-high-animated-pelican-riding-bicycle.svg"
   },
   {
-    "harness": "TraeCode",
+    "harness": "Trae",
     "vendor": "Zhipu",
     "model": "GLM-5.2",
     "effort": "high",
-    "file": "artworks/TraeCode-GLM-5.2-high-pelican-riding-bicycle.svg"
+    "file": "artworks/Trae-GLM-5.2-high-pelican-riding-bicycle.svg"
   },
   {
     "harness": "WorkBuddy",
@@ -308,11 +308,11 @@ window.PELICAN_RESULTS = [
     "file": "artworks/WorkBuddy-DeepSeek-V4.1-Flash-max-animated-pelican-riding-bicycle.svg"
   },
   {
-    "harness": "TraeCode",
+    "harness": "Trae",
     "vendor": "Moonshot",
     "model": "Kimi-K2.8-Preview",
     "effort": "max",
-    "file": "artworks/TraeCode-Kimi-K2.8-Preview-max-pelican-riding-bicycle.svg"
+    "file": "artworks/Trae-Kimi-K2.8-Preview-max-pelican-riding-bicycle.svg"
   },
   {
     "harness": "Codex",
@@ -462,5 +462,64 @@ window.PELICAN_RESULTS = [
     "effort": "high",
     "animated": true,
     "file": "artworks/Codex-DeepSeek-V4.1-Flash-1017-high-animated-pelican-riding-bicycle.svg"
+  },
+  {
+    "harness": "OpenCode",
+    "vendor": "DeepSeek",
+    "model": "DeepSeek-V4.1-Flash-1017-Free",
+    "effort": "xhigh",
+    "animated": true,
+  "file": "artworks/opencode-DeepSeek-V4.1-Flash-1017-Free-xhigh-animated-pelican-riding-bicycle.svg"
+  },
+  {
+    "harness": "OpenCode",
+    "vendor": "匿名模型",
+    "model": "beam-free",
+    "effort": "xhigh",
+    "file": "artworks/opencode-beam-free-xhigh-pelican-riding-bicycle.svg"
+  },
+  {
+    "harness": "Trae",
+    "vendor": "ByteDance",
+    "model": "Seed-2.1-Pro-0915",
+    "effort": "high",
+    "animated": true,
+    "file": "artworks/Trae-Seed-2.1-Pro-0915-high-animated-pelican-riding-bicycle.svg"
+  },
+  {
+    "harness": "OpenCode",
+    "vendor": "MiniMax",
+    "model": "minimax-m3.1-flash-free",
+    "effort": "xhigh",
+    "animated": true,
+    "file": "artworks/opencode-minimax-m3.1-flash-free-xhigh-animated-pelican-riding-bicycle.svg"
+  },
+  {
+    "harness": "Trae",
+    "vendor": "ByteDance",
+    "model": "Seed-2.1-Pro-0915",
+    "effort": "high",
+    "file": "artworks/Trae-Seed-2.1-Pro-0915-high-pelican-riding-bicycle.svg"
+  },
+  {
+    "harness": "Trae",
+    "vendor": "ByteDance",
+    "model": "Seed-Evolving-20261022",
+    "effort": "none",
+    "file": "artworks/Trae-Seed-Evolving-20261022-none-pelican-riding-bicycle.svg"
+  },
+  {
+    "harness": "Trae",
+    "vendor": "ByteDance",
+    "model": "Seed-Code",
+    "effort": "high",
+    "file": "artworks/Trae-Seed-Code-high-pelican-riding-bicycle.svg"
+  },
+  {
+    "harness": "Trae",
+    "vendor": "Zhipu",
+    "model": "GLM-5.3-FlashX",
+    "effort": "xhigh",
+    "file": "artworks/Trae-GLM-5.3-FlashX-xhigh-pelican-riding-bicycle.svg"
   }
 ];

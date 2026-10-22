@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" font-family="Georgia, serif">
+  <defs>
+    <!-- 天空渐变 -->
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#bfe3ff"/>
+      <stop offset="60%" stop-color="#e8f4ff"/>
+      <stop offset="100%" stop-color="#fff7e6"/>
+    </linearGradient>
+    <!-- 地面渐变 -->
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9ec98a"/>
+      <stop offset="100%" stop-color="#6fa85a"/>
+    </linearGradient>
+    <!-- 道路渐变 -->
+    <linearGradient id="road" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8a8a8a"/>
+      <stop offset="100%" stop-color="#5e5e5e"/>
+    </linearGradient>
+    <!-- 鹈鹕身体 -->
+    <radialGradient id="body" cx="0.35" cy="0.3" r="0.85">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="70%" stop-color="#f4f1e8"/>
+      <stop offset="100%" stop-color="#d8d2c2"/>
+    </radialGradient>
+    <!-- 鹈鹕喙/喉囊 -->
+    <linearGradient id="beak" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffb347"/>
+      <stop offset="55%" stop-color="#f78a1d"/>
+      <stop offset="100%" stop-color="#c95a0c"/>
+    </linearGradient>
+    <linearGradient id="pouch" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffd27a"/>
+      <stop offset="100%" stop-color="#e8923a"/>
+    </linearGradient>
+    <!-- 车架 -->
+    <linearGradient id="frame" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e23b3b"/>
+      <stop offset="100%" stop-color="#a31515"/>
+    </linearGradient>
+    <!-- 轮胎 -->
+    <radialGradient id="tire" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="78%" stop-color="#2b2b2b"/>
+      <stop offset="88%" stop-color="#111"/>
+      <stop offset="100%" stop-color="#000"/>
+    </radialGradient>
+    <!-- 太阳 -->
+    <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#fff4c2"/>
+      <stop offset="60%" stop-color="#ffd86b"/>
+      <stop offset="100%" stop-color="#ffb347"/>
+    </radialGradient>
+    <!-- 阴影 -->
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="4" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.35"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景天空 -->
+  <rect x="0" y="0" width="800" height="600" fill="url(#sky)"/>
+
+  <!-- 远山 -->
+  <path d="M0 420 L120 340 L220 390 L340 320 L460 380 L580 330 L700 380 L800 350 L800 460 L0 460 Z" fill="#b8d8c8" opacity="0.7"/>
+  <path d="M0 440 L100 380 L200 420 L320 370 L440 420 L560 380 L680 420 L800 390 L800 470 L0 470 Z" fill="#9fc8b4" opacity="0.8"/>
+
+  <!-- 太阳 -->
+  <circle cx="680" cy="110" r="52" fill="url(#sun)"/>
+  <circle cx="680" cy="110" r="72" fill="#ffe9a8" opacity="0.35"/>
+
+  <!-- 云朵 -->
+  <g fill="#ffffff" opacity="0.92">
+    <ellipse cx="140" cy="100" rx="55" ry="22"/>
+    <ellipse cx="180" cy="92" rx="42" ry="20"/>
+    <ellipse cx="110" cy="110" rx="38" ry="16"/>
+    <ellipse cx="430" cy="70" rx="48" ry="18"/>
+    <ellipse cx="470" cy="64" rx="34" ry="16"/>
+    <ellipse cx="400" cy="78" rx="30" ry="14"/>
+  </g>
+
+  <!-- 地面 -->
+  <rect x="0" y="460" width="800" height="140" fill="url(#ground)"/>
+  <!-- 道路 -->
+  <rect x="0" y="485" width="800" height="60" fill="url(#road)"/>
+  <!-- 道路虚线 -->
+  <g stroke="#fff4c2" stroke-width="5" stroke-linecap="round" stroke-dasharray="34 26" opacity="0.85">
+    <line x1="0" y1="515" x2="800" y2="515"/>
+  </g>
+  <!-- 路边小草 -->
+  <g stroke="#4f8a3a" stroke-width="2" stroke-linecap="round">
+    <path d="M30 488 q2 -12 4 0"/><path d="M55 490 q2 -10 4 0"/>
+    <path d="M740 488 q2 -12 4 0"/><path d="M765 490 q2 -10 4 0"/>
+  </g>
+
+  <!-- ===== 自行车 ===== -->
+  <g id="bicycle">
+    <!-- 地面投影 -->
+    <ellipse cx="410" cy="540" rx="210" ry="12" fill="#000" opacity="0.18"/>
+
+    <!-- 后轮 -->
+    <g>
+      <circle cx="245" cy="450" r="88" fill="url(#tire)"/>
+      <circle cx="245" cy="450" r="60" fill="#f5f5f5" stroke="#cfcfcf" stroke-width="2"/>
+      <circle cx="245" cy="450" r="10" fill="#888"/>
+      <g stroke="#bdbdbd" stroke-width="2">
+        <line x1="245" y1="390" x2="245" y2="510"/>
+        <line x1="185" y1="450" x2="305" y2="450"/>
+        <line x1="202" y1="407" x2="288" y2="493"/>
+        <line x1="288" y1="407" x2="202" y2="493"/>
+      </g>
+      <circle cx="245" cy="450" r="5" fill="#444"/>
+    </g>
+
+    <!-- 前轮 -->
+    <g>
+      <circle cx="585" cy="450" r="88" fill="url(#tire)"/>
+      <circle cx="585" cy="450" r="60" fill="#f5f5f5" stroke="#cfcfcf" stroke-width="2"/>
+      <circle cx="585" cy="450" r="10" fill="#888"/>
+      <g stroke="#bdbdbd" stroke-width="2">
+        <line x1="585" y1="390" x2="585" y2="510"/>
+        <line x1="525" y1="450" x2="645" y2="450"/>
+        <line x1="542" y1="407" x2="628" y2="493"/>
+        <line x1="628" y1="407" x2="542" y2="493"/>
+      </g>
+      <circle cx="585" cy="450" r="5" fill="#444"/>
+    </g>
+
+    <!-- 车架 -->
+    <g fill="none" stroke="url(#frame)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+      <!-- 下管：中轴 -> 头管 -->
+      <line x1="400" y1="470" x2="540" y2="360"/>
+      <!-- 座管：中轴 -> 座 -->
+      <line x1="400" y1="470" x2="420" y2="330"/>
+      <!-- 上管：座 -> 头管 -->
+      <line x1="420" y1="330" x2="540" y2="360"/>
+      <!-- 后下叉：中轴 -> 后轴 -->
+      <line x1="400" y1="470" x2="245" y2="450"/>
+      <!-- 后上叉：座 -> 后轴 -->
+      <line x1="420" y1="330" x2="245" y2="450"/>
+      <!-- 前叉：头管 -> 前轴 -->
+      <line x1="540" y1="360" x2="585" y2="450"/>
+    </g>
+
+    <!-- 中轴/曲柄 -->
+    <circle cx="400" cy="470" r="13" fill="#333" stroke="#666" stroke-width="2"/>
+    <circle cx="400" cy="470" r="5" fill="#999"/>
+
+    <!-- 牙盘 -->
+    <circle cx="400" cy="470" r="26" fill="none" stroke="#bbb" stroke-width="3"/>
+    <circle cx="400" cy="470" r="20" fill="none" stroke="#aaa" stroke-width="2"/>
+
+    <!-- 链条（简化） -->
+    <path d="M250 450 Q325 470 374 470" fill="none" stroke="#555" stroke-width="3" stroke-dasharray="4 3"/>
+    <path d="M374 486 Q325 500 255 478" fill="none" stroke="#555" stroke-width="3" stroke-dasharray="4 3"/>
+
+    <!-- 曲柄与踏板 -->
+    <g>
+      <!-- 左曲柄 -->
+      <line x1="400" y1="470" x2="362" y2="520" stroke="#333" stroke-width="7" stroke-linecap="round"/>
+      <rect x="348" y="512" width="28" height="12" rx="3" fill="#222"/>
+      <!-- 右曲柄 -->
+      <line x1="400" y1="470" x2="438" y2="422" stroke="#333" stroke-width="7" stroke-linecap="round"/>
+      <rect x="428" y="412" width="28" height="12" rx="3" fill="#222"/>
+    </g>
+
+    <!-- 座管与坐垫 -->
+    <line x1="420" y1="330" x2="412" y2="288" stroke="#222" stroke-width="6" stroke-linecap="round"/>
+    <path d="M380 286 Q412 276 444 286 Q446 296 412 300 Q378 296 380 286 Z" fill="#222"/>
+
+    <!-- 前叉顶盖 / 头管 -->
+    <circle cx="540" cy="360" r="10" fill="#222"/>
+
+    <!-- 车把竖管 -->
+    <line x1="540" y1="360" x2="555" y2="270" stroke="#222" stroke-width="7" stroke-linecap="round"/>
+
+    <!-- 车把 -->
+    <path d="M515 265 Q555 252 600 268" fill="none" stroke="#222" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="515" cy="265" r="7" fill="#111"/>
+    <circle cx="600" cy="268" r="7" fill="#111"/>
+  </g>
+
+  <!-- ===== 鹈鹕 ===== -->
+  <g id="pelican" filter="url(#softShadow)">
+    <!-- 尾巴 -->
+    <path d="M232 332 Q196 318 188 346 Q210 356 238 352 Z" fill="#e9e3d2" stroke="#c9c2ad" stroke-width="1.5"/>
+
+    <!-- 身体主体 -->
+    <ellipse cx="340" cy="332" rx="118" ry="62" fill="url(#body)" stroke="#c9c2ad" stroke-width="1.5"/>
+
+    <!-- 翅膀（收拢贴在身上） -->
+    <path d="M278 300 Q300 268 360 272 Q410 282 432 320 Q410 338 360 338 Q312 336 286 322 Z"
+          fill="#d8d2c2" stroke="#a8a28f" stroke-width="1.5"/>
+    <path d="M298 304 Q320 284 360 286 Q392 292 406 316" fill="none" stroke="#bdb7a3" stroke-width="2" stroke-linecap="round"/>
+    <!-- 翅膀尖端羽毛 -->
+    <path d="M420 318 Q438 312 448 326 Q438 332 426 330 Z" fill="#bfb8a4"/>
+
+    <!-- 腹部浅色 -->
+    <ellipse cx="330" cy="352" rx="78" ry="34" fill="#fdfaf0" opacity="0.85"/>
+
+    <!-- 脖子 -->
+    <path d="M430 314 Q470 286 500 250 Q510 240 506 232 Q490 236 470 258 Q444 292 426 318 Z"
+          fill="url(#body)" stroke="#c9c2ad" stroke-width="1.5"/>
+
+    <!-- 头 -->
+    <ellipse cx="508" cy="226" rx="30" ry="26" fill="url(#body)" stroke="#c9c2ad" stroke-width="1.5"/>
+
+    <!-- 头顶小冠羽 -->
+    <path d="M498 204 Q494 194 501 190 Q506 200 506 206 Z" fill="#cfc9b6"/>
+    <path d="M508 200 Q510 188 518 186 Q516 198 514 204 Z" fill="#cfc9b6"/>
+
+    <!-- 眼睛 -->
+    <circle cx="516" cy="220" r="5" fill="#fff"/>
+    <circle cx="517" cy="221" r="3.2" fill="#222"/>
+    <circle cx="518" cy="220" r="1" fill="#fff"/>
+    <!-- 眼周 -->
+    <circle cx="516" cy="220" r="6.5" fill="none" stroke="#f7c948" stroke-width="1.5"/>
+
+    <!-- 喙上颚（长而尖） -->
+    <path d="M528 226 Q612 232 656 250 Q648 256 612 250 Q560 246 528 236 Z"
+          fill="url(#beak)" stroke="#a35a08" stroke-width="1.2"/>
+    <!-- 喙尖端钩 -->
+    <path d="M650 248 Q662 254 656 262 Q648 258 648 250 Z" fill="#c95a0c"/>
+
+    <!-- 喉囊（下颌大袋） -->
+    <path d="M528 232 Q560 286 612 292 Q650 294 650 262 Q620 272 584 272 Q552 268 528 244 Z"
+          fill="url(#pouch)" stroke="#c97a2a" stroke-width="1.2" opacity="0.95"/>
+    <!-- 喉囊褶皱 -->
+    <path d="M548 252 Q566 272 600 278" fill="none" stroke="#c97a2a" stroke-width="1" opacity="0.6"/>
+    <path d="M562 258 Q580 276 614 280" fill="none" stroke="#c97a2a" stroke-width="1" opacity="0.5"/>
+
+    <!-- 脸颊浅色 -->
+    <ellipse cx="500" cy="236" rx="14" ry="10" fill="#fff" opacity="0.7"/>
+
+    <!-- 翅膀握把处：翼尖搭在车把 -->
+    <path d="M432 318 Q470 298 512 268" fill="none" stroke="#d8d2c2" stroke-width="9" stroke-linecap="round"/>
+    <path d="M432 318 Q470 298 512 268" fill="none" stroke="#a8a28f" stroke-width="1.2" stroke-linecap="round"/>
+
+    <!-- 腿与蹼足（踩踏板） -->
+    <g>
+      <!-- 左腿 -->
+      <path d="M316 380 Q326 430 352 470" fill="none" stroke="#f7a93a" stroke-width="9" stroke-linecap="round"/>
+      <path d="M316 380 Q326 430 352 470" fill="none" stroke="#d97706" stroke-width="1.2" stroke-linecap="round"/>
+      <!-- 蹼足（左踏板） -->
+      <path d="M352 470 Q344 476 338 486 Q352 488 368 484 Q372 476 360 470 Z" fill="#f7a93a" stroke="#b85a08" stroke-width="1.3"/>
+      <path d="M342 478 L360 476 M346 482 L360 481" stroke="#b85a08" stroke-width="1"/>
+      <!-- 右腿 -->
+      <path d="M372 384 Q400 420 436 418" fill="none" stroke="#f7a93a" stroke-width="9" stroke-linecap="round"/>
+      <path d="M372 384 Q400 420 436 418" fill="none" stroke="#d97706" stroke-width="1.2" stroke-linecap="round"/>
+      <!-- 蹼足（右踏板） -->
+      <path d="M436 418 Q448 414 460 418 Q460 428 448 432 Q434 430 428 422 Z" fill="#f7a93a" stroke="#b85a08" stroke-width="1.3"/>
+      <path d="M444 420 L456 422 M446 424 L456 426" stroke="#b85a08" stroke-width="1"/>
+    </g>
+  </g>
+
+  <!-- 小草前景 -->
+  <g stroke="#3f7a2e" stroke-width="2" stroke-linecap="round" fill="none">
+    <path d="M20 552 q3 -14 6 0"/>
+    <path d="M770 554 q3 -14 6 0"/>
+    <path d="M120 560 q2 -10 4 0"/>
+  </g>
+
+  <!-- 标题文字 -->
+  <text x="400" y="585" text-anchor="middle" fill="#5a4a2a" font-size="18" font-style="italic" opacity="0.75">
+    A Pelican Riding a Bicycle
+  </text>
+</svg>

@@ -175,28 +175,18 @@ h1 {
 [data-theme="dark"] .theme-rays { opacity: 0; transform: rotate(90deg) scale(.4); }
 [data-theme="dark"] .theme-stars { opacity: 1; transform: translateY(0) scale(1); }
 
-/* 支持视图过渡时，从按钮中心展开新主题。 */
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation: none;
-  mix-blend-mode: normal;
-}
-
-::view-transition-old(root) { z-index: 1; }
-::view-transition-new(root) {
-  z-index: 2;
-  animation: theme-reveal 580ms cubic-bezier(.22, 1, .36, 1) both;
-}
-
-@keyframes theme-reveal {
-  from { clip-path: circle(0 at var(--theme-x, 95%) var(--theme-y, 5%)); }
-  to { clip-path: circle(var(--theme-radius, 150vmax) at var(--theme-x, 95%) var(--theme-y, 5%)); }
-}
-
-/* 不支持视图过渡时，使用柔和的配色渐变。 */
+/* 同一界面的背景、文字与边框逐项变色。 */
 .theme-fading,
-.theme-fading :is(.summary, .toolbar, .select-trigger, .select-label, .select-value, .select-dropdown, .vendor-pane, .model-pane, .vendor-item, .vendor-item-all, .select-option, .toolbar-reset, .toolbar-count, .matrix, th, td, .effort, h1, .intro, footer, a, dialog) {
-  transition: background-color 500ms ease, color 500ms ease, border-color 500ms ease;
+.theme-fading :is(.summary, .toolbar, .select-trigger, .select-label, .select-value, .select-dropdown, .vendor-pane, .model-pane, .vendor-item, .vendor-item-all, .vendor-badge, .vendor-arrow, .model-pane-header, .select-option, .option-badge, .option-check, .option-empty, .toolbar-reset, .toolbar-count, .matrix, th, td, .model, .effort, .artwork, h1, .intro, footer, a, dialog, .dialog-bar button, #filename) {
+  transition: background-color 500ms ease, color 500ms ease, border-color 500ms ease, outline-color 500ms ease;
+}
+
+.theme-fading .theme-toggle {
+  transition: transform 180ms ease, background-color 500ms ease, color 500ms ease, border-color 500ms ease, box-shadow 180ms ease;
+}
+
+.theme-fading .select-arrow {
+  transition: transform 200ms cubic-bezier(.16, 1, .36, 1), color 500ms ease;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -205,8 +195,6 @@ h1 {
   .theme-fading,
   .theme-fading * { transition: none !important; }
   .theme-toggle:hover { transform: none; }
-  ::view-transition-old(root),
-  ::view-transition-new(root) { animation: none !important; }
 }
 
 /* ============================================================
@@ -346,6 +334,11 @@ h1 {
   display: block;
 }
 
+.select-dropdown[data-side="above"] {
+  top: auto;
+  bottom: calc(100% + 6px);
+}
+
 /* ============================================================
    Two-level Model Flyout Menu
    ============================================================ */
@@ -364,7 +357,7 @@ h1 {
 .model-dropdown-inner {
   display: flex;
   width: 100%;
-  height: 340px;
+  max-height: calc(var(--dropdown-max-height, 100dvh) - 2px);
 }
 
 /* Left Pane: Vendors */
@@ -373,6 +366,7 @@ h1 {
   border-right: 1px solid var(--line-soft);
   background: var(--surface-soft);
   padding: 6px;
+  max-height: calc(var(--dropdown-max-height, 100dvh) - 2px);
   overflow-y: auto;
   overscroll-behavior: contain;
   display: flex;
@@ -463,6 +457,7 @@ h1 {
   flex: 1;
   background: var(--surface);
   padding: 6px;
+  max-height: calc(var(--dropdown-max-height, 100dvh) - 2px);
   overflow-y: auto;
   overscroll-behavior: contain;
   display: flex;
@@ -485,7 +480,7 @@ h1 {
 
 /* Options List for single level dropdowns */
 .select-options-list {
-  max-height: 250px;
+  max-height: calc(var(--dropdown-max-height, 100dvh) - 14px);
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-width: thin;
@@ -509,6 +504,7 @@ h1 {
 /* Option Item */
 .select-option {
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
@@ -629,8 +625,7 @@ h1 {
 .matrix {
   position: relative;
   z-index: 10;
-  overflow: auto;
-  max-height: calc(100vh - 275px);
+  overflow-x: auto;
   min-height: 320px;
   border: 1px solid var(--line);
   background: var(--surface);
@@ -901,20 +896,23 @@ h2 {
   }
   .model-dropdown-inner {
     flex-direction: column;
-    height: 380px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
   .vendor-pane {
     width: 100%;
-    height: 150px;
     border-right: 0;
     border-bottom: 1px solid var(--line-soft);
+  }
+  .vendor-pane,
+  .model-pane {
+    flex: none;
+    max-height: none;
+    overflow: visible;
   }
   .toolbar-reset {
     width: 100%;
     justify-content: center;
-  }
-  .matrix {
-    max-height: 65vh;
   }
   thead th:first-child {
     width: 150px;

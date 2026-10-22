@@ -3,9 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="在同一个界面中播放、暂停和比较九种明暗主题切换动画。">
+  <meta name="description" content="在同一个界面中播放、暂停和比较四十二种明暗主题切换动画，探索光线、材质、工艺与空间的变化。">
   <title>明暗之间 · 主题切换效果试映</title>
   <link rel="stylesheet" href="showcase.css">
+  <script src="authored-effects.js" defer></script>
+  <script src="craft-effects.js" defer></script>
+  <script src="physical-effects.js" defer></script>
   <script src="showcase.js" defer></script>
 </head>
 <body>
@@ -17,14 +20,14 @@
 
     <main>
       <section class="intro" aria-labelledby="page-title">
-        <div><p class="eyebrow"><span></span> AN INTERACTIVE MOTION INDEX</p><h1 id="page-title">同一个界面。<br><span>九种过渡。</span></h1></div>
-        <div class="intro-aside"><p>明暗切换，不必只凭想象。</p><p>选一个效果，亲手播放。也可以拖动进度，<br class="desktop-break">看清光与暗如何交换位置。</p><a href="#comparison">直接并排比较 <span aria-hidden="true">↘</span></a></div>
+        <div><p class="eyebrow"><span></span> AN INTERACTIVE MOTION INDEX</p><h1 id="page-title">同一个界面。<br><span>四十二种过渡。</span></h1></div>
+        <div class="intro-aside"><p>明暗切换，不必只凭想象。</p><p>选一个效果，亲手播放。也可以拖动进度，<br class="desktop-break">看清光与暗如何交换位置。</p><a href="#comparison">直接并排比较 <span aria-hidden="true">↘</span></a><button id="show-physical" class="intro-shortcut" type="button">新增 10 种物理与空间 <span aria-hidden="true">↗</span></button><button id="show-craft" class="intro-shortcut" type="button">10 种工艺与显像 <span aria-hidden="true">↗</span></button><button id="show-authored" class="intro-shortcut" type="button">8 种材质与叙事 <span aria-hidden="true">↗</span></button></div>
       </section>
 
       <section class="workbench" aria-label="效果试映台">
         <nav class="effect-nav" aria-label="选择切换效果"><div class="section-kicker">01 — 选择效果</div><div id="effect-list"></div><p class="nav-note">所有示例使用相同内容与配色，<br>只比较过渡本身。</p></nav>
         <div class="preview-panel">
-          <div class="preview-heading"><div><span id="active-index" class="section-kicker">STUDY 01 / 09</span><h2 id="active-title">圆形扩散</h2></div><span id="active-tag" class="effect-tag">当前画廊</span></div>
+          <div class="preview-heading"><div><span id="active-index" class="section-kicker">STUDY 01 / 42</span><h2 id="active-title">圆形扩散</h2></div><span id="active-tag" class="effect-tag">径向展开</span></div>
           <div id="main-demo" class="demo demo-main"></div>
           <div class="demo-caption"><p id="active-description"></p><span id="direction-label">浅色 → 深色</span></div>
           <div class="playback-controls">
@@ -42,7 +45,7 @@
         <div id="comparison-grid" class="comparison-grid"></div>
       </section>
 
-      <footer class="page-footer"><span>09 STUDIES <span class="footer-dot">·</span> LIGHT ↔ DARK</span><p>按钮图标保持一致，让注意力留给过渡。</p><a href="../../benchmarks/svg-pelican-bicycle/index.html">返回鹈鹕画廊 ↗</a></footer>
+      <footer class="page-footer"><span>42 STUDIES <span class="footer-dot">·</span> LIGHT ↔ DARK</span><p>按钮图标保持一致，让注意力留给过渡。</p><a href="../../benchmarks/svg-pelican-bicycle/index.html">返回鹈鹕画廊 ↗</a></footer>
     </main>
   </div>
 

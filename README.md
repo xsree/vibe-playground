@@ -34,4 +34,4 @@
 | [nitri-kb-pipeline](projects/nitri-kb-pipeline/) | Python CLI 管线 | PDF 自动化拆分、提取与高价值知识库构建流水线 |
 | [chemical-process-flow-visualizer](projects/chemical-process-flow-visualizer/) | Web 工具 (React + TS) | 基于 React Flow 与 ELK.js 的化工工艺流程可视化、结构化解析与自动排版平台 |
 | [prompt-probe](projects/prompt-probe/) | Python CLI 工具 | 伪装 OpenAI 兼容接口以捕获 Coding Agent 首个请求系统提示词的诊断工具 |
-| [theme-transition-showcase](projects/theme-transition-showcase/) | 前端交互展示 | 9 种明暗主题切换动画，支持并排比较、进度拖动和时长调节 |
+| [theme-transition-showcase](projects/theme-transition-showcase/) | 前端交互展示 | 42 种明暗主题切换动画，涵盖光线、材质、工艺与空间，支持并排比较和进度拖动 |

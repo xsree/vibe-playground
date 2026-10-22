@@ -114,6 +114,33 @@ function closeAllSelects() {
   });
 }
 
+// Expand to content height; constrain only when neither side has enough room.
+function fitSelectDropdown(container) {
+  if (!container.classList.contains('is-open')) return;
+  const dropdown = container.querySelector('.select-dropdown');
+  const trigger = container.querySelector('.select-trigger').getBoundingClientRect();
+  const viewport = window.visualViewport;
+  const viewportTop = viewport?.offsetTop ?? 0;
+  const viewportBottom = viewportTop + (viewport?.height ?? window.innerHeight);
+  const below = Math.max(0, viewportBottom - trigger.bottom - 18);
+  const above = Math.max(0, trigger.top - viewportTop - 18);
+
+  dropdown.style.setProperty('--dropdown-max-height', '100000px');
+  const contentHeight = dropdown.offsetHeight;
+  const opensAbove = contentHeight > below && above > below;
+  dropdown.dataset.side = opensAbove ? 'above' : 'below';
+  dropdown.style.setProperty('--dropdown-max-height', `${opensAbove ? above : below}px`);
+}
+
+function fitOpenSelectDropdowns() {
+  document.querySelectorAll('.custom-select.is-open').forEach(fitSelectDropdown);
+}
+
+window.addEventListener('resize', fitOpenSelectDropdowns);
+window.addEventListener('scroll', fitOpenSelectDropdowns, { passive: true });
+window.visualViewport?.addEventListener('resize', fitOpenSelectDropdowns);
+window.visualViewport?.addEventListener('scroll', fitOpenSelectDropdowns);
+
 // Standard Single-Level Select Controller (Harness, Effort, Type)
 function initStandardSelect(containerId, defaultLabel, filterKey, onSelectCallback) {
   const container = $(containerId);
@@ -166,6 +193,7 @@ function initStandardSelect(containerId, defaultLabel, filterKey, onSelectCallba
     if (willOpen) {
       container.classList.add('is-open');
       trigger.setAttribute('aria-expanded', 'true');
+      fitSelectDropdown(container);
     }
   });
 
@@ -299,6 +327,7 @@ function initTwoLevelModelSelect(onModelChanged) {
       empty.className = 'option-empty';
       empty.textContent = '当前平台下暂无该厂商模型';
       modelSublistEl.appendChild(empty);
+      fitSelectDropdown(container);
       return;
     }
 
@@ -321,6 +350,7 @@ function initTwoLevelModelSelect(onModelChanged) {
       });
       modelSublistEl.appendChild(opt);
     });
+    fitSelectDropdown(container);
   }
 
   function selectModel(vendorId, modelName, displayLabel) {

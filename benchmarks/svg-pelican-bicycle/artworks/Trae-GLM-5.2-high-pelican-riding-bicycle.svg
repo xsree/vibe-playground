@@ -242,5 +242,5 @@
 
   <!-- 标题 -->
   <text x="400" y="42" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-size="24" font-weight="700" fill="#263238">Pelican Riding a Bicycle</text>
-  <text x="400" y="64" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-size="13" fill="#546E7A" font-style="italic">TraeCode × GLM-5.2 · effort: high</text>
+  <text x="400" y="64" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-size="13" fill="#546E7A" font-style="italic">Trae × GLM-5.2 · effort: high</text>
 </svg>

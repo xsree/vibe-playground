@@ -7,7 +7,7 @@
   const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let preference = null;
-  let switching = false;
+  let transitionTimer;
 
   try {
     const saved = window.localStorage.getItem(storageKey);
@@ -32,8 +32,22 @@
 
     applyTheme(root.dataset.theme);
 
-    button.addEventListener('click', async () => {
-      if (switching) return;
+    function changeTheme(theme) {
+      window.clearTimeout(transitionTimer);
+      if (reducedMotion.matches) {
+        root.classList.remove('theme-fading');
+        applyTheme(theme);
+        return;
+      }
+
+      root.classList.add('theme-fading');
+      // 先提交过渡样式，让本次配色变化从当前颜色平滑开始。
+      void root.offsetWidth;
+      applyTheme(theme);
+      transitionTimer = window.setTimeout(() => root.classList.remove('theme-fading'), 600);
+    }
+
+    button.addEventListener('click', () => {
       const nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
       preference = nextTheme;
       try {
@@ -42,39 +56,11 @@
         // 不影响主题切换。
       }
 
-      if (reducedMotion.matches) {
-        applyTheme(nextTheme);
-        return;
-      }
-
-      switching = true;
-      try {
-        if (typeof document.startViewTransition === 'function') {
-          const rect = button.getBoundingClientRect();
-          const x = rect.left + rect.width / 2;
-          const y = rect.top + rect.height / 2;
-          const radius = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
-          root.style.setProperty('--theme-x', `${x}px`);
-          root.style.setProperty('--theme-y', `${y}px`);
-          root.style.setProperty('--theme-radius', `${radius}px`);
-          const transition = document.startViewTransition(() => applyTheme(nextTheme));
-          // 页面切到后台时过渡可能被跳过，主题仍应正常生效。
-          await transition.finished;
-        } else {
-          root.classList.add('theme-fading');
-          applyTheme(nextTheme);
-          await new Promise(resolve => window.setTimeout(resolve, 600));
-        }
-      } catch {
-        applyTheme(nextTheme);
-      } finally {
-        root.classList.remove('theme-fading');
-        switching = false;
-      }
+      changeTheme(nextTheme);
     });
 
     systemTheme.addEventListener('change', () => {
-      if (!preference) applyTheme(systemTheme.matches ? 'dark' : 'light');
+      if (!preference) changeTheme(systemTheme.matches ? 'dark' : 'light');
     });
   });
 })();
