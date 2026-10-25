@@ -93,11 +93,11 @@ window.PELICAN_RESULTS = [
     "file": "artworks/Codex-GPT-6-Astra-animated-pelican-riding-bicycle.svg"
   },
   {
-    "harness": "Doubao-Desktop",
+    "harness": "豆包工作",
     "vendor": "ByteDance",
-    "model": "Doubao",
+    "model": "豆包 2.1 Pro",
     "effort": "high",
-    "file": "artworks/Doubao-Desktop-Doubao-high-pelican-riding-bicycle.svg"
+    "file": "artworks/Doubao-Desktop-Doubao-2.1-Pro-high-pelican-riding-bicycle.svg"
   },
   {
     "harness": "MiniMax-Code",
@@ -108,13 +108,6 @@ window.PELICAN_RESULTS = [
   },
   {
     "harness": "OpenCode",
-    "vendor": "匿名模型",
-    "model": "big-pickle",
-    "effort": "high",
-    "file": "artworks/opencode-big-pickle-high-pelican-riding-bicycle.svg"
-  },
-  {
-    "harness": "OpenCode",
     "vendor": "Ant",
     "model": "ling-3.0-flash-fin-free",
     "effort": "high",
@@ -122,14 +115,14 @@ window.PELICAN_RESULTS = [
   },
   {
     "harness": "OpenCode",
-    "vendor": "小米",
+    "vendor": "Xiaomi",
     "model": "mimo-v2.5-free",
     "effort": "high",
     "file": "artworks/opencode-mimo-v2.5-free-high-pelican-riding-bicycle.svg"
   },
   {
     "harness": "OpenCode",
-    "vendor": "小米",
+    "vendor": "Xiaomi",
     "model": "mimo-v2.6-flash-free",
     "effort": "high",
     "file": "artworks/opencode-mimo-v2.6-flash-free-high-pelican-riding-bicycle.svg"
@@ -163,14 +156,21 @@ window.PELICAN_RESULTS = [
     "file": "artworks/opencode-nemotron-3.5-lightning-high-pelican-riding-bicycle.svg"
   },
   {
-    "harness": "QwenWork-Desktop",
+    "harness": "OpenCode",
+    "vendor": "NVIDIA",
+    "model": "nemotron-3.5-super-vl-free",
+    "effort": "xhigh",
+    "file": "artworks/opencode-nemotron-3.5-super-vl-free-xhigh-pelican-riding-bicycle.svg"
+  },
+  {
+    "harness": "千问办公",
     "vendor": "Alibaba",
     "model": "qwen-3.8-flash-next",
     "effort": "high",
     "file": "artworks/QwenWork-Desktop-qwen-3.8-flash-next-high-pelican-riding-bicycle.svg"
   },
   {
-    "harness": "QwenWork-Desktop",
+    "harness": "千问办公",
     "vendor": "Alibaba",
     "model": "Qwen-3.8-Max",
     "effort": "high",
@@ -256,14 +256,7 @@ window.PELICAN_RESULTS = [
   },
   {
     "harness": "WorkBuddy",
-    "vendor": "匿名模型",
-    "model": "Space-Bunny",
-    "effort": "high",
-    "file": "artworks/WorkBuddy-Space-Bunny-high-pelican-riding-bicycle.svg"
-  },
-  {
-    "harness": "WorkBuddy",
-    "vendor": "小米",
+    "vendor": "Xiaomi",
     "model": "MiMo-V2.6-Pro",
     "effort": "high",
     "animated": true,
@@ -470,13 +463,6 @@ window.PELICAN_RESULTS = [
     "effort": "xhigh",
     "animated": true,
   "file": "artworks/opencode-DeepSeek-V4.1-Flash-1017-Free-xhigh-animated-pelican-riding-bicycle.svg"
-  },
-  {
-    "harness": "OpenCode",
-    "vendor": "匿名模型",
-    "model": "beam-free",
-    "effort": "xhigh",
-    "file": "artworks/opencode-beam-free-xhigh-pelican-riding-bicycle.svg"
   },
   {
     "harness": "Trae",

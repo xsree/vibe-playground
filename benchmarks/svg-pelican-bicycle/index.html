@@ -7,6 +7,7 @@
   <script src="theme.js"></script>
   <link rel="stylesheet" href="gallery.css">
   <script src="gallery-data.js" defer></script>
+  <script src="gallery-view.js" defer></script>
   <script src="gallery.js" defer></script>
 </head>
 <body>
@@ -14,7 +15,7 @@
     <div>
       <p class="eyebrow">SVG COLLECTION / 2026</p>
       <h1>鹈鹕骑自行车</h1>
-      <p class="intro">横向对照 Harness，纵向浏览模型与思考强度。点击作品放大。</p>
+      <p class="intro">浏览作品，挑选模型，并排比较。</p>
     </div>
     <div class="header-actions">
       <p id="summary" class="summary"></p>
@@ -102,13 +103,41 @@
         </button>
       </div>
 
-      <div id="count" class="toolbar-count" role="status"></div>
+      <div class="workspace-options">
+        <div class="view-switch" role="group" aria-label="展示方式">
+          <button type="button" data-view="gallery" aria-pressed="true">画廊</button>
+          <button type="button" data-view="matrix" aria-pressed="false">矩阵</button>
+        </div>
+        <div class="gallery-options">
+          <label class="compact-field">分组
+            <select id="group-by"><option value="none">不分组</option><option value="vendor">厂商</option><option value="model">模型</option><option value="harness">平台</option></select>
+          </label>
+          <div class="density-switch" role="group" aria-label="缩略图尺寸">
+            <button type="button" data-density="large" aria-pressed="false">大图</button>
+            <button type="button" data-density="standard" aria-pressed="true">标准</button>
+            <button type="button" data-density="compact" aria-pressed="false">紧凑</button>
+          </div>
+        </div>
+        <label class="matrix-options" hidden><input type="checkbox" id="multi-platform">仅看跨平台模型</label>
+      </div>
     </section>
-
-    <div class="matrix" tabindex="0" role="region" aria-label="SVG 对照表，可横向滚动，所有行竖向完整展开"><table><caption class="sr-only">每列一个 Harness，每行一个模型与思考强度组合，未收录的组合显示横线。</caption><thead id="head"></thead><tbody id="body"></tbody></table></div>
-    <p id="empty" hidden>没有匹配的产物，请调整筛选条件。</p>
-    <footer><span>— 表示尚无产物 · SVG 保持原始比例</span><a href="prompt.md">测试提示词与结果记录 ↗</a></footer>
+    <div class="workspace-caption"><div id="count" role="status"></div><span id="workspace-hint">点击作品放大 · 选择 2–4 幅加入对比</span></div>
+    <div id="gallery" class="gallery" data-density="standard" aria-label="SVG 作品画廊"></div>
+    <div id="matrix" class="matrix" hidden tabindex="0" role="region" aria-label="SVG 对照表，可横向滚动"><table><caption class="sr-only">每列一个有作品的 Harness，每行一个模型与思考强度组合。</caption><thead id="head"></thead><tbody id="body"></tbody></table></div>
+    <div id="empty" class="empty-state" hidden><h2>没有匹配的作品</h2><p>试试放宽筛选条件，或关闭“仅看跨平台模型”。</p><button type="button" id="empty-reset">重置筛选</button></div>
+    <footer><span>SVG 保持原始比例 · 支持直接打开本地页面</span><a href="prompt.md">测试提示词与结果记录 ↗</a></footer>
   </main>
-  <dialog id="viewer"><div class="dialog-bar"><h2 id="viewer-title"></h2><a id="original" target="_blank" rel="noopener">打开 SVG ↗</a><button id="close" aria-label="关闭预览">关闭 ×</button></div><img id="large" alt=""><p id="filename"></p></dialog>
+  <aside id="compare-tray" class="compare-tray" hidden aria-label="已选对比作品">
+    <div class="tray-label"><strong id="compare-count">已选 0 / 4</strong><span>选择 2–4 幅作品</span></div>
+    <div id="compare-thumbs" class="compare-thumbs"></div>
+    <div class="tray-actions"><button type="button" id="clear-compare" class="quiet-button">清空</button><button type="button" id="start-compare" class="primary-button" disabled>开始对比 <span aria-hidden="true">↗</span></button></div>
+  </aside>
+  <p id="selection-status" class="sr-only" role="status" aria-live="polite"></p>
+  <dialog id="viewer" aria-labelledby="viewer-title"><div class="dialog-bar"><h2 id="viewer-title"></h2><a id="original" target="_blank" rel="noopener">打开 SVG ↗</a><button id="close" aria-label="关闭预览">关闭 ×</button></div><img id="large" alt=""><p id="filename"></p></dialog>
+  <dialog id="compare-dialog" class="compare-dialog" aria-labelledby="compare-title">
+    <div class="compare-heading"><div><p class="eyebrow">SIDE BY SIDE</p><h2 id="compare-title">作品对比</h2></div><div class="compare-tools"><label class="compact-field">底色<select id="compare-background"><option value="light">浅灰</option><option value="dark">深灰</option><option value="checker">棋盘格</option></select></label><button type="button" id="close-compare" class="quiet-button">返回画廊 ×</button></div></div>
+    <p class="compare-help">固定一幅作为参照，在其他位置切换作品。底色仅影响透明区域。</p>
+    <div id="compare-grid" class="compare-grid" data-background="light"></div>
+  </dialog>
 </body>
 </html>

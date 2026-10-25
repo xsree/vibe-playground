@@ -84,6 +84,13 @@ function createOptionElement(text, value, isSelected, badge) {
   opt.className = 'select-option' + (isSelected ? ' is-selected' : '');
   opt.setAttribute('role', 'option');
   opt.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+  opt.tabIndex = 0;
+  opt.addEventListener('keydown', event => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      opt.click();
+    }
+  });
   opt.dataset.value = value;
 
   const main = document.createElement('div');
@@ -247,6 +254,14 @@ function initTwoLevelModelSelect(onModelChanged) {
     const allItem = document.createElement('div');
     allItem.className = 'vendor-item-all' + (isAllSelected ? ' is-selected' : '');
     allItem.innerHTML = `<span>全部模型</span>${CHECK_ICON_HTML}`;
+    allItem.tabIndex = 0;
+    allItem.setAttribute('role', 'button');
+    allItem.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        allItem.click();
+      }
+    });
     allItem.addEventListener('click', (e) => {
       e.stopPropagation();
       selectModel('', '', '全部模型');
@@ -270,8 +285,23 @@ function initTwoLevelModelSelect(onModelChanged) {
       
       const meta = element('div', undefined, 'vendor-meta');
       meta.append(element('span', count, 'vendor-badge'));
-      meta.insertAdjacentHTML('beforeend', CHEVRON_RIGHT_HTML);
-      vEl.append(element('span', v.name, 'vendor-name'), meta);
+      const browse = element('button', undefined, 'vendor-browse');
+      browse.type = 'button';
+      browse.setAttribute('aria-label', `查看 ${v.name} 的具体模型`);
+      browse.innerHTML = CHEVRON_RIGHT_HTML;
+      browse.disabled = count === 0;
+      browse.addEventListener('click', event => {
+        event.stopPropagation();
+        activeHoveredVendor = v;
+        updateVendorHighlight();
+        renderModelPane(v, vendorModels);
+      });
+      meta.append(browse);
+      const name = element('button', v.name, 'vendor-name');
+      name.type = 'button';
+      name.disabled = count === 0;
+      name.setAttribute('aria-label', `选择全部 ${v.name} 模型`);
+      vEl.append(name, meta);
 
       if (count > 0) {
         if (!firstActiveVendor) firstActiveVendor = v;
@@ -281,12 +311,16 @@ function initTwoLevelModelSelect(onModelChanged) {
           updateVendorHighlight();
           renderModelPane(v, vendorModels);
         });
+        vEl.addEventListener('focusin', () => {
+          activeHoveredVendor = v;
+          updateVendorHighlight();
+          renderModelPane(v, vendorModels);
+        });
 
         vEl.addEventListener('click', (e) => {
           e.stopPropagation();
           activeHoveredVendor = v;
-          updateVendorHighlight();
-          renderModelPane(v, vendorModels);
+          selectModel(v.id, '', `全部 ${v.name}`);
         });
       }
 
@@ -330,15 +364,6 @@ function initTwoLevelModelSelect(onModelChanged) {
       fitSelectDropdown(container);
       return;
     }
-
-    // "全部 [厂商] 模型" option
-    const isVendorAll = filterState.vendor === vendor.id && !filterState.model;
-    const vendorAllOpt = createOptionElement(`全部 ${vendor.name} 模型`, `vendor:${vendor.id}`, isVendorAll);
-    vendorAllOpt.addEventListener('click', (e) => {
-      e.stopPropagation();
-      selectModel(vendor.id, '', `全部 ${vendor.name}`);
-    });
-    modelSublistEl.appendChild(vendorAllOpt);
 
     // Each model of this vendor
     models.forEach(modelName => {
@@ -436,6 +461,11 @@ typeCtrl = initStandardSelect('#select-type', '全部形态', 'type', () => {
   render();
 });
 
+const galleryView = window.createPelicanView({
+  onOpen: openArtwork,
+  onReset: () => $('#btn-reset').click()
+});
+
 // Initial Setup
 restoreFilters();
 harnessCtrl.setOptions(allHarnesses);
@@ -444,6 +474,7 @@ effortCtrl.setOptions(getAvailableEfforts());
 typeCtrl.setOptions(typeOptions);
 
 $('#btn-reset').addEventListener('click', () => {
+  galleryView.resetFilterOptions();
   filterState.harness = '';
   filterState.vendor = '';
   filterState.model = '';
@@ -484,76 +515,7 @@ function render() {
     return true;
   });
 
-  const columns = filterState.harness ? [filterState.harness] : allHarnesses;
-  const groups = new Map();
-  for (const item of selected) {
-    const key = `${item.model}\u0000${item.effort}`;
-    if (!groups.has(key)) groups.set(key, []);
-    groups.get(key).push(item);
-  }
-
-  const row = element('tr');
-  for (const label of ['模型 / 思考强度', ...columns]) {
-    const th = element('th', label);
-    th.scope = 'col';
-    row.append(th);
-  }
-  $('#head').replaceChildren(row);
-
-  const rows = [...groups.values()].sort((a,b) => collator.compare(a[0].model,b[0].model) || collator.compare(a[0].effort,b[0].effort));
-  const fragment = document.createDocumentFragment();
-
-  for (const group of rows) {
-    const tr = element('tr');
-    const th = element('th');
-    th.scope = 'row';
-
-    th.append(
-      element('span', group[0].model, 'model'),
-      element('span', group[0].effort, 'effort')
-    );
-    tr.append(th);
-
-    for (const column of columns) {
-      const td = element('td');
-      const items = group.filter(item => item.harness === column);
-      if (!items.length) {
-        td.textContent = '—';
-        td.className = 'missing';
-        td.setAttribute('aria-label', '尚无产物');
-      } else {
-        const cellWrap = element('div', undefined, 'cell-items');
-        for (const item of items) {
-          const isAnimated = Boolean(item.animated || item.file.includes('animated'));
-          const button = element('button', undefined, 'artwork');
-          button.type = 'button';
-          button.setAttribute('aria-label', `放大 ${item.model} ${item.effort} ${item.harness} ${isAnimated ? '动态版' : ''}`);
-          button.title = item.file;
-
-          const img = element('img');
-          img.src = encodeURI(item.file);
-          img.alt = `${item.model} · ${item.effort} 的鹈鹕骑自行车`;
-          img.loading = 'lazy';
-          button.append(img);
-
-          if (isAnimated) {
-            const badge = element('span', '动态 SVG', 'art-badge-animated');
-            button.append(badge);
-          }
-
-          button.addEventListener('click', () => openArtwork(item));
-          cellWrap.append(button);
-        }
-        td.append(cellWrap);
-      }
-      tr.append(td);
-    }
-    fragment.append(tr);
-  }
-
-  $('#body').replaceChildren(fragment);
-  $('#empty').hidden = selected.length > 0;
-  $('#count').textContent = `显示 ${selected.length} / ${results.length} 件作品 · ${rows.length} 组规格`;
+  galleryView.render(selected, results);
 }
 
 $('#close').addEventListener('click', () => $('#viewer').close());

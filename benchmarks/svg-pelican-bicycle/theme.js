@@ -26,6 +26,7 @@
       root.dataset.theme = theme;
       const dark = theme === 'dark';
       button.setAttribute('aria-pressed', String(dark));
+      button.setAttribute('aria-label', dark ? '切换到浅色模式' : '切换到深色模式');
       button.title = dark ? '切换到浅色模式' : '切换到深色模式';
       label.textContent = dark ? '深色' : '浅色';
     }

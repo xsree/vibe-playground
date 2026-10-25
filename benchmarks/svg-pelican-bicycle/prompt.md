@@ -20,7 +20,7 @@
      ```javascript
      {
        "harness": "你的Harness名",
-       "vendor": "所属厂商名", // 必填！例如 Alibaba、Ant、Anthropic、ByteDance、DeepSeek、Google、Meta、MiniMax、Moonshot、NVIDIA、OpenAI、StepFun、Tencent、Zhipu、小米，或全新厂商名（盲测代号填 "匿名模型"）；填写厂商名称，不要填模型系列名
+       "vendor": "所属厂商名", // 必填！统一使用英文厂商名，例如 Alibaba、Ant、Anthropic、ByteDance、DeepSeek、Google、Meta、MiniMax、Moonshot、NVIDIA、OpenAI、StepFun、Tencent、Xiaomi、Zhipu，或全新厂商名；填写厂商名称，不要填模型系列名
        "model": "你的模型名",
        "effort": "你的推理强度", // low | medium | high | xhigh | max 等，以实际参数为准（注意：不要写 high-animated 等混合词）
        "animated": true, // 仅在为动态动效 SVG 时添加此字段
@@ -52,13 +52,13 @@
 
 ## 已有结果
 
-排序规则：先按**模型厂商**分组（英文厂商名 A→Z，中文厂商随后，匿名模型最后），分组内按**版本号升序**，同版本按**轻量款 → 旗舰款**排列。画廊已登记共 **73** 条。
+排序规则：先按**模型厂商**分组（统一使用英文厂商名，按 A→Z 排列），分组内按**版本号升序**，同版本按**轻量款 → 旗舰款**排列。画廊已登记共 **71** 条。
 
 - **Alibaba**
   - Qwen3.8-27B + WorkBuddy：`artworks/WorkBuddy-Qwen3.8-27B-medium-pelican-riding-bicycle.svg`（日期未记录；effort: medium）
-  - qwen-3.8-flash-next + QwenWork-Desktop：`artworks/QwenWork-Desktop-qwen-3.8-flash-next-high-pelican-riding-bicycle.svg`（2026-08-31）
-  - Qwen-3.8-Max + QwenWork-Desktop：`artworks/QwenWork-Desktop-Qwen-3.8-Max-high-pelican-riding-bicycle.svg`（2026-08-31）
-- **Ant（蚂蚁百灵）**
+  - qwen-3.8-flash-next + 千问办公：`artworks/QwenWork-Desktop-qwen-3.8-flash-next-high-pelican-riding-bicycle.svg`（2026-08-31）
+  - Qwen-3.8-Max + 千问办公：`artworks/QwenWork-Desktop-Qwen-3.8-Max-high-pelican-riding-bicycle.svg`（2026-08-31）
+- **Ant**
   - ling-3.0-flash-fin-free + OpenCode：`artworks/opencode-ling-3.0-flash-fin-free-high-pelican-riding-bicycle.svg`（2026-09-23）
 - **Anthropic**
   - Claude-Sonnet-4.6 + Zed：`artworks/Zed-Claude-Sonnet-4.6-high-pelican-riding-bicycle.svg`（2026-10-21）
@@ -70,7 +70,7 @@
   - Claude-Sonnet-5.5 + Zed：`artworks/Zed-Claude-Sonnet-5.5-high-pelican-riding-bicycle.svg`（2026-10-21）
   - Claude-Opus-5.5 + Antigravity：`artworks/Antigravity-Claude-Opus-5.5-medium-pelican-riding-bicycle.svg`（2026-10-08）
 - **ByteDance**
-  - Doubao + Doubao-Desktop：`artworks/Doubao-Desktop-Doubao-high-pelican-riding-bicycle.svg`（2026-08-31）
+  - 豆包 2.1 Pro + 豆包工作：`artworks/Doubao-Desktop-Doubao-2.1-Pro-high-pelican-riding-bicycle.svg`（2026-08-31）
   - Seed-2.1-Pro-0915 + Trae：`artworks/Trae-Seed-2.1-Pro-0915-high-pelican-riding-bicycle.svg`（2026-10-22）
   - Seed-2.1-Pro-0915（动态版）+ Trae：`artworks/Trae-Seed-2.1-Pro-0915-high-animated-pelican-riding-bicycle.svg`（2026-10-22）
   - Seed-Evolving-20261022 + Trae：`artworks/Trae-Seed-Evolving-20261022-none-pelican-riding-bicycle.svg`（2026-10-22）
@@ -122,13 +122,17 @@
   - GPT-6.1-Sol + Codex：`artworks/Codex-GPT-6.1-Sol-high-pelican-riding-bicycle.svg`（2026-10-21）
   - GPT-6.1-Sol（动态版）+ Codex：`artworks/Codex-GPT-6.1-Sol-high-animated-pelican-riding-bicycle.svg`（2026-10-21）
   - GPT-6.1-Sol + Zed：`artworks/zed-gpt-6.1-sol-high-pelican-riding-bicycle.svg`（2026-10-21）
-- **StepFun（阶跃星辰）**
+- **StepFun**
   - Step-5-Preview（动态版）+ Trae：`artworks/Trae-Step-5-Preview-high-animated-pelican-riding-bicycle.svg`（2026-10-21）
 - **Tencent**
   - Hy3 + WorkBuddy：`artworks/WorkBuddy-Hy3-high-pelican-riding-bicycle.svg`（2026-08-31）
   - Hy4 + WorkBuddy：`artworks/WorkBuddy-Hy4-high-pelican-riding-bicycle.svg`（2026-09-04）
   - Hy4（v2 版）+ WorkBuddy：`artworks/WorkBuddy-Hy4-high-pelican-riding-bicycle-v2.svg`（2026-09-09）
   - Hy4-preview + Codex：`artworks/Codex-Hy4-preview-high-pelican-riding-bicycle.svg`（2026-10-22）
+- **Xiaomi**
+  - mimo-v2.5-free + OpenCode：`artworks/opencode-mimo-v2.5-free-high-pelican-riding-bicycle.svg`（2026-08-31）
+  - mimo-v2.6-flash-free + OpenCode：`artworks/opencode-mimo-v2.6-flash-free-high-pelican-riding-bicycle.svg`（2026-09-23）
+  - MiMo-V2.6-Pro（动态版）+ WorkBuddy：`artworks/WorkBuddy-MiMo-V2.6-Pro-high-animated-pelican-riding-bicycle.svg`（2026-10-21）
 - **Zhipu**
   - GLM-5.2 + Trae：`artworks/Trae-GLM-5.2-high-pelican-riding-bicycle.svg`（2026-10-21）
   - GLM-5.3-Flash + WorkBuddy：`artworks/WorkBuddy-GLM-5.3-Flash-high-pelican-riding-bicycle.svg`（2026-08-31）
@@ -136,11 +140,3 @@
   - GLM-5.3-FlashX + Trae：`artworks/Trae-GLM-5.3-FlashX-xhigh-pelican-riding-bicycle.svg`（2026-10-22）
   - GLM-5.3 + WorkBuddy：`artworks/WorkBuddy-GLM-5.3-high-pelican-riding-bicycle.svg`（2026-08-31）
   - GLM-5.3 + Codex：`artworks/Codex-GLM-5.3-high-pelican-riding-bicycle.svg`（2026-10-22）
-- **小米**
-  - mimo-v2.5-free + OpenCode：`artworks/opencode-mimo-v2.5-free-high-pelican-riding-bicycle.svg`（2026-08-31）
-  - mimo-v2.6-flash-free + OpenCode：`artworks/opencode-mimo-v2.6-flash-free-high-pelican-riding-bicycle.svg`（2026-09-23）
-  - MiMo-V2.6-Pro（动态版）+ WorkBuddy：`artworks/WorkBuddy-MiMo-V2.6-Pro-high-animated-pelican-riding-bicycle.svg`（2026-10-21）
-- **匿名模型（竞技场盲测）**
-  - big-pickle + OpenCode：`artworks/opencode-big-pickle-high-pelican-riding-bicycle.svg`（2026-08-31）
-  - Space-Bunny + WorkBuddy：`artworks/WorkBuddy-Space-Bunny-high-pelican-riding-bicycle.svg`（2026-10-10）
-  - beam-free + OpenCode：`artworks/opencode-beam-free-xhigh-pelican-riding-bicycle.svg`（2026-10-22）

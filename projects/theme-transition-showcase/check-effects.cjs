@@ -8,7 +8,10 @@ const assert = require('node:assert/strict');
 const read = name => fs.readFileSync(path.join(__dirname, name), 'utf8');
 const html = read('index.html');
 const css = read('showcase.css');
-assert.deepEqual([...html.matchAll(/<script src="([^"]+)" defer/g)].map(match => match[1]), ['authored-effects.js', 'craft-effects.js', 'physical-effects.js', 'showcase.js']);
+assert.deepEqual(
+  [...html.matchAll(/<script src="([^"]+)" defer/g)].map(match => match[1]),
+  ['authored-effects.js', 'craft-effects.js', 'physical-effects.js', 'atelier-effects.js', 'showcase.js']
+);
 const style = () => ({ setProperty(key, value) { this[key] = value; } });
 
 class Node {
@@ -82,14 +85,15 @@ vm.createContext(sandbox);
 vm.runInContext(read('authored-effects.js'), sandbox);
 vm.runInContext(read('craft-effects.js'), sandbox);
 vm.runInContext(read('physical-effects.js'), sandbox);
+vm.runInContext(read('atelier-effects.js'), sandbox);
 vm.runInContext(read('showcase.js') + '\nthis.api = { Demo, effects, mainDemo, gridDemos, selectEffect, grainMask };', sandbox);
 const { Demo, effects, mainDemo, gridDemos, selectEffect, grainMask } = sandbox.api;
-assert.equal(effects.length, 42);
+assert.equal(effects.length, 54);
 assert.equal(gridDemos.length, effects.length);
 assert.equal(new Set(effects.map(effect => effect.id)).size, effects.length);
-assert.equal(nodes.get('#effect-list').children.filter(node => node.className === 'effect-choice').length, 42);
-assert.equal(nodes.get('#comparison-grid').children.filter(node => node.className === 'comparison-item').length, 42);
-assert.equal(nodes.get('#effect-list').children.filter(node => node.className === 'effect-group').length, 5);
+assert.equal(nodes.get('#effect-list').children.filter(node => node.className === 'effect-choice').length, 54);
+assert.equal(nodes.get('#comparison-grid').children.filter(node => node.className === 'comparison-item').length, 54);
+assert.equal(nodes.get('#effect-list').children.filter(node => node.className === 'effect-group').length, 6);
 
 function advance() {
   time += 801;
@@ -162,7 +166,7 @@ for (const [width, height] of [[320, 213], [1440, 800]]) {
   }
   assert(Math.abs(area-width*height) < width*height*1e-9, 'Enamel cells must cover the full frame');
 }
-for (const effect of effects.filter(effect => ['weave', 'enamel', 'grating', 'caustic', 'liquid', 'crystal'].includes(effect.id))) {
+for (const effect of effects.filter(effect => ['weave', 'enamel', 'grating', 'caustic', 'liquid', 'crystal', 'louvers', 'halftone', 'fibonacci'].includes(effect.id))) {
   const demo = new Demo(new Node(), effect);
   demo.scrub(1);
   assert.equal(demo.next.style.maskImage, 'none', `${effect.id}: remove the completed mask`);
@@ -240,7 +244,7 @@ for (let index = 14; index < effects.length; index++) {
   nodes.get('#progress').events.get('input')({ target: { value: '50' } });
   assert.equal(mainDemo.effect, effects[index]);
   assert.equal(mainDemo.progress, .5);
-  assert(nodes.get('#active-index').textContent.endsWith('/ 42'));
+  assert(nodes.get('#active-index').textContent.endsWith('/ 54'));
 }
 const extrasCount=mainDemo.authored.extras.length;
 for(let index=32;index<effects.length;index++) {selectEffect(index);mainDemo.scrub(.47);}
@@ -251,6 +255,8 @@ nodes.get('#show-craft').events.get('click')();
 assert.equal(mainDemo.effect.id, 'iris');
 nodes.get('#show-physical').events.get('click')();
 assert.equal(mainDemo.effect.id, 'caustic');
+nodes.get('#show-atelier').events.get('click')();
+assert.equal(mainDemo.effect.id, 'aurora');
 nodes.get('#play-all').events.get('click')();
 assert(gridDemos.every(demo => demo.playing)); advance();
 assert(gridDemos.every(demo => demo.theme === 'dark' && !demo.playing));

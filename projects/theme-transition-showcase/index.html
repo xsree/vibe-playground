@@ -3,12 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="在同一个界面中播放、暂停和比较四十二种明暗主题切换动画，探索光线、材质、工艺与空间的变化。">
+  <meta name="description" content="在同一个界面中播放、暂停和比较五十四种明暗主题切换动画，探索光线、材质、工艺、物理与印艺空间的变化。">
   <title>明暗之间 · 主题切换效果试映</title>
   <link rel="stylesheet" href="showcase.css">
   <script src="authored-effects.js" defer></script>
   <script src="craft-effects.js" defer></script>
   <script src="physical-effects.js" defer></script>
+  <script src="atelier-effects.js" defer></script>
   <script src="showcase.js" defer></script>
 </head>
 <body>
@@ -20,43 +21,117 @@
 
     <main>
       <section class="intro" aria-labelledby="page-title">
-        <div><p class="eyebrow"><span></span> AN INTERACTIVE MOTION INDEX</p><h1 id="page-title">同一个界面。<br><span>四十二种过渡。</span></h1></div>
-        <div class="intro-aside"><p>明暗切换，不必只凭想象。</p><p>选一个效果，亲手播放。也可以拖动进度，<br class="desktop-break">看清光与暗如何交换位置。</p><a href="#comparison">直接并排比较 <span aria-hidden="true">↘</span></a><button id="show-physical" class="intro-shortcut" type="button">新增 10 种物理与空间 <span aria-hidden="true">↗</span></button><button id="show-craft" class="intro-shortcut" type="button">10 种工艺与显像 <span aria-hidden="true">↗</span></button><button id="show-authored" class="intro-shortcut" type="button">8 种材质与叙事 <span aria-hidden="true">↗</span></button></div>
+        <div>
+          <p class="eyebrow"><span></span> AN INTERACTIVE MOTION INDEX</p>
+          <h1 id="page-title">同一个界面。<br><span>五十四种过渡。</span></h1>
+        </div>
+        <div class="intro-aside">
+          <p>明暗切换，不必只凭想象。</p>
+          <p>选一个效果，亲手播放。也可以拖动进度，<br class="desktop-break">看清光与暗如何交换位置。</p>
+          <a href="#comparison">直接并排比较 <span aria-hidden="true">↘</span></a>
+          <button id="show-atelier" class="intro-shortcut" type="button">新增 12 种工坊与印艺 <span aria-hidden="true">↗</span></button>
+          <button id="show-physical" class="intro-shortcut" type="button">10 种物理与空间 <span aria-hidden="true">↗</span></button>
+          <button id="show-craft" class="intro-shortcut" type="button">10 种工艺与显像 <span aria-hidden="true">↗</span></button>
+          <button id="show-authored" class="intro-shortcut" type="button">8 种材质与叙事 <span aria-hidden="true">↗</span></button>
+        </div>
       </section>
 
       <section class="workbench" aria-label="效果试映台">
-        <nav class="effect-nav" aria-label="选择切换效果"><div class="section-kicker">01 — 选择效果</div><div id="effect-list"></div><p class="nav-note">所有示例使用相同内容与配色，<br>只比较过渡本身。</p></nav>
+        <nav class="effect-nav" aria-label="选择切换效果">
+          <div class="section-kicker">01 — 选择效果</div>
+          <div id="effect-list"></div>
+          <p class="nav-note">所有示例使用相同内容与配色，<br>只比较过渡本身。</p>
+        </nav>
         <div class="preview-panel">
-          <div class="preview-heading"><div><span id="active-index" class="section-kicker">STUDY 01 / 42</span><h2 id="active-title">圆形扩散</h2></div><span id="active-tag" class="effect-tag">径向展开</span></div>
-          <div id="main-demo" class="demo demo-main"></div>
-          <div class="demo-caption"><p id="active-description"></p><span id="direction-label">浅色 → 深色</span></div>
-          <div class="playback-controls">
-            <button id="play-main" class="button button-primary" type="button"><svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><path d="M4 2.5 11 7l-7 4.5Z"/></svg><span id="play-label">切换到深色</span></button>
-            <button id="replay-main" class="button button-quiet" type="button"><span aria-hidden="true">↻</span> 重播</button>
-            <label class="duration-control" for="duration">时长 <input id="duration" type="range" min="350" max="1800" step="50" value="800"><output id="duration-value" for="duration">800 ms</output></label>
+          <div class="preview-heading">
+            <div>
+              <span id="active-index" class="section-kicker">STUDY 01 / 54</span>
+              <h2 id="active-title">圆形扩散</h2>
+            </div>
+            <span id="active-tag" class="effect-tag">径向展开</span>
           </div>
-          <div class="timeline"><span id="playback-state">就绪</span><input id="progress" type="range" min="0" max="100" step="0.1" value="0" aria-label="动画进度"><output id="progress-value" for="progress">0%</output></div>
+          <div id="main-demo" class="demo demo-main"></div>
+          <div class="demo-caption">
+            <p id="active-description"></p>
+            <span id="direction-label">浅色 → 深色</span>
+          </div>
+          <div class="playback-controls">
+            <button id="play-main" class="button button-primary" type="button">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true">
+                <path d="M4 2.5 11 7l-7 4.5Z"/>
+              </svg>
+              <span id="play-label">切换到深色</span>
+            </button>
+            <button id="replay-main" class="button button-quiet" type="button">
+              <span aria-hidden="true">↻</span> 重播
+            </button>
+            <label class="duration-control" for="duration">时长 
+              <input id="duration" type="range" min="350" max="1800" step="50" value="800">
+              <output id="duration-value" for="duration">800 ms</output>
+            </label>
+          </div>
+          <div class="timeline">
+            <span id="playback-state">就绪</span>
+            <input id="progress" type="range" min="0" max="100" step="0.1" value="0" aria-label="动画进度">
+            <output id="progress-value" for="progress">0%</output>
+          </div>
           <p id="motion-notice" class="motion-notice" hidden>系统已启用减少动态效果。仍可手动拖动进度对比，或主动允许本页播放动画。<button id="allow-motion" type="button">允许本页播放</button></p>
         </div>
       </section>
 
       <section id="comparison" class="comparison" aria-labelledby="comparison-title">
-        <div class="comparison-heading"><div><p class="section-kicker">02 — 并排比较</p><h2 id="comparison-title">一起播放，更容易看见区别。</h2></div><div class="comparison-actions"><button id="play-all" class="button button-primary" type="button">播放全部 <span aria-hidden="true">↗</span></button><button id="reset-all" class="button button-outline" type="button">重置浅色</button></div></div>
+        <div class="comparison-heading">
+          <div>
+            <p class="section-kicker">02 — 并排比较</p>
+            <h2 id="comparison-title">一起播放，更容易看见区别。</h2>
+          </div>
+          <div class="comparison-actions">
+            <button id="play-all" class="button button-primary" type="button">播放全部 <span aria-hidden="true">↗</span></button>
+            <button id="reset-all" class="button button-outline" type="button">重置浅色</button>
+          </div>
+        </div>
         <div id="comparison-grid" class="comparison-grid"></div>
       </section>
 
-      <footer class="page-footer"><span>42 STUDIES <span class="footer-dot">·</span> LIGHT ↔ DARK</span><p>按钮图标保持一致，让注意力留给过渡。</p><a href="../../benchmarks/svg-pelican-bicycle/index.html">返回鹈鹕画廊 ↗</a></footer>
+      <footer class="page-footer">
+        <span>54 STUDIES <span class="footer-dot">·</span> LIGHT ↔ DARK</span>
+        <p>按钮图标保持一致，让注意力留给过渡。</p>
+        <a href="../../benchmarks/svg-pelican-bicycle/index.html">返回鹈鹕画廊 ↗</a>
+      </footer>
     </main>
   </div>
 
   <template id="scene-template">
     <div class="scene" data-theme="light">
-      <div class="scene-topbar" data-zone="0"><span class="scene-brand"><span aria-hidden="true">◒</span> FIELD NOTES</span><span class="scene-nav">画廊 <span>关于</span></span></div>
-      <div class="scene-content" data-zone="1">
-        <div class="scene-copy"><span class="scene-eyebrow">COLLECTION / 001</span><h3>日常，<br>换一种光。</h3><p>山川与微风，<br>都值得停留片刻。</p><span class="scene-link">探索作品 <span aria-hidden="true">↗</span></span></div>
-        <div class="landscape" aria-hidden="true"><svg viewBox="0 0 400 340" preserveAspectRatio="xMidYMid slice"><rect width="400" height="340" class="land-sky"/><circle cx="283" cy="90" r="37" class="land-sun"/><circle cx="270" cy="68" r="26" class="land-moon-cutout"/><path d="m0 253 125-161 156 202H0Z" class="land-far"/><path d="m110 340 169-186 151 186Z" class="land-near"/><path d="M0 268q105-49 208 7t192-4v69H0Z" class="land-front"/><path d="M220 340q-53-48-13-63t52-17q-25 24 19 39t42 41" class="land-river"/><path d="m42 65 7-3 7 3m16-14 7-3 7 3" class="land-birds" fill="none" stroke-linecap="round"/></svg><span class="landscape-label">A QUIETER PERSPECTIVE</span></div>
+      <div class="scene-topbar" data-zone="0">
+        <span class="scene-brand"><span aria-hidden="true">◒</span> FIELD NOTES</span>
+        <span class="scene-nav">画廊 <span>关于</span></span>
       </div>
-      <div class="scene-bottom" data-zone="2"><div><span class="scene-bottom-dot"></span> 记录此刻的好风景</div><span>01 — 03 <span aria-hidden="true">⟶</span></span></div>
+      <div class="scene-content" data-zone="1">
+        <div class="scene-copy">
+          <span class="scene-eyebrow">COLLECTION / 001</span>
+          <h3>日常，<br>换一种光。</h3>
+          <p>山川与微风，<br>都值得停留片刻。</p>
+          <span class="scene-link">探索作品 <span aria-hidden="true">↗</span></span>
+        </div>
+        <div class="landscape" aria-hidden="true">
+          <svg viewBox="0 0 400 340" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="340" class="land-sky"/>
+            <circle cx="283" cy="90" r="37" class="land-sun"/>
+            <circle cx="270" cy="68" r="26" class="land-moon-cutout"/>
+            <path d="m0 253 125-161 156 202H0Z" class="land-far"/>
+            <path d="m110 340 169-186 151 186Z" class="land-near"/>
+            <path d="M0 268q105-49 208 7t192-4v69H0Z" class="land-front"/>
+            <path d="M220 340q-53-48-13-63t52-17q-25 24 19 39t42 41" class="land-river"/>
+            <path d="m42 65 7-3 7 3m16-14 7-3 7 3" class="land-birds" fill="none" stroke-linecap="round"/>
+          </svg>
+          <span class="landscape-label">A QUIETER PERSPECTIVE</span>
+        </div>
+      </div>
+      <div class="scene-bottom" data-zone="2">
+        <div><span class="scene-bottom-dot"></span> 记录此刻的好风景</div>
+        <span>01 — 03 <span aria-hidden="true">⟶</span></span>
+      </div>
     </div>
   </template>
 </body>

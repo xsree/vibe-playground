@@ -1,23 +1,28 @@
 "use strict";
 
+/**
+ * 完整转场效果元数据列表：
+ * 包含 14 种基础/空间效果 + 8 种材质与叙事 + 10 种工艺与显像 + 10 种物理与空间 + 12 种工坊与印艺（共 54 种）
+ */
 const effects = [
-  { id: 'circle', name: '圆形扩散', en: 'CIRCULAR REVEAL', tag: '径向展开', short: '从按钮中心扩散', description: '新主题从右上角的日月按钮向外展开。' },
-  { id: 'colors', name: '柔和渐变', en: 'COLOR INTERPOLATION', tag: '当前画廊', short: '每一种颜色慢慢变化', description: '当前画廊采用的效果：背景、文字等各自缓缓变色；此示例的插画也会连续变形，没有叠影。' },
-  { id: 'fade', name: '交叉淡化', en: 'CROSS DISSOLVE', tag: '整幅叠化', short: '两幅画面交叉淡入淡出', description: '新画面逐渐显现，旧画面逐渐隐去；中途是两幅主题的叠加。' },
-  { id: 'sweep', name: '柔边扫光', en: 'SOFT LIGHT SWEEP', tag: '推荐试试', short: '柔和的光幕扫过', description: '一道有宽阔柔边的光幕扫过。切到深色从右向左，浅色反向。' },
-  { id: 'diagonal', name: '斜向擦除', en: 'DIAGONAL WIPE', tag: '干净利落', short: '沿一条斜线切换', description: '新旧主题沿清晰的斜向边界交接，像将一张新纸铺到画面上。' },
-  { id: 'curtain', name: '帘幕开合', en: 'CENTER CURTAIN', tag: '左右对称', short: '从中间向两侧打开', description: '新主题从画面中心向两侧展开，像一道对称打开的帘幕。' },
-  { id: 'stagger', name: '分区错峰', en: 'STAGGERED ZONES', tag: '依次换光', short: '页头、内容、页脚依次变化', description: '页头先变色，内容区随后，最后是页脚。拖动进度看各区域的时间差。' },
-  { id: 'blinds', name: '百叶条带', en: 'VENETIAN BLINDS', tag: '鲜明节奏', short: '多条横向色带同时打开', description: '多条横向的“百叶窗”同时展开，新主题逐条替换旧主题。' },
-  { id: 'blur', name: '模糊溶解', en: 'BLUR DISSOLVE', tag: '朦胧柔焦', short: '先虚化，再重新清晰', description: '画面在交接时轻微失焦，再以新主题重新清晰；与普通淡化对比更明显。' },
-  { id: 'push', name: '整页推移', en: 'SLIDING PUSH', tag: '空间位移', short: '新旧画面相接着移出移入', description: '新主题将旧主题整幅推走，像两张相邻的画纸。切到深色向左推，浅色向右推。' },
-  { id: 'flip', name: '卡片翻面', en: 'PERSPECTIVE FLIP', tag: '立体转场', short: '转过背面，换一种光', description: '整张界面绕竖轴翻转，带着透视和侧面的明暗变化；转到背面时呈现另一种主题。' },
-  { id: 'grain', name: '颗粒溶解', en: 'GRAIN DISSOLVE', tag: '逐点显现', short: '固定颗粒逐渐换成新主题', description: '细小颗粒按固定的随机顺序切换，逐渐拼成新主题。拖回同一进度，颗粒的位置也完全相同。' },
-  { id: 'ripple', name: '水波折射', en: 'RIPPLE REFRACTION', tag: '流动光线', short: '波纹扩散，画面轻轻扭曲', description: '一圈水波从画面中央展开，带出新主题；波动期间画面轻微折射，波纹远去后恢复平静。' },
-  { id: 'exposure', name: '曝光过渡', en: 'EXPOSURE FADE', tag: '光线换场', short: '经过暗场或亮场再进入新主题', description: '切到深色时先沉入暗场，切到浅色时先漫入亮场，再显出目标主题。中间停在一片纯粹的光或暗。' },
-  ...window.AUTHORED_EFFECTS,
-  ...window.CRAFT_EFFECTS,
-  ...window.PHYSICAL_EFFECTS
+  { id: 'circle', name: '圆形扩散', en: 'CIRCULAR REVEAL', tag: '径向展开', short: '从按钮中心扩散', description: '新主题从右上角的日月按钮向外展开。', mode: 'container' },
+  { id: 'colors', name: '柔和渐变', en: 'COLOR INTERPOLATION', tag: '当前画廊', short: '每一种颜色慢慢变化', description: '当前画廊采用的效果：背景、文字等各自缓缓变色；此示例的插画也会连续变形，没有叠影。', mode: 'scene' },
+  { id: 'fade', name: '交叉淡化', en: 'CROSS DISSOLVE', tag: '整幅叠化', short: '两幅画面交叉淡入淡出', description: '新画面逐渐显现，旧画面逐渐隐去；中途是两幅主题的叠加。', mode: 'container' },
+  { id: 'sweep', name: '柔边扫光', en: 'SOFT LIGHT SWEEP', tag: '推荐试试', short: '柔和的光幕扫过', description: '一道有宽阔柔边的光幕扫过。切到深色从右向左，浅色反向。', mode: 'container' },
+  { id: 'diagonal', name: '斜向擦除', en: 'DIAGONAL WIPE', tag: '干净利落', short: '沿一条斜线切换', description: '新旧主题沿清晰的斜向边界交接，像将一张新纸铺到画面上。', mode: 'container' },
+  { id: 'curtain', name: '帘幕开合', en: 'CENTER CURTAIN', tag: '左右对称', short: '从中间向两侧打开', description: '新主题从画面中心向两侧展开，像一道对称打开的帘幕。', mode: 'container' },
+  { id: 'stagger', name: '分区错峰', en: 'STAGGERED ZONES', tag: '依次换光', short: '页头、内容、页脚依次变化', description: '页头先变色，内容区随后，最后是页脚。拖动进度看各区域的时间差。', mode: 'scene' },
+  { id: 'blinds', name: '百叶条带', en: 'VENETIAN BLINDS', tag: '鲜明节奏', short: '多条横向色带同时打开', description: '多条横向的“百叶窗”同时展开，新主题逐条替换旧主题。', mode: 'container' },
+  { id: 'blur', name: '模糊溶解', en: 'BLUR DISSOLVE', tag: '朦胧柔焦', short: '先虚化，再重新清晰', description: '画面在交接时轻微失焦，再以新主题重新清晰；与普通淡化对比更明显。', mode: 'container' },
+  { id: 'push', name: '整页推移', en: 'SLIDING PUSH', tag: '空间位移', short: '新旧画面相接着移出移入', description: '新主题将旧主题整幅推走，像两张相邻的画纸。切到深色向左推，浅色向右推。', mode: 'container' },
+  { id: 'flip', name: '卡片翻面', en: 'PERSPECTIVE FLIP', tag: '立体转场', short: '转过背面，换一种光', description: '整张界面绕竖轴翻转，带着透视和侧面的明暗变化；转到背面时呈现另一种主题。', mode: 'container' },
+  { id: 'grain', name: '颗粒溶解', en: 'GRAIN DISSOLVE', tag: '逐点显现', short: '固定颗粒逐渐换成新主题', description: '细小颗粒按固定的随机顺序切换，逐渐拼成新主题。拖回同一进度，颗粒的位置也完全相同。', mode: 'container' },
+  { id: 'ripple', name: '水波折射', en: 'RIPPLE REFRACTION', tag: '流动光线', short: '波纹扩散，画面轻轻扭曲', description: '一圈水波从画面中央展开，带出新主题；波动期间画面轻微折射，波纹远去后恢复平静。', mode: 'container' },
+  { id: 'exposure', name: '曝光过渡', en: 'EXPOSURE FADE', tag: '光线换场', short: '经过暗场或亮场再进入新主题', description: '切到深色时先沉入暗场，切到浅色时先漫入亮场，再显出目标主题。中间停在一片纯粹的光或暗。', mode: 'container' },
+  ...(window.AUTHORED_EFFECTS || []),
+  ...(window.CRAFT_EFFECTS || []),
+  ...(window.PHYSICAL_EFFECTS || []),
+  ...(window.ATELIER_EFFECTS || [])
 ];
 
 const $ = selector => document.querySelector(selector);
@@ -28,7 +33,7 @@ let motionAllowed = false;
 let demoSequence = 0;
 const colorProperties = ['--scene-bg', '--scene-ink', '--scene-muted', '--scene-line', '--scene-accent', '--sky', '--sun', '--far', '--near', '--front', '--river'];
 
-// Share one fixed texture and cache so scrubbing never re-rolls the grain.
+// 共享确定性噪点纹理与步进缓存，避免回拖时重新生成随机图案
 const grainMasks = new Map();
 let grainCanvas;
 let grainPixels;
@@ -82,9 +87,62 @@ function mixColors(node, from, to, progress) {
 }
 
 function mixLandscape(node, darkness) {
-  node.querySelector('.land-sun').style.transform = `translate(${-28 * darkness}px, ${-10 * darkness}px) scale(${1 - .24 * darkness})`;
-  node.querySelector('.land-moon-cutout').style.opacity = darkness;
-  node.querySelector('.land-birds').style.opacity = 1 - .85 * darkness;
+  const sun = node.querySelector('.land-sun');
+  if (sun) {
+    sun.style.transform = `translate(${-28 * darkness}px, ${-10 * darkness}px) scale(${1 - 0.24 * darkness})`;
+  }
+  const cutout = node.querySelector('.land-moon-cutout');
+  if (cutout) {
+    cutout.style.opacity = darkness;
+  }
+  const birds = node.querySelector('.land-birds');
+  if (birds) {
+    birds.style.opacity = 1 - 0.85 * darkness;
+  }
+}
+
+/**
+ * 全局共享单一时钟调度器（Single Ticker）
+ * 合并同屏所有播放中 Demo 实例至同一个 requestAnimationFrame 循环，显著降低 CPU 消耗
+ */
+const activeDemos = new Set();
+let tickerFrameId = null;
+
+function tickerStep(now) {
+  const finished = [];
+  for (const demo of activeDemos) {
+    const rawProgress = (now - demo.startTime) / demo.duration;
+    if (rawProgress < 1) {
+      demo.sample(rawProgress);
+    } else {
+      demo.sample(1);
+      demo.commit();
+      finished.push(demo);
+    }
+  }
+  for (const demo of finished) {
+    activeDemos.delete(demo);
+  }
+  if (activeDemos.size > 0) {
+    tickerFrameId = requestAnimationFrame(tickerStep);
+  } else {
+    tickerFrameId = null;
+  }
+}
+
+function startTicker(demo) {
+  activeDemos.add(demo);
+  if (tickerFrameId === null) {
+    tickerFrameId = requestAnimationFrame(tickerStep);
+  }
+}
+
+function stopTicker(demo) {
+  activeDemos.delete(demo);
+  if (activeDemos.size === 0 && tickerFrameId !== null) {
+    cancelAnimationFrame(tickerFrameId);
+    tickerFrameId = null;
+  }
 }
 
 class Demo {
@@ -96,8 +154,11 @@ class Demo {
     this.progress = 0;
     this.prepared = false;
     this.playing = false;
-    this.frame = null;
+    this.duration = 800;
+    this.startTime = 0;
     this.lastFrom = null;
+    this.isVisible = true;
+    this.isMain = false;
     this.id = `study-wave-${++demoSequence}`;
     this.base = $('#scene-template').content.firstElementChild.cloneNode(true);
     this.next = this.base.cloneNode(true);
@@ -106,21 +167,27 @@ class Demo {
     this.base.setAttribute('aria-hidden', 'true');
     this.next.setAttribute('aria-hidden', 'true');
     this.next.dataset.theme = 'dark';
+
     this.toggle = document.createElement('button');
     this.toggle.type = 'button';
     this.toggle.className = 'preview-toggle';
     this.toggle.dataset.dark = 'false';
     this.toggle.innerHTML = '<svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4 19 5"/></svg><svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M20.3 14.5A8.6 8.6 0 0 1 9.5 3.7a8.6 8.6 0 1 0 10.8 10.8Z"/><path d="m18 3 .5 1.5L20 5l-1.5.5L18 7l-.5-1.5L16 5l1.5-.5Z"/></svg>';
+
     this.overlay = document.createElement('div');
     this.overlay.className = 'effect-overlay';
     this.overlay.setAttribute('aria-hidden', 'true');
     this.overlay.hidden = true;
+
     element.append(this.base, this.next, this.overlay, this.toggle);
     this.palettes = { light: palette(this.base), dark: palette(this.next) };
-    this.authored = new window.PhysicalTransitionLayer(this, { mixColors, mixLandscape });
+
+    const LayerClass = window.AtelierTransitionLayer || window.PhysicalTransitionLayer || window.AuthoredTransitionLayer;
+    this.authored = new LayerClass(this, { mixColors, mixLandscape });
+
     this.next.hidden = true;
     this.updateToggle();
-    this.toggle.addEventListener('click', () => this.playing ? this.pause() : this.play());
+    this.toggle.addEventListener('click', () => (this.playing ? this.pause() : this.play()));
   }
 
   clearStyles() {
@@ -144,11 +211,17 @@ class Demo {
     const defs = document.createElementNS(namespace, 'defs');
     const filter = document.createElementNS(namespace, 'filter');
     filter.id = this.id;
-    for (const [name, value] of Object.entries({ x: '-8%', y: '-12%', width: '116%', height: '124%', 'color-interpolation-filters': 'sRGB' })) filter.setAttribute(name, value);
+    for (const [name, value] of Object.entries({ x: '-8%', y: '-12%', width: '116%', height: '124%', 'color-interpolation-filters': 'sRGB' })) {
+      filter.setAttribute(name, value);
+    }
     const noise = document.createElementNS(namespace, 'feTurbulence');
-    for (const [name, value] of Object.entries({ type: 'fractalNoise', baseFrequency: '.012 .06', numOctaves: '1', seed: '8', result: 'waves' })) noise.setAttribute(name, value);
+    for (const [name, value] of Object.entries({ type: 'fractalNoise', baseFrequency: '.012 .06', numOctaves: '1', seed: '8', result: 'waves' })) {
+      noise.setAttribute(name, value);
+    }
     this.waveDisplacement = document.createElementNS(namespace, 'feDisplacementMap');
-    for (const [name, value] of Object.entries({ in: 'SourceGraphic', in2: 'waves', scale: '0', xChannelSelector: 'R', yChannelSelector: 'G' })) this.waveDisplacement.setAttribute(name, value);
+    for (const [name, value] of Object.entries({ in: 'SourceGraphic', in2: 'waves', scale: '0', xChannelSelector: 'R', yChannelSelector: 'G' })) {
+      this.waveDisplacement.setAttribute(name, value);
+    }
     filter.append(noise, this.waveDisplacement);
     defs.append(filter);
     svg.append(defs);
@@ -179,12 +252,21 @@ class Demo {
   sample(raw) {
     if (!this.prepared) this.prepare(this.lastFrom ?? this.theme);
     this.progress = clamp(raw);
+
+    // 视口外网格卡片在自动播放中间态时，跳过昂贵的 DOM 样式重排，仅在两端和可见时渲染
+    if (!this.isMain && !this.isVisible && this.playing && this.progress > 0 && this.progress < 1) {
+      this.updateToggle();
+      this.onChange(this);
+      return;
+    }
+
     const p = ease(this.progress);
     const width = Math.max(1, this.element.clientWidth);
     const height = Math.max(1, this.element.clientHeight);
     const dark = this.to === 'dark';
     const next = this.next;
     const t = this.progress * this.progress * (3 - 2 * this.progress);
+
     switch (this.effect.id) {
       case 'circle': {
         const box = this.toggle.getBoundingClientRect();
@@ -221,22 +303,22 @@ class Demo {
         next.hidden = true;
         mixColors(this.base, this.palettes[this.from], this.palettes[this.to], p);
         this.base.querySelectorAll('[data-zone]').forEach((zone, index) => {
-          mixColors(zone, this.palettes[this.from], this.palettes[this.to], ease((this.progress - index * .2) / .6));
+          mixColors(zone, this.palettes[this.from], this.palettes[this.to], ease((this.progress - index * 0.2) / 0.6));
         });
         {
-          const contentProgress = ease((this.progress - .2) / .6);
+          const contentProgress = ease((this.progress - 0.2) / 0.6);
           mixLandscape(this.base, dark ? contentProgress : 1 - contentProgress);
         }
         break;
       case 'blinds': {
         const band = height / 9;
-        const mask = `repeating-linear-gradient(to bottom, #000 0px, #000 ${Math.max(0, band * p - .01)}px, transparent ${band * p}px, transparent ${band}px)`;
+        const mask = `repeating-linear-gradient(to bottom, #000 0px, #000 ${Math.max(0, band * p - 0.01)}px, transparent ${band * p}px, transparent ${band}px)`;
         next.style.maskImage = mask;
         next.style.webkitMaskImage = mask;
         break;
       }
       case 'blur': {
-        const blur = Math.sin(Math.PI * this.progress) * width * .012;
+        const blur = Math.sin(Math.PI * this.progress) * width * 0.012;
         next.style.opacity = p;
         next.style.filter = `blur(${blur}px)`;
         this.base.style.filter = `blur(${blur}px)`;
@@ -253,7 +335,7 @@ class Demo {
         const perspective = Math.max(1, width * 1.8);
         for (const node of [this.base, next]) {
           node.style.backfaceVisibility = 'hidden';
-          node.style.filter = `brightness(${1 - .28 * Math.sin(Math.PI * t)})`;
+          node.style.filter = `brightness(${1 - 0.28 * Math.sin(Math.PI * t)})`;
         }
         this.base.style.transform = `perspective(${perspective}px) rotateY(${direction * t * 180}deg)`;
         next.style.transform = `perspective(${perspective}px) rotateY(${-direction * (1 - t) * 180}deg)`;
@@ -267,19 +349,19 @@ class Demo {
       case 'ripple': {
         this.ensureWaveFilter();
         const strength = Math.sin(Math.PI * this.progress);
-        this.waveDisplacement.setAttribute('scale', String(width * .035 * strength));
+        this.waveDisplacement.setAttribute('scale', String(width * 0.035 * strength));
         this.base.style.filter = next.style.filter = `url(#${this.id})`;
-        const band = width * .018;
+        const band = width * 0.018;
         const radius = (Math.hypot(width / 2, height / 2) + band * 2) * t;
         setMask(next, this.progress === 1 ? 'none' : `radial-gradient(circle at 50% 50%, #000 ${Math.max(0, radius - band)}px, transparent ${radius + band}px)`);
         next.style.opacity = this.progress === 0 ? '0' : '1';
         this.overlay.hidden = false;
-        this.overlay.style.opacity = String(strength * .65);
+        this.overlay.style.opacity = String(strength * 0.65);
         this.overlay.style.backgroundImage = `radial-gradient(circle at 50% 50%, transparent ${Math.max(0, radius - band)}px, #d9f3eeb3 ${radius}px, transparent ${radius + band}px)`;
         break;
       }
       case 'exposure':
-        next.style.opacity = this.progress < .5 ? '0' : '1';
+        next.style.opacity = this.progress < 0.5 ? '0' : '1';
         this.overlay.hidden = false;
         this.overlay.style.backgroundColor = dark ? '#0b1712' : '#fffcf2';
         this.overlay.style.opacity = String(1 - Math.abs(2 * t - 1));
@@ -299,7 +381,6 @@ class Demo {
     this.prepared = false;
     this.progress = 1;
     this.playing = false;
-    this.frame = null;
     this.updateToggle();
     this.onChange(this);
   }
@@ -309,27 +390,23 @@ class Demo {
     if (!replay && this.prepared && this.progress >= 1) this.commit();
     if (replay) this.prepare(this.lastFrom ?? this.theme);
     else if (!this.prepared || this.progress >= 1) this.prepare();
+
     if (motionPreference.matches && !motionAllowed) {
       this.sample(1);
       this.commit();
       return;
     }
-    const duration = Number($('#duration').value);
-    const start = performance.now() - this.progress * duration;
+
+    this.duration = Number($('#duration').value);
+    this.startTime = performance.now() - this.progress * this.duration;
     this.playing = true;
     this.updateToggle();
-    const step = now => {
-      this.sample((now - start) / duration);
-      if (this.progress < 1) this.frame = requestAnimationFrame(step);
-      else this.commit();
-    };
-    this.frame = requestAnimationFrame(step);
+    startTicker(this);
     this.onChange(this);
   }
 
   pause(notify = true) {
-    if (this.frame !== null) cancelAnimationFrame(this.frame);
-    this.frame = null;
+    stopTicker(this);
     this.playing = false;
     this.updateToggle();
     if (notify) this.onChange(this);
@@ -360,15 +437,32 @@ function updateMainControls(demo) {
   $('#progress').value = demo.progress * 100;
   $('#progress-value').value = `${Math.round(demo.progress * 100)}%`;
   $('#playback-state').textContent = demo.playing ? '播放中' : demo.progress === 1 ? '已完成' : demo.prepared ? '已暂停' : '就绪';
-  const target = demo.prepared ? demo.progress >= 1 ? demo.from : demo.to : demo.theme === 'light' ? 'dark' : 'light';
+  const target = demo.prepared ? (demo.progress >= 1 ? demo.from : demo.to) : (demo.theme === 'light' ? 'dark' : 'light');
   $('#play-label').textContent = demo.playing ? '暂停动画' : demo.prepared && demo.progress < 1 ? '继续播放' : `切换到${target === 'dark' ? '深色' : '浅色'}`;
   const from = demo.prepared ? demo.from : demo.lastFrom ?? demo.theme;
   $('#direction-label').textContent = from === 'light' ? '浅色 → 深色' : '深色 → 浅色';
 }
 
 const mainDemo = new Demo($('#main-demo'), effects[0], updateMainControls);
+mainDemo.isMain = true;
 const gridDemos = [];
 const choiceButtons = [];
+const gridDemoMap = new Map();
+
+// 视口观察器：仅在真实浏览器中监听并排卡片可见性
+const gridObserver = typeof IntersectionObserver !== 'undefined'
+  ? new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        const demo = gridDemoMap.get(entry.target);
+        if (demo) {
+          demo.isVisible = entry.isIntersecting;
+          if (demo.isVisible && demo.prepared && !demo.playing) {
+            demo.sample(demo.progress);
+          }
+        }
+      }
+    }, { rootMargin: '120px 0px' })
+  : null;
 
 function selectEffect(index, focusStage = false) {
   mainDemo.pause(false);
@@ -387,7 +481,15 @@ function selectEffect(index, focusStage = false) {
 }
 
 effects.forEach((effect, index) => {
-  const group = { 0: '基础过渡 / 01—09', 9: '空间与纹理 / 10—14', 14: '材质与叙事 / 15—22', 22: '工艺与显像 / 23—32', 32: '物理与空间 / 33—42' }[index];
+  const group = {
+    0: '基础过渡 / 01—09',
+    9: '空间与纹理 / 10—14',
+    14: '材质与叙事 / 15—22',
+    22: '工艺与显像 / 23—32',
+    32: '物理与空间 / 33—42',
+    42: '工坊与印艺 / 43—54'
+  }[index];
+
   if (group) {
     const label = document.createElement('p');
     label.className = 'effect-group';
@@ -398,6 +500,7 @@ effects.forEach((effect, index) => {
     heading.textContent = group;
     $('#comparison-grid').append(heading);
   }
+
   const button = document.createElement('button');
   button.type = 'button';
   button.className = 'effect-choice';
@@ -411,20 +514,32 @@ effects.forEach((effect, index) => {
   article.id = `study-${effect.id}`;
   article.innerHTML = `<div class="comparison-item-heading"><span class="effect-number">${String(index + 1).padStart(2, '0')}</span><h3>${effect.name}</h3><span class="effect-en">${effect.en}</span></div><div class="demo"></div><div class="comparison-item-footer"><p>${effect.short}</p><button class="inspect-button" type="button">放大试映 ↗</button></div>`;
   $('#comparison-grid').append(article);
+
   const demo = new Demo(article.querySelector('.demo'), effect);
   gridDemos.push(demo);
+  gridDemoMap.set(article, demo);
+  if (gridObserver) {
+    gridObserver.observe(article);
+  }
+
   article.querySelector('.inspect-button').addEventListener('click', () => selectEffect(index, true));
 });
 
-$('#play-main').addEventListener('click', () => mainDemo.playing ? mainDemo.pause() : mainDemo.play());
+$('#play-main').addEventListener('click', () => (mainDemo.playing ? mainDemo.pause() : mainDemo.play()));
 $('#show-authored').addEventListener('click', () => selectEffect(14, true));
 $('#show-craft').addEventListener('click', () => selectEffect(22, true));
 $('#show-physical').addEventListener('click', () => selectEffect(32, true));
+const showAtelierBtn = $('#show-atelier');
+if (showAtelierBtn) {
+  showAtelierBtn.addEventListener('click', () => selectEffect(42, true));
+}
+
 $('#replay-main').addEventListener('click', () => mainDemo.play(true));
 $('#progress').addEventListener('input', event => mainDemo.scrub(Number(event.target.value) / 100));
 $('#duration').addEventListener('input', event => {
   $('#duration-value').value = `${event.target.value} ms`;
 });
+
 let comparisonDark = false;
 $('#play-all').addEventListener('click', () => {
   gridDemos.forEach(demo => {
@@ -434,6 +549,7 @@ $('#play-all').addEventListener('click', () => {
   comparisonDark = !comparisonDark;
   $('#play-all').textContent = comparisonDark ? '全部切回浅色 ↗' : '播放全部 ↗';
 });
+
 $('#reset-all').addEventListener('click', () => {
   gridDemos.forEach(demo => demo.reset());
   comparisonDark = false;
@@ -444,11 +560,17 @@ function updateMotionPreference() {
   $('#motion-notice').hidden = !motionPreference.matches || motionAllowed;
   if (motionPreference.matches && !motionAllowed) [mainDemo, ...gridDemos].forEach(demo => demo.pause());
 }
-$('#allow-motion').addEventListener('click', () => { motionAllowed = true; updateMotionPreference(); });
+
+$('#allow-motion').addEventListener('click', () => {
+  motionAllowed = true;
+  updateMotionPreference();
+});
+
 motionPreference.addEventListener('change', updateMotionPreference);
 document.addEventListener('visibilitychange', () => {
   if (document.hidden) [mainDemo, ...gridDemos].forEach(demo => demo.pause());
 });
+
 let resizeFrame = null;
 window.addEventListener('resize', () => {
   if (resizeFrame !== null) cancelAnimationFrame(resizeFrame);
@@ -457,5 +579,6 @@ window.addEventListener('resize', () => {
     resizeFrame = null;
   });
 });
+
 selectEffect(0);
 updateMotionPreference();
