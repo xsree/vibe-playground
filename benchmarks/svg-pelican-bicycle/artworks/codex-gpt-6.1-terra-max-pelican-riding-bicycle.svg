@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 950" role="img" aria-labelledby="title description">
+  <title id="title">The long way home</title>
+  <desc id="description">A white pelican pedals a coral bicycle beside the sea, carrying flowers in its basket on a sunny day.</desc>
+
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e2eee9"/>
+      <stop offset="1" stop-color="#f4f1df"/>
+    </linearGradient>
+    <linearGradient id="feathers" x1="0" y1="0" x2="0.75" y2="1">
+      <stop offset="0" stop-color="#fffdf3"/>
+      <stop offset="1" stop-color="#dfe9df"/>
+    </linearGradient>
+    <linearGradient id="pouch" x1="0" y1="0" x2="0.25" y2="1">
+      <stop offset="0" stop-color="#f8d591"/>
+      <stop offset="1" stop-color="#e99b62"/>
+    </linearGradient>
+    <pattern id="paper-dots" width="43" height="43" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="9" r="0.8" fill="#526f65" opacity=".14"/>
+      <circle cx="28" cy="30" r="0.7" fill="#526f65" opacity=".12"/>
+      <path d="M38 5h2M11 37h1" stroke="#526f65" stroke-width=".7" opacity=".12"/>
+    </pattern>
+    <clipPath id="scene">
+      <rect x="32" y="32" width="1136" height="792" rx="5"/>
+    </clipPath>
+    <clipPath id="basket-inside">
+      <path d="M762 429 Q806 436 850 429 L838 481 Q807 491 776 481 Z"/>
+    </clipPath>
+    <g id="wheel">
+      <circle r="141" fill="none" stroke="#304d4d" stroke-width="11"/>
+      <circle r="132" fill="none" stroke="#ead9bd" stroke-width="4"/>
+      <circle r="126" fill="none" stroke="#54716c" stroke-width="2"/>
+      <g fill="none" stroke="#587670" stroke-width="1.6" opacity=".72">
+        <path d="M0-126V126M-126 0H126M-109-63 109 63M-109 63 109-63M-63-109 63 109M-63 109 63-109"/>
+        <path d="M-89-89 89 89M-89 89 89-89"/>
+      </g>
+      <circle r="11" fill="#f6e6c7" stroke="#304d4d" stroke-width="4"/>
+      <circle r="3" fill="#304d4d"/>
+    </g>
+  </defs>
+
+  <!-- A quiet, printed-paper frame around the coastal scene. -->
+  <rect width="1200" height="950" fill="#f8f4e8"/>
+  <rect x="16" y="16" width="1168" height="918" rx="10" fill="none" stroke="#c4c8b5" stroke-width="1"/>
+  <g clip-path="url(#scene)">
+    <rect x="32" y="32" width="1136" height="792" fill="url(#sky)"/>
+    <circle cx="986" cy="161" r="61" fill="#f3c978"/>
+    <circle cx="986" cy="161" r="75" fill="none" stroke="#e7bd75" stroke-width="1.5" opacity=".6"/>
+
+    <!-- Distant coast and water. -->
+    <path d="M32 523 C135 501 200 518 291 502 C382 488 444 507 528 496 C632 482 706 507 791 492 C911 470 1020 488 1168 464 V824 H32Z" fill="#cbded4"/>
+    <path d="M32 556 C136 543 210 561 310 550 C418 539 480 558 580 543 C692 526 783 546 886 529 C990 513 1082 532 1168 514 V824 H32Z" fill="#b7d3c9"/>
+    <path d="M32 606 C163 592 267 609 388 600 C528 588 617 604 744 592 C905 577 1035 594 1168 578 V824 H32Z" fill="#d2e3d7"/>
+    <g fill="none" stroke="#8eb7aa" stroke-linecap="round" opacity=".65">
+      <path d="M72 557h76m17 0h26M1002 552h92m15 0h19M58 632h79m24 0h40M931 614h79m16 0h35" stroke-width="2"/>
+      <path d="M112 584h37m17 0h14M934 582h42m11 0h17M1051 658h54" stroke-width="1.5"/>
+    </g>
+    <path d="M32 777 Q301 770 535 777 T1168 774 V824 H32Z" fill="#e7d8bd"/>
+    <path d="M32 778 Q301 771 535 778 T1168 775" fill="none" stroke="#c8b99e" stroke-width="2"/>
+    <g fill="none" stroke="#b7aa90" stroke-width="1.5" stroke-linecap="round" opacity=".8">
+      <path d="M114 800h81m12 0h23M897 799h91m14 0h18M631 806h43"/>
+    </g>
+    <ellipse cx="577" cy="779" rx="393" ry="15" fill="#71887b" opacity=".16"/>
+
+    <!-- A few marks of sea air, kept behind the rider. -->
+    <g fill="none" stroke="#94b0a5" stroke-width="2" stroke-linecap="round" opacity=".75">
+      <path d="M158 237c14-12 27-12 40 0 13-12 27-12 40 0"/>
+      <path d="M255 183c9-8 19-8 28 0 10-8 20-8 29 0"/>
+      <path d="M871 345c24-8 44-8 66 0m10 0h20"/>
+      <path d="M119 374h63m12 0h20M156 394h35"/>
+    </g>
+
+    <!-- Bicycle: wheels, frame, drivetrain, saddle and handlebars. -->
+    <use href="#wheel" x="350" y="635"/>
+    <use href="#wheel" x="820" y="635"/>
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M218 603 A143 143 0 0 1 457 538 M690 594 A143 143 0 0 1 933 548" stroke="#48655f" stroke-width="6"/>
+      <path d="M350 635 L505 460 L577 631 L350 635 M505 460 L714 469 L577 631" stroke="#344e4c" stroke-width="19"/>
+      <path d="M350 635 L505 460 L577 631 L350 635 M505 460 L714 469 L577 631" stroke="#d87557" stroke-width="11"/>
+      <path d="M714 469 L731 516 Q755 581 820 635" stroke="#344e4c" stroke-width="18"/>
+      <path d="M714 469 L731 516 Q755 581 820 635" stroke="#d87557" stroke-width="10"/>
+      <path d="M712 465 L730 516" stroke="#344e4c" stroke-width="21"/>
+      <path d="M712 465 L730 516" stroke="#e5a073" stroke-width="13"/>
+      <path d="M350 622 L577 600 A31 31 0 0 1 577 662 L350 648 A13 13 0 0 1 350 622Z" stroke="#405c57" stroke-width="3"/>
+      <circle cx="577" cy="631" r="27" stroke="#405c57" stroke-width="4"/>
+      <circle cx="577" cy="631" r="18" stroke="#708780" stroke-width="2"/>
+      <path d="M577 631 615 578 M577 631 539 684" stroke="#344e4c" stroke-width="9"/>
+      <path d="M601 578h30 M525 684h30" stroke="#344e4c" stroke-width="7"/>
+      <path d="M505 460 498 440 M714 469 704 426 Q700 411 715 411 H755 Q775 411 775 428" stroke="#344e4c" stroke-width="10"/>
+      <path d="M706 410h25" stroke="#b77b57" stroke-width="11"/>
+    </g>
+    <circle cx="577" cy="631" r="7" fill="#f5e7c9" stroke="#344e4c" stroke-width="3"/>
+    <path d="M469 437 Q491 432 510 436 L535 439 Q541 441 538 446 Q526 451 509 449 L477 447 Q467 447 469 437Z" fill="#6c5245" stroke="#344e4c" stroke-width="4" stroke-linejoin="round"/>
+    <circle cx="750" cy="405" r="7" fill="#e8bf75" stroke="#344e4c" stroke-width="3"/>
+
+    <!-- Flowers tucked into a woven front basket. -->
+    <g fill="none" stroke="#527767" stroke-width="3" stroke-linecap="round">
+      <path d="M794 438 Q790 410 779 396 M804 437 Q805 407 815 386 M813 438 Q826 413 835 402"/>
+      <path d="M795 420 Q779 410 777 419 Q782 426 796 426 M814 416 Q825 404 831 410 Q828 419 814 423" fill="#86a98d"/>
+    </g>
+    <g fill="#f8f0d9" stroke="#d1956c" stroke-width="1.5">
+      <circle cx="779" cy="393" r="7"/><circle cx="773" cy="398" r="6"/><circle cx="785" cy="399" r="6"/>
+      <circle cx="815" cy="382" r="7"/><circle cx="809" cy="388" r="6"/><circle cx="821" cy="388" r="6"/>
+      <circle cx="836" cy="400" r="6"/><circle cx="831" cy="405" r="5"/><circle cx="841" cy="405" r="5"/>
+    </g>
+    <g fill="#e3a65c"><circle cx="779" cy="398" r="3"/><circle cx="815" cy="387" r="3"/><circle cx="836" cy="405" r="2.5"/></g>
+    <path d="M762 429 Q806 436 850 429 L838 481 Q807 491 776 481 Z" fill="#dfb77f" stroke="#455b51" stroke-width="4" stroke-linejoin="round"/>
+    <g clip-path="url(#basket-inside)" fill="none" stroke="#ad825b" stroke-width="2" opacity=".75">
+      <path d="M749 445 Q805 452 863 444 M749 457 Q805 464 863 456 M749 469 Q805 476 863 468 M778 425l11 63 M795 427l6 63 M813 427l-1 63 M831 426l-8 63"/>
+    </g>
+    <path d="M760 427 Q806 434 852 427" fill="none" stroke="#455b51" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- The long legs reach two different pedals; broad webbed toes rest on them. -->
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M522 414 Q518 458 532 499 L609 568 M551 417 Q574 463 587 507 L543 675" stroke="#344e4c" stroke-width="15"/>
+      <path d="M522 414 Q518 458 532 499 L609 568 M551 417 Q574 463 587 507 L543 675" stroke="#e99c64" stroke-width="9"/>
+    </g>
+    <g fill="#e99c64" stroke="#344e4c" stroke-width="3.5" stroke-linejoin="round">
+      <path d="M602 562 Q608 557 615 562 L623 567 L636 568 Q642 569 641 574 L630 575 L625 578 L615 575 L605 577 Q598 575 600 571Z"/>
+      <path d="M537 670 Q543 666 550 671 L558 677 L568 679 Q573 681 570 684 L558 685 L553 688 L542 685 L531 687 Q526 685 529 680Z"/>
+    </g>
+
+    <!-- The long neck is behind the body. -->
+    <path d="M613 354 C650 332 678 302 681 268 C683 242 668 228 665 204 C662 175 678 153 705 148 C733 143 753 158 757 180 C761 202 750 219 733 228 C716 237 717 252 724 270 C738 307 722 345 696 372 C676 393 650 406 626 409 Z" fill="url(#feathers)" stroke="#344e4c" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M684 238 Q691 268 682 292 Q674 314 657 329" fill="none" stroke="#b8cfc3" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Long bill and the characteristic hanging throat pouch. -->
+    <path d="M729 211 C786 212 901 220 987 232 C967 243 901 295 843 313 C793 329 756 309 741 272 Q733 251 729 230Z" fill="url(#pouch)" stroke="#344e4c" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M754 238 Q766 290 810 303 Q842 311 873 296" fill="none" stroke="#d88959" stroke-width="2.5" stroke-linecap="round" opacity=".7"/>
+    <path d="M730 209 C799 207 913 218 987 231 Q994 233 988 238 C916 235 807 232 733 229 Z" fill="#e9ad62" stroke="#344e4c" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M754 214 Q859 216 955 229" fill="none" stroke="#f8d692" stroke-width="3" stroke-linecap="round"/>
+    <ellipse cx="750" cy="216" rx="3.5" ry="2" fill="#6b6048" transform="rotate(8 750 216)"/>
+
+    <!-- Rounded body, tail and a wing reaching for the handlebar. -->
+    <path d="M410 333 Q381 300 350 309 L376 329 L341 326 Q360 348 396 359Z" fill="#e5eee3" stroke="#344e4c" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M357 320 L389 338 M361 336 L390 346" fill="none" stroke="#a7c0b3" stroke-width="2" stroke-linecap="round"/>
+    <path d="M625 321 C585 292 537 278 490 284 C443 290 408 308 395 335 C380 365 391 398 418 419 C448 444 499 453 555 448 C602 444 638 430 654 401 C670 373 666 342 644 327 Z" fill="url(#feathers)" stroke="#344e4c" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M401 383 C451 425 556 444 644 396 C630 424 600 437 556 443 C491 452 432 433 411 411Z" fill="#cddfd2" opacity=".65"/>
+    <path d="M433 331 C473 303 527 306 571 327 C614 348 650 384 688 404 Q703 411 719 410 Q727 412 725 418 Q723 425 712 423 C692 420 670 410 650 401 C627 391 606 383 586 383 C569 397 549 402 527 396 C488 388 453 368 433 348 Q425 340 433 331Z" fill="#f8fbef" stroke="#344e4c" stroke-width="4.5" stroke-linejoin="round"/>
+    <g fill="none" stroke="#abc4b6" stroke-width="2.5" stroke-linecap="round">
+      <path d="M446 341 Q480 368 521 376 Q546 381 562 376"/>
+      <path d="M458 334 Q488 355 519 361"/>
+      <path d="M475 325 Q500 339 520 343"/>
+      <path d="M586 368 Q622 382 650 393 M605 364 Q634 377 657 390"/>
+    </g>
+    <path d="M694 411 Q706 413 716 414 M695 417 Q705 419 714 420" fill="none" stroke="#b5cbbd" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Small face details give the rider a calm, forward gaze. -->
+    <path d="M700 171 Q708 165 716 169" fill="none" stroke="#597168" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="711" cy="181" r="7" fill="#344e4c"/>
+    <circle cx="713" cy="179" r="2" fill="#fffdf2"/>
+    <ellipse cx="697" cy="195" rx="9" ry="5" fill="#e9aa92" opacity=".45"/>
+
+    <rect x="32" y="32" width="1136" height="792" fill="url(#paper-dots)" pointer-events="none"/>
+  </g>
+
+  <!-- Letterpress-like marginal notes and title. -->
+  <g fill="#44615b" font-family="Arial, sans-serif">
+    <text x="77" y="91" font-size="12" font-weight="700" letter-spacing="3">THE COASTAL CLUB</text>
+    <text x="77" y="113" font-size="10" letter-spacing="2">A LITTLE FURTHER, A LITTLE SLOWER</text>
+    <text x="1124" y="89" text-anchor="end" font-size="11" font-weight="700" letter-spacing="2">FIELD NOTE  /  01</text>
+    <text x="77" y="883" font-family="Georgia, serif" font-size="34" letter-spacing="1">The long way home.</text>
+    <text x="1123" y="874" text-anchor="end" font-size="11" font-weight="700" letter-spacing="2.2">SOMEWHERE BY THE SEA</text>
+    <text x="1123" y="894" text-anchor="end" font-size="10" letter-spacing="1.5">A SUNDAY KIND OF RIDE</text>
+  </g>
+  <path d="M77 851 H1123" fill="none" stroke="#c8cbb9" stroke-width="1"/>
+</svg>

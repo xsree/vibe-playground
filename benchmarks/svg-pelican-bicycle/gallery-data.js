@@ -507,5 +507,19 @@ window.PELICAN_RESULTS = [
     "model": "GLM-5.3-FlashX",
     "effort": "xhigh",
     "file": "artworks/Trae-GLM-5.3-FlashX-xhigh-pelican-riding-bicycle.svg"
+  },
+  {
+    "harness": "Codex",
+    "vendor": "OpenAI",
+    "model": "GPT-6.1-Terra",
+    "effort": "high",
+    "file": "artworks/codex-gpt-6.1-terra-high-pelican-riding-bicycle.svg"
+  },
+  {
+    "harness": "Codex",
+    "vendor": "OpenAI",
+    "model": "GPT-6.1-Terra",
+    "effort": "max",
+    "file": "artworks/codex-gpt-6.1-terra-max-pelican-riding-bicycle.svg"
   }
 ];
