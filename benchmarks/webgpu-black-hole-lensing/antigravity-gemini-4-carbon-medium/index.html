@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>ASTRON // NULL-01 — 实时引力透镜视界观测站</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div id="app" class="viewport">
+    <canvas id="bh-canvas" aria-label="实时三维黑洞与引力透镜吸积盘渲染画布"></canvas>
+
+    <div id="loading-overlay" class="loading-overlay" role="status" aria-live="polite">
+      <div class="loading-inner">
+        <span class="status-dot is-pulsing"></span>
+        <span id="loading-text" class="loading-label">INITIALIZING GEODESIC FIELD · 正在初始化测地线光场</span>
+      </div>
+    </div>
+
+    <header class="hud-top">
+      <div class="hud-brand">
+        <span class="reticle-mark" aria-hidden="true"></span>
+        <span class="brand-code">ASTRON // NULL-01</span>
+        <span class="hud-divider" aria-hidden="true"></span>
+        <span class="render-status">
+          <span id="status-dot" class="status-dot"></span>
+          <span id="renderer-label">REALTIME GEODESIC</span>
+        </span>
+      </div>
+
+      <div class="hud-telemetry" aria-label="相机观测遥测参数">
+        <div class="telemetry-item">
+          <span class="telemetry-key"><span class="key-en">AZIMUTH </span>方位</span>
+          <span id="readout-az" class="telemetry-val">032.0°</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="telemetry-key"><span class="key-en">ELEVATION </span>仰角</span>
+          <span id="readout-el" class="telemetry-val">+08.5°</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="telemetry-key"><span class="key-en">DISTANCE </span>距离</span>
+          <span id="readout-dist" class="telemetry-val">24.5 Rs</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="hud-hero" aria-labelledby="hero-title">
+      <div class="hero-kicker">DEEP SPACE OPTICAL ARRAY · RELATIVISTIC RADIATIVE TRANSFER</div>
+      <h1 id="hero-title" class="hero-title">视界与引力透镜吸积场</h1>
+      <p class="hero-desc">
+        实时追踪弯曲时空中的零测地线轨迹。高温等离子流在差异旋转与湍流剪切下向内旋落，背面辐射经强引力场偏折，于事件视界上下连续抬升并环绕光子球层。
+      </p>
+    </section>
+
+    <footer class="hud-controls">
+      <div class="interaction-hint">
+        <span>DRAG 拖拽旋转视角</span>
+        <span class="hint-sep">·</span>
+        <span>SCROLL 滚轮调节距离</span>
+      </div>
+      <button id="reset-btn" class="reset-btn" type="button">
+        <span class="reset-icon" aria-hidden="true">↺</span>
+        <span>重置视角 RESET</span>
+      </button>
+    </footer>
+  </div>
+
+  <script src="./shaders-wgsl.js" defer></script>
+  <script src="./shaders-glsl.js" defer></script>
+  <script src="./renderer.js" defer></script>
+  <script src="./main.js" defer></script>
+</body>
+</html>

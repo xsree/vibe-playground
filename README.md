@@ -11,6 +11,7 @@
 | [svg-pelican-bicycle](benchmarks/svg-pelican-bicycle/) | spec-driven | 纯手写 SVG：鹈鹕骑自行车，自动登记画廊 | 多个，见画廊 |
 | [canvas-pelican-bicycle](benchmarks/canvas-pelican-bicycle/) | spec-driven | 纯手写 Canvas 2D：鹈鹕骑自行车，动画与画面导出 | 1，见画廊 |
 | [canvas-pelican-bicycle](benchmarks/canvas-pelican-bicycle/) | spec-driven | 手写 Canvas 2D：鹈鹕骑自行车（SVG 版的 Canvas 适配） | 1 |
+| [3d-pelican-bicycle](benchmarks/3d-pelican-bicycle/) | spec-driven | 纯程序化 Three.js 3D：鹈鹕骑自行车，骨骼 IK 与可交互微缩场景 | 1，见画廊 |
 | [svg-ds3-estus-flask](benchmarks/svg-ds3-estus-flask/) | spec-driven | 黑魂 3 艾斯特瓦（**提示词待补**） | 1 |
 | [web-ps5-controller](benchmarks/web-ps5-controller/) | spec-driven | 纯前端高保真可交互 DualSense | 1 |
 | [3d-spring-railway-diorama](benchmarks/3d-spring-railway-diorama/) | spec-driven | Three.js 日系春季铁路车站微缩模型，三文件限制 | 1 |

@@ -521,5 +521,20 @@ window.PELICAN_RESULTS = [
     "model": "GPT-6.1-Terra",
     "effort": "max",
     "file": "artworks/codex-gpt-6.1-terra-max-pelican-riding-bicycle.svg"
+  },
+  {
+    "harness": "Antigravity",
+    "vendor": "Google",
+    "model": "Gemini-4-Carbon",
+    "effort": "medium",
+    "file": "artworks/Antigravity-Gemini-4-Carbon-medium-pelican-riding-bicycle.svg"
+  },
+  {
+    "harness": "Antigravity",
+    "vendor": "Google",
+    "model": "Gemini-4-Carbon",
+    "effort": "medium",
+    "animated": true,
+    "file": "artworks/Antigravity-Gemini-4-Carbon-medium-animated-pelican-riding-bicycle.svg"
   }
 ];

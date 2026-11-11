@@ -10,20 +10,31 @@
 
 ---
 
-## 产出约定（后续所有 Agent 必须遵守）
+## 跨模型测试与交付流程（后续所有 Agent 必须遵守）
 
-本任务用于对比不同 harness × 模型 × 思考强度对同一 Prompt 的实现效果，因此产出的组织方式由这三个变量决定：
+```text
+【重要前提】：
+如果你不确定自己当前被测的具体模型名（model）、思考/推理强度（effort）或所属厂商（vendor），必须在开始前或登记数据前主动向用户提问确认，严禁自行胡乱猜测、填写 unknown 或随意标记！
 
-1. **实验组文件夹命名**：`{harness}-{模型名}-{思考强度}`。
-   - `harness`：当前 agent 宿主产品名（如 WorkBuddy、Claude Code、Cursor 等，取实际运行环境的产品名）。
-   - `模型名`：当前驱动本次对话的模型名（如 GLM-5.3、Claude-Sonnet-4.5、GPT-5 等，若无法确定请向用户确认）。
-   - `思考强度`：当前对话的推理/思考档位（如 深度思考、中等思考、浅思考、未开启思考；无法自行探测时向用户确认）。
-   - 示例：`WorkBuddy-GLM-5.3-深度思考/`。
-2. **文件收纳规则**：
-   - 若产出为单个文件，直接放在 `3d-rainy-convenience-store/` 下的实验组文件夹内（仍建文件夹，保持目录结构统一，便于横向对比）。
-   - 若产出包含多个文件（如 HTML/CSS/JS、配套数据、说明文档），**必须**在 `3d-rainy-convenience-store/` 下创建该实验组文件夹，把所有文件放进去，入口 HTML 命名为 `index.html`，样式/脚本等用 `style.css` / `main.js` 等通用名。
-   - 禁止把产出文件直接散放在 `3d-rainy-convenience-store/` 根目录或项目根目录。
-3. **迭代规则**：同一实验组（同 harness + 同模型 + 同思考强度）的后续修改，在原实验组文件夹内的原文件上迭代更新，不要新建平行版本；确需留档时复制为 `<原名>.backup-<日期>.<扩展名>`。不同实验组之间互不覆盖。
-4. **零起点生成（独立性铁律）**：各实验组必须**完全从 0 生成**，禁止读取本目录（`3d-rainy-convenience-store/`）内其他实验组的已完成产物（代码、截图、文档等）作为参考、 mimic、对照或"灵感"来源。本 Prompt 的场景描述文本（即上方四段正文）是唯一允许的输入。这是对比实验有效性的前提——任何跨实验组的借鉴都会污染实验结果。唯一例外：用户在**同一次对话中明确指令**修改某个实验组时，只允许读取该实验组自身的文件。
-5. **架构约定**：保持"纯原生前端、HTML/CSS/JS 物理分离、零构建零后端"的结构；Three.js 等类库继续使用 CDN 引入；禁止出现任何 UI 控件或文字说明遮挡画面，入口文件只保留整页 Canvas 场景。
-6. **交付动作**：完成后向用户展示该实验组文件夹中的 `index.html`，并确认所有文件已收纳在对应的实验组文件夹内。
+完成创作后，必须自动执行以下完整交付流程（不要仅回复文字）：
+1. 【保存多文件 3D 答卷】：
+   - 保存到 `benchmarks/3d-rainy-convenience-store/{harness}-{model}-{effort}/` 目录下（入口为 `index.html`，样式与脚本物理分离为 `style.css`、`main.js`）。
+   - 示例：`benchmarks/3d-rainy-convenience-store/codex-gpt-6-astra-medium/`
+   - harness、model、effort 必须为你当前被测环境的真实身份与推理强度（如 high / medium / low / max 等）。
+2. 【自动更新记录文档 README.md】：
+   - 读取并更新 `benchmarks/3d-rainy-convenience-store/README.md`，在「## 答卷」部分追加本次产物记录（含厂商、模型、Harness、effort 与相对路径）。
+3. 【展示成果】：
+   - 生成后以可视化方式（预览面板 / 浏览器）展示该实验组文件夹中的 `index.html`。
+```
+
+## 测试规范说明
+
+1. **保存位置**：保存在 `benchmarks/3d-rainy-convenience-store/{harness}-{model}-{effort}/` 文件夹内，禁止把产出文件直接散放在题目根目录或仓库根目录。
+2. **目录命名**：`{harness}-{model}-{effort}`
+   - `harness`：当前 Agent 宿主产品名（如 Antigravity、Codex、WorkBuddy、Zed、OpenCode、Trae 等）。
+   - `model`：当前驱动对话的真实模型名（不确定时必须向用户确认）。
+   - `effort`：当前对话的推理/思考强度档位（如 `low`、`medium`、`high`、`xhigh`、`max` 等；不确定时必须向用户确认）。
+3. **交付要求**：生成后必须以可预览方式展示 `index.html`，并主动同步 `benchmarks/3d-rainy-convenience-store/README.md` 中的已有结果记录。同一实验组后续修改在原文件夹内迭代更新，不同实验组互不覆盖。
+4. **内容与架构要求**：保持纯原生前端、HTML/CSS/JS 物理分离、零构建零后端结构；Three.js 等类库通过 CDN 引入；所有微缩场景与便利店内外陈设均通过程序化三维建模实现，禁止出现任何 UI 控件或文字说明遮挡画面。
+5. **独立创作约束（重要）**：各实验组必须**完全从 0 生成**，**严禁参考、读取、借鉴本目录（`benchmarks/3d-rainy-convenience-store/`）内任何其他实验组的已完成产物**（代码、截图、文档等）。上方场景描述正文是唯一允许的输入。若为满足命名与登记需求，仅允许读取目录列表与 `README.md`。
+6. **身份确认与防臆测（重要）**：若当前被测环境未明确暴露模型真实版本号、当前推理强度（effort）或模型厂商（vendor），被测 Agent **必须主动向用户提问确认**，严禁臆测、填错或随意标记为 unknown/high。

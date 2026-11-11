@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>海风巡航 · 3D 鹈鹕骑自行车 (Antigravity · Gemini-4-Carbon)</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script defer src="main.js"></script>
+</head>
+<body>
+  <div id="canvas-wrap" aria-label="3D 鹈鹕骑自行车可交互场景"></div>
+
+  <div id="loading" class="loading-overlay">
+    <div class="spinner"></div>
+    <p id="loading-text">正在构建 3D 鹈鹕与海岸单车微缩场景…</p>
+  </div>
+
+  <header class="hud-header">
+    <span class="badge">THREE.JS PROCEDURAL 3D · IK ANIMATION</span>
+    <h1>海风巡航 · 鹈鹕骑自行车</h1>
+    <p>左键拖拽旋转 · 滚轮缩放 · 右键平移</p>
+  </header>
+
+  <aside class="hud-Dock" aria-label="场景交互控制">
+    <div class="control-group">
+      <button type="button" id="btn-play" class="hud-btn primary" aria-pressed="false">暂停</button>
+      <button type="button" id="btn-speed" class="hud-btn" data-speed="1">1.0× 巡航</button>
+      <button type="button" id="btn-mood" class="hud-btn" data-mood="day">落日金辉</button>
+      <button type="button" id="btn-shot" class="hud-btn">导出 PNG</button>
+    </div>
+    <div class="control-group cameras" role="group" aria-label="预设视角">
+      <button type="button" class="cam-btn active" data-cam="hero">3/4 全景</button>
+      <button type="button" class="cam-btn" data-cam="side">正侧传动</button>
+      <button type="button" class="cam-btn" data-cam="front">迎面特写</button>
+      <button type="button" class="cam-btn" data-cam="low">低机位跟拍</button>
+    </div>
+  </aside>
+</body>
+</html>

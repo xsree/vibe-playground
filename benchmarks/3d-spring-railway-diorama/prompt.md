@@ -1,13 +1,33 @@
 # 3d-spring-railway-diorama：跨 harness / 模型独立生成测试提示词
 
-## 独立生成要求（必须遵守）
+## 跨模型测试与交付流程（必须遵守）
 
-- 必须从 0 开始独立设计、建模与编写代码。
-- 不准查看、读取、参考、复制、修改或复用已经生成的任何产物，包括同目录或其他目录中其他 harness、模型、推理强度的代码、页面、截图、模型资源和实现方案。
-- 只允许参考本提示词及通用技术文档；不得将已有测试产物作为视觉或实现参考。
-- 产物放在`3d-spring-railway-diorama`目录下。多文件作品使用独立目录，命名模板为 harness-model-reasoningeffort，填写实际 harness、模型及推理强度。
-- 本次运行目录名：codex-gpt-6-astra-medium。
-- 作品目录仅允许 index.html、style.css、main.js 三个文件。此测试提示词作为测试元数据保存在父目录，不计入作品文件。
+```text
+【重要前提】：
+如果你不确定自己当前被测的具体模型名（model）、思考/推理强度（effort）或所属厂商（vendor），必须在开始前或登记数据前主动向用户提问确认，严禁自行胡乱猜测、填写 unknown 或随意标记！
+
+完成创作后，必须自动执行以下完整交付流程（不要仅回复文字）：
+1. 【保存多文件 3D 答卷】：
+   - 保存到 `benchmarks/3d-spring-railway-diorama/{harness}-{model}-{effort}/` 目录下。
+   - 示例：`benchmarks/3d-spring-railway-diorama/codex-gpt-6-astra-medium/`
+   - 作品目录内仅允许创建 `index.html`、`style.css`、`main.js` 三个文件。
+   - harness、model、effort 必须为你当前被测环境的真实身份与推理强度（如 high / medium / low / max 等）。
+2. 【自动更新记录文档 README.md】：
+   - 读取并更新 `benchmarks/3d-spring-railway-diorama/README.md`，在「## 答卷」部分追加本次产物记录（含厂商、模型、Harness、effort 与相对路径）。
+3. 【展示成果】：
+   - 生成后以可视化方式（预览面板 / 浏览器）展示作品。
+```
+
+## 测试规范说明
+
+1. **保存位置**：保存在 `benchmarks/3d-spring-railway-diorama/{harness}-{model}-{effort}/` 文件夹内，作品目录仅允许 `index.html`、`style.css`、`main.js` 三个文件（此测试提示词与启动脚本保存在 `benchmarks/3d-spring-railway-diorama/` 父目录，不计入作品文件）。
+2. **目录命名**：`{harness}-{model}-{effort}`
+   - 推理 effort 按实际参数标记（不确定时必须向用户确认）。
+   - 模型名和 harness 名由被测 agent 自行填写真实身份，不得留空或写 "unknown"。
+3. **交付要求**：生成后必须以可预览方式展示，并主动同步 `benchmarks/3d-spring-railway-diorama/README.md` 中的已有结果记录。
+4. **内容要求**：所有 3D 视觉元素均须通过 Three.js 原生 Geometry 程序化创建（禁止加载外部 `.glb` / `.gltf` / `.fbx` / `.obj` 模型或使用外部图片伪装 3D 模型）。
+5. **独立创作约束（重要）**：必须从 0 开始独立设计、建模与编写代码。**严禁查看、读取、参考、复制、修改或复用已经生成的任何产物**，包括同目录或其他目录中其他 harness、模型、推理强度的代码、页面、截图、模型资源和实现方案。若为满足命名与登记需求，仅允许读取目录清单与 `README.md`。
+6. **身份确认与防臆测（重要）**：若当前被测环境未明确暴露模型真实版本号、当前推理强度（effort）或模型厂商（vendor），被测 Agent **必须主动向用户提问确认**，严禁臆测、填错或随意标记为 unknown/high。
 
 ---
 
@@ -22,7 +42,7 @@
 * style.css
 * main.js
 
-作品目录禁止创建任何其他文件。允许在`3d-spring-railway-diorama`父目录保存测试提示词与启动脚本。启动脚本只使用 Python 或 Node.js 标准库，不依赖 npm 包或构建工具。
+作品目录禁止创建任何其他文件。允许在 `benchmarks/3d-spring-railway-diorama/` 父目录保存测试提示词与启动脚本。启动脚本只使用 Python 或 Node.js 标准库，不依赖 npm 包或构建工具。
 
 技术要求：
 

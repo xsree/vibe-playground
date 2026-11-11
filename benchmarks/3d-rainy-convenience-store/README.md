@@ -11,3 +11,4 @@
 ## 答卷
 - `codex-gpt-6-astra-medium/`
 - `workbuddy-glm-5.3-thinking/`
+- [`antigravity-gemini-4-carbon-medium/`](antigravity-gemini-4-carbon-medium/index.html) — 厂商: Google | 模型: Gemini 4 Carbon | Harness: Antigravity | Effort: medium
