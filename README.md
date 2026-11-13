@@ -36,3 +36,5 @@
 | [chemical-process-flow-visualizer](projects/chemical-process-flow-visualizer/) | Web 工具 (React + TS) | 基于 React Flow 与 ELK.js 的化工工艺流程可视化、结构化解析与自动排版平台 |
 | [prompt-probe](projects/prompt-probe/) | Python CLI 工具 | 伪装 OpenAI 兼容接口以捕获 Coding Agent 首个请求系统提示词的诊断工具 |
 | [theme-transition-showcase](projects/theme-transition-showcase/) | 前端交互展示 | 42 种明暗主题切换动画，涵盖光线、材质、工艺与空间，支持并排比较和进度拖动 |
+| [saltline](projects/saltline/) | Web 游戏 (Three.js) | 从 Claude Artifact 导出的 3D 第一人称射击游戏（程序化材质、模型与音效，原作者 Felix） |
+| [t9-typing-trainer](projects/t9-typing-trainer/) | Web 应用 (Vanilla JS) | 九宫格全拼盲打训练，支持键位速记、高频词连打、60 秒挑战与薄弱键位诊断 |

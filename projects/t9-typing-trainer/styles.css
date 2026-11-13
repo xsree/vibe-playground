@@ -1,0 +1,1061 @@
+
+    /* ==========================================================================
+       1. 设计变量与全局重置 (Design Tokens & Reset)
+       ========================================================================== */
+    :root {
+      --bg-outer: #F3F4F6;
+      --bg-device: #FFFFFF;
+      --bg-surface: #F8FAFC;
+      --bg-keyboard: #E5E7EB;
+      --bg-key: #FFFFFF;
+      --bg-key-active: #E2E8F0;
+      --bg-key-sub: #F1F5F9;
+
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --text-muted: #94A3B8;
+
+      --accent-blue: #2563EB;
+      --accent-blue-soft: #DBEAFE;
+      --accent-blue-text: #1D4ED8;
+
+      --accent-green: #10B981;
+      --accent-green-soft: #D1FAE5;
+
+      --accent-amber: #F59E0B;
+      --accent-amber-soft: #FEF3C7;
+
+      --accent-red: #EF4444;
+      --accent-red-soft: #FEE2E2;
+
+      --border-light: #E2E8F0;
+      --shadow-device: 0 20px 50px -12px rgba(15, 23, 42, 0.14), 0 0 0 1px rgba(15, 23, 42, 0.05);
+      --shadow-key: 0 2px 0 rgba(15, 23, 42, 0.14), 0 1px 3px rgba(15, 23, 42, 0.06);
+      --shadow-key-pressed: 0 0px 0 rgba(15, 23, 42, 0.1);
+
+      --radius-device: 28px;
+      --radius-card: 16px;
+      --radius-key: 12px;
+      --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background-color: var(--bg-outer);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      overflow-x: hidden;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ==========================================================================
+       2. 手机模拟外壳容器 (Responsive Mobile Device Shell)
+       ========================================================================== */
+    .app-shell {
+      width: 100%;
+      max-width: 440px;
+      height: 100dvh;
+      max-height: 880px;
+      background-color: var(--bg-device);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (min-width: 480px) {
+      .app-shell {
+        height: 94dvh;
+        border-radius: var(--radius-device);
+        box-shadow: var(--shadow-device);
+      }
+    }
+
+    /* ==========================================================================
+       3. 顶部导航与实时数据仪表盘 (Header & Stats Dashboard)
+       ========================================================================== */
+    .top-header {
+      padding: 12px 16px 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-light);
+      background: var(--bg-device);
+      flex-shrink: 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #2563EB, #3B82F6);
+      color: #FFF;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      padding: 5px;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.28);
+    }
+
+    .brand-icon span {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 1px;
+    }
+
+    .brand-icon span:nth-child(5) {
+      background: #FDE047;
+    }
+
+    .brand-title {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .icon-btn {
+      height: 30px;
+      padding: 0 9px;
+      border-radius: 999px;
+      border: 1px solid var(--border-light);
+      background: var(--bg-surface);
+      color: var(--text-secondary);
+      font-size: 12px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .icon-btn:active {
+      transform: scale(0.95);
+    }
+
+    .icon-btn.active {
+      background: var(--accent-blue-soft);
+      color: var(--accent-blue-text);
+      border-color: #BFDBFE;
+    }
+
+    /* 实时数据条 */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      padding: 8px 16px;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-light);
+      flex-shrink: 0;
+    }
+
+    .stat-card {
+      background: var(--bg-device);
+      border: 1px solid var(--border-light);
+      border-radius: 10px;
+      padding: 6px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .stat-value {
+      font-size: 17px;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      color: var(--text-primary);
+      line-height: 1.2;
+    }
+
+    .stat-value.streak-hot {
+      color: var(--accent-amber);
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 1px;
+    }
+
+    /* ==========================================================================
+       4. 三大训练模式 Tab 与盲打遮罩等级控制 (Mode Tabs & Mask Level)
+       ========================================================================== */
+    .controls-section {
+      padding: 8px 16px 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .mode-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background: var(--bg-outer);
+      padding: 3px;
+      border-radius: 12px;
+      gap: 3px;
+    }
+
+    .mode-tab {
+      border: none;
+      background: transparent;
+      padding: 7px 4px;
+      border-radius: 9px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .mode-tab.active {
+      background: var(--bg-device);
+      color: var(--accent-blue);
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+    }
+
+    /* 盲打遮罩等级栏 */
+    .mask-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .mask-label {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      white-space: nowrap;
+    }
+
+    .mask-pills {
+      display: flex;
+      background: var(--bg-outer);
+      padding: 2px;
+      border-radius: 9px;
+      flex: 1;
+    }
+
+    .mask-pill {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 5px 4px;
+      border-radius: 7px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .mask-pill.active {
+      background: var(--text-primary);
+      color: #FFFFFF;
+    }
+
+    /* ==========================================================================
+       5. 中央练习舞台区 (Interactive Practice Stage)
+       ========================================================================== */
+    .stage-wrapper {
+      flex: 1;
+      padding: 6px 16px 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 0;
+    }
+
+    .stage-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-card);
+      padding: 12px 14px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .stage-card.flash-success {
+      border-color: var(--accent-green);
+      background: #F0FDF4;
+    }
+
+    .stage-card.flash-error {
+      border-color: var(--accent-red);
+      background: #FEF2F2;
+    }
+
+    /* 舞台顶部子工具栏 */
+    .stage-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .sub-pills {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+
+    .sub-pill {
+      border: 1px solid var(--border-light);
+      background: var(--bg-device);
+      color: var(--text-secondary);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .sub-pill.active {
+      background: var(--accent-blue);
+      color: #FFFFFF;
+      border-color: var(--accent-blue);
+    }
+
+    .stage-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .mini-action-btn {
+      border: 1px solid var(--border-light);
+      background: var(--bg-device);
+      color: var(--text-secondary);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .mini-action-btn:active {
+      transform: scale(0.95);
+    }
+
+    /* 挑战模式 60秒进度条 */
+    .timer-bar-wrap {
+      width: 100%;
+      height: 5px;
+      background: var(--border-light);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 6px;
+      display: none;
+    }
+
+    .timer-bar-wrap.visible {
+      display: block;
+    }
+
+    .timer-bar-fill {
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(90deg, var(--accent-blue), #60A5FA);
+      border-radius: 999px;
+      transition: width 0.25s linear;
+    }
+
+    .timer-bar-fill.urgent {
+      background: linear-gradient(90deg, var(--accent-red), #F87171);
+    }
+
+    /* 核心题目展示区 */
+    .prompt-center {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4px 0;
+      position: relative;
+    }
+
+    .prompt-hanzi {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: var(--text-primary);
+      line-height: 1.25;
+      word-break: keep-all;
+    }
+
+    .prompt-hanzi.long-sentence {
+      font-size: 23px;
+    }
+
+    .prompt-hanzi.anchor-letter {
+      font-size: 46px;
+      font-family: var(--font-mono);
+      letter-spacing: 0;
+    }
+
+    /* 拼音逐字母显示区 */
+    .pinyin-stream {
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2px;
+      min-height: 30px;
+      font-family: var(--font-mono);
+      font-size: 19px;
+      font-weight: 700;
+    }
+
+    .py-char {
+      padding: 1px 4px;
+      border-radius: 6px;
+      color: var(--text-muted);
+      transition: all 0.12s ease;
+    }
+
+    .py-char.done {
+      color: var(--accent-green);
+      background: var(--accent-green-soft);
+    }
+
+    .py-char.current {
+      color: var(--accent-blue);
+      background: var(--accent-blue-soft);
+      box-shadow: 0 2px 0 var(--accent-blue);
+      transform: translateY(-1px);
+    }
+
+    /* 盲打Lv3偷看拼音按钮 */
+    .peek-btn {
+      margin-top: 6px;
+      border: 1px dashed #CBD5E1;
+      background: #FFFFFF;
+      color: var(--text-secondary);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .peek-btn.visible {
+      display: inline-flex;
+    }
+
+    .peek-btn:active {
+      background: var(--accent-blue-soft);
+      color: var(--accent-blue);
+    }
+
+    /* 新手引导按键提示胶囊 */
+    .key-guide-badge {
+      margin-top: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent-blue-text);
+      background: var(--accent-blue-soft);
+      padding: 3px 10px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* 微型九宫格雷达图 & 底部诊断条 */
+    .stage-bottom-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding-top: 6px;
+      border-top: 1px dashed var(--border-light);
+    }
+
+    .radar-widget {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .radar-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 12px);
+      grid-template-rows: repeat(3, 12px);
+      gap: 2px;
+      background: #E2E8F0;
+      padding: 2px;
+      border-radius: 5px;
+    }
+
+    .radar-cell {
+      background: #FFFFFF;
+      border-radius: 2px;
+      transition: all 0.15s ease;
+    }
+
+    .radar-cell.origin {
+      background: #CBD5E1;
+    }
+
+    .radar-cell.target {
+      background: var(--accent-blue);
+      box-shadow: 0 0 6px rgba(37, 99, 235, 0.6);
+    }
+
+    .radar-text {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .weakness-pill-btn {
+      border: 1px solid #FDE68A;
+      background: #FFFBEB;
+      color: #B45309;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 9px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+    }
+
+    /* ==========================================================================
+       6. 仿真手机九宫格键盘区 (T9 Virtual Keyboard & One-Handed Ergonomics)
+       ========================================================================== */
+    .keyboard-dock {
+      background: var(--bg-keyboard);
+      padding: 8px 10px calc(12px + env(safe-area-inset-bottom));
+      border-top: 1px solid #D1D5DB;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    /* 单手模式控制栏 */
+    .ergo-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2px;
+    }
+
+    .ergo-pills {
+      display: flex;
+      background: rgba(15, 23, 42, 0.06);
+      padding: 2px;
+      border-radius: 8px;
+      gap: 2px;
+    }
+
+    .ergo-pill {
+      border: none;
+      background: transparent;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .ergo-pill.active {
+      background: #FFFFFF;
+      color: var(--text-primary);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+    }
+
+    .kb-hint-tag {
+      font-size: 11px;
+      color: #64748B;
+      font-weight: 500;
+    }
+
+    /* 单手模式缩窄外框 */
+    .keyboard-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      transition: width 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), margin 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .keyboard-container.hand-left {
+      width: 78%;
+      margin-right: auto;
+      margin-left: 0;
+    }
+
+    .keyboard-container.hand-right {
+      width: 78%;
+      margin-left: auto;
+      margin-right: 0;
+    }
+
+    /* 3x3 核心九宫格矩阵 */
+    .t9-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 7px;
+    }
+
+    .t9-key {
+      height: 58px;
+      background: var(--bg-key);
+      border: none;
+      border-radius: var(--radius-key);
+      box-shadow: var(--shadow-key);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+      touch-action: manipulation;
+      transition: transform 0.06s ease, background-color 0.12s ease, box-shadow 0.06s ease;
+    }
+
+    .t9-key:active,
+    .t9-key.is-pressed {
+      transform: translateY(2px) scale(0.97);
+      background: var(--bg-key-active);
+      box-shadow: var(--shadow-key-pressed);
+    }
+
+    /* 错误闪烁与目标琥珀色引导闪烁 */
+    .t9-key.key-error {
+      background: var(--accent-red) !important;
+      color: #FFFFFF !important;
+      animation: shakeKey 0.25s ease;
+    }
+
+    .t9-key.key-error .key-num,
+    .t9-key.key-error .key-letters,
+    .t9-key.key-error .vowel-tag {
+      color: #FFFFFF !important;
+    }
+
+    .t9-key.key-target-hint {
+      background: var(--accent-amber-soft) !important;
+      box-shadow: 0 0 0 2.5px var(--accent-amber), var(--shadow-key) !important;
+    }
+
+    @keyframes shakeKey {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-4px); }
+      75% { transform: translateX(4px); }
+    }
+
+    .key-num {
+      font-size: 19px;
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--text-primary);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .key-letters {
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--text-secondary);
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      gap: 1px;
+    }
+
+    /* 新手模式元音淡蓝高亮 */
+    .vowel-char {
+      color: var(--accent-blue-text);
+      background: var(--accent-blue-soft);
+      padding: 0 2.5px;
+      border-radius: 3px;
+      font-weight: 800;
+    }
+
+    .vowel-badge {
+      position: absolute;
+      top: 4px;
+      right: 5px;
+      font-size: 9px;
+      font-weight: 800;
+      color: var(--accent-blue-text);
+      background: var(--accent-blue-soft);
+      padding: 1px 4px;
+      border-radius: 4px;
+      line-height: 1.1;
+    }
+
+    /* 5键盲打定位横杠凸起 */
+    .locator-bump {
+      width: 18px;
+      height: 3px;
+      border-radius: 999px;
+      background: #94A3B8;
+      margin-top: 4px;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.7);
+    }
+
+    /* 遮罩等级样式覆盖 */
+    /* Lv.2 进阶脱敏：隐藏字母与元音角标，保留数字与5键凸起 */
+    .kb-mask-2 .key-letters,
+    .kb-mask-2 .vowel-badge {
+      display: none;
+    }
+
+    .kb-mask-2 .key-num {
+      font-size: 22px;
+    }
+
+    /* Lv.3 纯盲打：隐藏所有数字与字母，仅保留5键中心横杠 */
+    .kb-mask-3 .key-num,
+    .kb-mask-3 .key-letters,
+    .kb-mask-3 .vowel-badge {
+      display: none;
+    }
+
+    .kb-mask-3 .locator-bump {
+      width: 24px;
+      height: 4px;
+      background: #64748B;
+      margin-top: 0;
+    }
+
+    /* 键盘底部功能行 */
+    .t9-bottom-row {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 1fr;
+      gap: 7px;
+    }
+
+    .t9-fn-key {
+      height: 42px;
+      background: #D1D5DB;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 2px 0 rgba(15, 23, 42, 0.14);
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      cursor: pointer;
+      transition: transform 0.06s ease, background-color 0.12s ease;
+    }
+
+    .t9-fn-key:active,
+    .t9-fn-key.is-pressed {
+      transform: translateY(2px);
+      background: #9CA3AF;
+    }
+
+    .t9-fn-key.space-fn {
+      background: #FFFFFF;
+    }
+
+    /* ==========================================================================
+       7. 弹窗层 (Modals: Weakness Diagnostics, Custom Words, Challenge Summary)
+       ========================================================================== */
+    .modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.48);
+      backdrop-filter: blur(3px);
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+      z-index: 50;
+      padding: 12px;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    @media (min-width: 480px) {
+      .modal-backdrop {
+        align-items: center;
+      }
+    }
+
+    .modal-sheet {
+      width: 100%;
+      max-height: 82%;
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      overflow-y: auto;
+      animation: slideUp 0.2s ease;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(16px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .modal-close {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      border: none;
+      background: var(--bg-outer);
+      color: var(--text-secondary);
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* 薄弱键位诊断卡片 */
+    .weak-top-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .weak-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+    }
+
+    .weak-item-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .weak-rank {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: var(--accent-amber-soft);
+      color: #B45309;
+      font-size: 12px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .weak-letter-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .weak-sub {
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+
+    .weak-rate {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--accent-red);
+    }
+
+    .heatmap-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .heat-cell {
+      padding: 8px 6px;
+      border-radius: 10px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      text-align: center;
+    }
+
+    .heat-cell-num {
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .heat-cell-letters {
+      font-size: 10px;
+      color: var(--text-secondary);
+    }
+
+    .heat-cell-stat {
+      font-size: 10px;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    /* 自定义词句表单 */
+    .custom-textarea {
+      width: 100%;
+      height: 110px;
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 10px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      resize: none;
+      outline: none;
+      user-select: text;
+      -webkit-user-select: text;
+    }
+
+    .custom-textarea:focus {
+      border-color: var(--accent-blue);
+    }
+
+    .primary-btn {
+      width: 100%;
+      padding: 11px;
+      border: none;
+      border-radius: 12px;
+      background: var(--accent-blue);
+      color: #FFFFFF;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .primary-btn:active {
+      opacity: 0.92;
+    }
+
+    .secondary-btn {
+      width: 100%;
+      padding: 9px;
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      background: var(--bg-surface);
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .toast-banner {
+      position: absolute;
+      top: 54px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-10px);
+      background: rgba(15, 23, 42, 0.9);
+      color: #FFFFFF;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 999px;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.2s ease;
+      z-index: 60;
+      white-space: nowrap;
+    }
+
+    .toast-banner.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 4px 0;
+    }
+
+    .summary-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 10px 6px;
+      text-align: center;
+    }
+
+    .summary-num {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--accent-blue);
+    }
+
+    .summary-lbl {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }

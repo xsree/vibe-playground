@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>九宫格盲打特训器 · 9键全拼肌肉记忆训练</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="app-shell" id="appShell">
+  <!-- 轻提示 Toast -->
+  <div class="toast-banner" id="toastBanner">提示信息</div>
+
+  <!-- 1. 顶部导航栏 -->
+  <header class="top-header">
+    <div class="brand">
+      <div class="brand-icon" aria-hidden="true">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+      </div>
+      <span class="brand-title">九宫格盲打特训器</span>
+    </div>
+    <div class="header-actions">
+      <button class="icon-btn active" id="btnSound" title="切换机械按键音效">🔊 音效</button>
+      <button class="icon-btn active" id="btnVibrate" title="切换手机震动反馈">📳 震动</button>
+    </div>
+  </header>
+
+  <!-- 2. 实时数据仪表盘 -->
+  <section class="stats-bar" aria-label="实时训练数据">
+    <div class="stat-card">
+      <span class="stat-value" id="statStreak">0</span>
+      <span class="stat-label">当前连击</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value" id="statAccuracy">100%</span>
+      <span class="stat-label">按键准确率</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value" id="statSpeed">0</span>
+      <span class="stat-label" id="statSpeedLabel">速度 (字/分)</span>
+    </div>
+  </section>
+
+  <!-- 3. 模式选择与盲打遮罩等级 -->
+  <section class="controls-section">
+    <div class="mode-tabs" role="tablist">
+      <button class="mode-tab active" data-mode="anchor" role="tab">键位锚点速记</button>
+      <button class="mode-tab" data-mode="words" role="tab">日常高频词连打</button>
+      <button class="mode-tab" data-mode="challenge" role="tab">整句挑战(60s)</button>
+    </div>
+
+    <div class="mask-bar">
+      <span class="mask-label">盲打遮罩</span>
+      <div class="mask-pills" role="group" aria-label="盲打遮罩等级">
+        <button class="mask-pill active" data-mask="1">Lv.1 新手引导</button>
+        <button class="mask-pill" data-mask="2">Lv.2 进阶脱敏</button>
+        <button class="mask-pill" data-mask="3">Lv.3 纯盲打</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 中央练习舞台 -->
+  <main class="stage-wrapper">
+    <div class="stage-card" id="stageCard">
+      <!-- 舞台顶部动态工具条 -->
+      <div class="stage-toolbar" id="stageToolbar">
+        <!-- 由 JS 根据当前模式渲染子选项 -->
+      </div>
+
+      <!-- 60秒挑战倒计时进度条 -->
+      <div class="timer-bar-wrap" id="timerBarWrap">
+        <div class="timer-bar-fill" id="timerBarFill"></div>
+      </div>
+
+      <!-- 题目核心呈现 -->
+      <div class="prompt-center">
+        <div class="prompt-hanzi" id="promptHanzi">J</div>
+        <div class="pinyin-stream" id="pinyinStream"></div>
+        <button class="peek-btn" id="btnPeekPinyin">👁 按住偷看拼音</button>
+        <div class="key-guide-badge" id="keyGuideBadge">目标字母 J → 按数字 5 键（中心原点）</div>
+      </div>
+
+      <!-- 舞台底部：微型九宫格雷达图 + 薄弱键位诊断入口 -->
+      <div class="stage-bottom-row">
+        <div class="radar-widget">
+          <div class="radar-grid" id="radarGrid" aria-hidden="true">
+            <div class="radar-cell" data-rkey="1"></div>
+            <div class="radar-cell" data-rkey="2"></div>
+            <div class="radar-cell" data-rkey="3"></div>
+            <div class="radar-cell" data-rkey="4"></div>
+            <div class="radar-cell origin" data-rkey="5"></div>
+            <div class="radar-cell" data-rkey="6"></div>
+            <div class="radar-cell" data-rkey="7"></div>
+            <div class="radar-cell" data-rkey="8"></div>
+            <div class="radar-cell" data-rkey="9"></div>
+          </div>
+          <span class="radar-text" id="radarText">相对5键：中心原点 ●</span>
+        </div>
+
+        <button class="weakness-pill-btn" id="btnOpenWeakness">
+          📊 <span id="weakSummaryText">薄弱键位诊断</span>
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- 5. 手机九宫格键盘区 -->
+  <footer class="keyboard-dock">
+    <div class="ergo-bar">
+      <div class="ergo-pills" role="group" aria-label="单手握持模式">
+        <button class="ergo-pill active" data-hand="center">居中标准</button>
+        <button class="ergo-pill" data-hand="left">左手单手</button>
+        <button class="ergo-pill" data-hand="right">右手单手</button>
+      </div>
+      <span class="kb-hint-tag">支持触屏 / 键盘1-9</span>
+    </div>
+
+    <div class="keyboard-container kb-mask-1" id="keyboardContainer">
+      <div class="t9-grid" id="t9Grid">
+        <!-- 1 键 -->
+        <button class="t9-key" data-key="1" type="button">
+          <span class="key-num">1</span>
+          <span class="key-letters">分词 / 符号</span>
+        </button>
+        <!-- 2 键 -->
+        <button class="t9-key" data-key="2" type="button">
+          <span class="vowel-badge">元音 a</span>
+          <span class="key-num">2</span>
+          <span class="key-letters"><span class="vowel-char">A</span>BC</span>
+        </button>
+        <!-- 3 键 -->
+        <button class="t9-key" data-key="3" type="button">
+          <span class="vowel-badge">元音 e</span>
+          <span class="key-num">3</span>
+          <span class="key-letters">D<span class="vowel-char">E</span>F</span>
+        </button>
+        <!-- 4 键 -->
+        <button class="t9-key" data-key="4" type="button">
+          <span class="vowel-badge">元音 i</span>
+          <span class="key-num">4</span>
+          <span class="key-letters">GH<span class="vowel-char">I</span></span>
+        </button>
+        <!-- 5 键（中心定位凸起横杠） -->
+        <button class="t9-key" data-key="5" type="button">
+          <span class="key-num">5</span>
+          <span class="key-letters">JKL</span>
+          <span class="locator-bump" aria-hidden="true"></span>
+        </button>
+        <!-- 6 键 -->
+        <button class="t9-key" data-key="6" type="button">
+          <span class="vowel-badge">元音 o</span>
+          <span class="key-num">6</span>
+          <span class="key-letters">MN<span class="vowel-char">O</span></span>
+        </button>
+        <!-- 7 键 -->
+        <button class="t9-key" data-key="7" type="button">
+          <span class="key-num">7</span>
+          <span class="key-letters">PQRS</span>
+        </button>
+        <!-- 8 键 -->
+        <button class="t9-key" data-key="8" type="button">
+          <span class="vowel-badge">元音 u</span>
+          <span class="key-num">8</span>
+          <span class="key-letters">T<span class="vowel-char">U</span>V</span>
+        </button>
+        <!-- 9 键 -->
+        <button class="t9-key" data-key="9" type="button">
+          <span class="key-num">9</span>
+          <span class="key-letters">WXYZ</span>
+        </button>
+      </div>
+
+      <!-- 底部辅助功能键 -->
+      <div class="t9-bottom-row">
+        <button class="t9-fn-key" id="fnSkip" type="button">跳过 [Space]</button>
+        <button class="t9-fn-key space-fn" id="fnAnchorHint" type="button">定位 5 键原点</button>
+        <button class="t9-fn-key" id="fnBackspace" type="button">重输 [⌫]</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       弹窗 1：薄弱字母与键位诊断报告
+       ======================================================================== -->
+  <div class="modal-backdrop" id="modalWeakness">
+    <div class="modal-sheet">
+      <div class="modal-header">
+        <span class="modal-title">📊 薄弱字母与键位热力诊断</span>
+        <button class="modal-close" data-close="modalWeakness">×</button>
+      </div>
+      <p style="font-size:12px;color:#64748B;">系统自动记录你的按错落点，帮你精准锁定拇指最容易按偏的键位。</p>
+
+      <div class="weak-top-list" id="weakTopList">
+        <!-- 动态生成 Top 3 薄弱字母 -->
+      </div>
+
+      <div>
+        <div style="font-size:12px;font-weight:700;color:#334155;margin-bottom:4px;">九宫格键位错误率分布 (2-9键)</div>
+        <div class="heatmap-grid" id="heatmapGrid">
+          <!-- 动态生成 2-9 热力格子 -->
+        </div>
+      </div>
+
+      <button class="primary-btn" id="btnDrillWeakness">🎯 针对薄弱键位发起专项强化</button>
+      <button class="secondary-btn" id="btnResetStats">清空统计记录</button>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       弹窗 2：自定义词句管理
+       ======================================================================== -->
+  <div class="modal-backdrop" id="modalCustom">
+    <div class="modal-sheet">
+      <div class="modal-header">
+        <span class="modal-title">✍️ 自定义练习词句</span>
+        <button class="modal-close" data-close="modalCustom">×</button>
+      </div>
+      <p style="font-size:12px;color:#64748B;line-height:1.5;">
+        每行输入一条词句，格式为 <b>汉字 空格 全拼字母</b>（ü 请用 v 代替）。<br />
+        例如：<code style="background:#F1F5F9;padding:1px 4px;border-radius:4px;">小鹤双拼 xiaoheshuangpin</code>
+      </p>
+      <textarea class="custom-textarea" id="customTextarea" placeholder="示例：&#10;马上出发 mashangchufa&#10;记得带伞 jidedaisan&#10;周末一起看电影 zhoumouyiqikandianying"></textarea>
+      <div style="display:flex;gap:8px;">
+        <button class="secondary-btn" id="btnSaveCustomAll">保存并融入词库</button>
+        <button class="primary-btn" id="btnSaveCustomOnly">保存并仅练自定义</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       弹窗 3：60秒整句盲打挑战成绩单
+       ======================================================================== -->
+  <div class="modal-backdrop" id="modalSummary">
+    <div class="modal-sheet">
+      <div class="modal-header">
+        <span class="modal-title">⏱️ 60秒盲打冲刺成绩单</span>
+        <button class="modal-close" data-close="modalSummary">×</button>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-box">
+          <div class="summary-num" id="sumSpeed">0</div>
+          <div class="summary-lbl">平均速度 (字/分)</div>
+        </div>
+        <div class="summary-box">
+          <div class="summary-num" id="sumAcc">100%</div>
+          <div class="summary-lbl">按键准确率</div>
+        </div>
+        <div class="summary-box">
+          <div class="summary-num" id="sumMaxStreak">0</div>
+          <div class="summary-lbl">最高连击</div>
+        </div>
+      </div>
+      <p id="sumComment" style="font-size:13px;color:#475569;text-align:center;line-height:1.5;padding:4px 0;"></p>
+      <button class="primary-btn" id="btnRestartChallenge">再来一局 60 秒冲刺</button>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

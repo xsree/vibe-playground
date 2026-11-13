@@ -4,6 +4,27 @@
 
 ---
 
+## 0. 开工前同步
+
+本仓库在多台电脑上 clone，远端可能因 `git commit --amend` 或 rebase 改写历史。开始任何开发或修改前按以下规则同步：
+
+1. 先检查 `git status --short`。有未提交改动（包括未跟踪文件），或正在 merge/rebase/cherry-pick 时停下来询问用户，不自行 stash、reset 或覆盖。
+2. 工作区干净时，记录当前分支、`git rev-parse HEAD` 和 fetch 前的 `git rev-parse "@{upstream}"`，再依次执行 `git fetch`、`git pull --ff-only`。fetch 失败时先解决失败原因，不用旧的远端跟踪引用继续同步。
+3. 如果无法快进，只有同时满足以下条件，才可以自动对齐远端：当前分支有明确的 upstream；fetch 前 `HEAD` 等于旧 upstream 提交（本机没有额外提交）；fetch 后 upstream 已改变，且旧提交不是新 upstream 的祖先（远端历史被改写）；工作区仍干净，当前分支和 `HEAD` 均未改变。先创建指向当前 `HEAD` 的备份分支，确认备份成功后，再执行 `git reset --hard "@{upstream}"`。这是处理另一台设备 amend 后同步的特例，不是对所有 pull 失败的通用处理。
+4. 本机有独立提交、未记录旧 upstream、无法确认历史关系、没有 upstream 或备份失败时，停下来询问用户。不自动 merge、rebase 或强制推送。
+
+满足第 3 条时，可使用下面的命令。`backup` 分支用于恢复，名称不得覆盖已有分支：
+
+```bash
+git branch backup/before-sync-YYYYMMDD-HHMMSS HEAD
+# 确认上一条成功后，再执行：
+git reset --hard "@{upstream}"
+```
+
+`git pull --rebase` 不作为远端 amend 后的默认补救：它可能需要识别并跳过旧提交，不能代替对本地独立提交的检查。在修改提交的那台设备上，若该提交已经推送过，更新远端通常使用 `git push --force-with-lease`；实际推送仍须用户授权，不使用 `--force`。
+
+---
+
 ## 1. 目录结构与隔离规范
 
 1. **根目录整洁原则**：
