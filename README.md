@@ -38,3 +38,9 @@
 | [theme-transition-showcase](projects/theme-transition-showcase/) | 前端交互展示 | 42 种明暗主题切换动画，涵盖光线、材质、工艺与空间，支持并排比较和进度拖动 |
 | [saltline](projects/saltline/) | Web 游戏 (Three.js) | 从 Claude Artifact 导出的 3D 第一人称射击游戏（程序化材质、模型与音效，原作者 Felix） |
 | [t9-typing-trainer](projects/t9-typing-trainer/) | Web 应用 (Vanilla JS) | 九宫格全拼盲打训练，支持键位速记、高频词连打、60 秒挑战与薄弱键位诊断 |
+| [duskward](projects/duskward/) | Web 游戏 (WebGPU) | 纯代码程序化生成的奥尼尔圆筒 3D 交互世界（WebGPU + Web Audio，零外部素材依赖） |
+| [abyssal-garden](projects/abyssal-garden/) | Web 游戏 (WebGPU) | 97 KB 单文件纯代码 WebGPU 海底漫游世界：海带森林、丁达尔光束、沉船与蝠鲼（来自 `Noniv/abyssal-garden`） |
+
+## local-demos：大体积第三方 AI 游戏（本地体验，不入库）
+
+体积过大、含重型二进制资产的第三方 AI 游戏（如 `Petalwake`）统一存放在 `local-demos/`（已加入 `.gitignore`，不追踪、不提交、不推送），清单与一键拉取/启动命令见 [EXTERNAL_GAMES.md](EXTERNAL_GAMES.md)。

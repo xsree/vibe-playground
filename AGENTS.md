@@ -43,12 +43,12 @@ git reset --hard "@{upstream}"
 - `atlas/`：技术与代码知识点图谱，把知识点与机制做成可视化的参考工具。第 2 节的设计规范只作用于此目录。
 - `projects/`：独立应用与工具项目（Web 工具、CLI 管线等）。
 
-`.vite/`、`.workbuddy/`、`node_modules/`、`.venv/`、`__pycache__/` 等工具产物不入库。
+`.vite/`、`.workbuddy/`、`node_modules/`、`.venv/`、`__pycache__/` 等工具产物不入库。引入他人代码/第三方项目时严格按体积分层：**只有非常小、纯代码自包含的项目**（如 `duskward`、`abyssal-garden`、`saltline`）才放入 `projects/` 并允许提交与推送；**体积较大的第三方 AI 游戏或含重型二进制资产的项目一律只记录不推送**，本地体验副本放在 `local-demos/`（已加入 `.gitignore`，不追踪、不提交、不推送），并在根目录 [EXTERNAL_GAMES.md](EXTERNAL_GAMES.md) 记录来源与启动方式。
 
 ## 1.2 命名规范
 
 - 目录和文件名一律**英文、全小写、kebab-case**；中文名只写在 README 标题和正文里。
-- 仅 `README.md`、`AGENTS.md`、`DESIGN.md` 这类约定文档允许大写。
+- 仅 `README.md`、`AGENTS.md`、`DESIGN.md`、`EXTERNAL_GAMES.md` 这类约定文档允许大写。
 - 评测题目录命名为 `{载体}-{主题}`，载体前缀如 `svg-`、`web-`、`webgpu-`、`3d-`。来自外部站点的逆向素材用 `{站点}-{主题}`（如 `newapi-black-hole-controls`），**不得丢掉来源站点名**。
 - 答卷：单文件用 `{harness}-{model}-{effort}[-animated].{ext}`，多文件用同名目录。不确定工具和模型时不必强行标注，但新增答卷时应向用户确认真实身份，不得臆测。
 

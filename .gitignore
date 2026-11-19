@@ -1,3 +1,6 @@
 .vite/
 .workbuddy/
 node_modules/
+
+# 本地体验的大体积第三方 AI 游戏/项目（不追踪、不提交、不推送，清单见 EXTERNAL_GAMES.md）
+local-demos/

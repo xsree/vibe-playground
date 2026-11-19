@@ -362,7 +362,7 @@
       if (state.anchorGroup === 'weakness' && state.weakDrillLetters.length > 0) {
         pool = state.weakDrillLetters;
       } else {
-        pool = ANCHOR_GROUPS[state.anchorGroup]?.letters || ANCHOR_GROUPS.origin.letters;
+        pool = (ANCHOR_GROUPS[state.anchorGroup] && ANCHOR_GROUPS[state.anchorGroup].letters) || ANCHOR_GROUPS.origin.letters;
       }
       // 尽量避免连续两次完全相同的字母
       let nextChar = pool[Math.floor(Math.random() * pool.length)];
@@ -1133,7 +1133,37 @@
   // ==========================================================================
   // 14. 启动初始化
   // ==========================================================================
+  function applyTopSafeInset() {
+    if (window.innerWidth >= 480) return;
+    function applyValue(px) {
+      if (typeof px === 'number' && px > 36) {
+        const topPad = Math.ceil(px) + 10;
+        document.documentElement.style.setProperty('--xhs-top-inset', topPad + 'px');
+        document.documentElement.style.setProperty('--xhs-toast-top', (topPad + 42) + 'px');
+      }
+    }
+    try {
+      const probe = document.createElement('div');
+      probe.style.cssText = 'position:fixed;top:0;left:0;width:0;height:0;padding-top:var(--safe-area-inset-top, env(safe-area-inset-top, 0px));visibility:hidden;pointer-events:none;';
+      document.body.appendChild(probe);
+      const envTop = parseFloat(window.getComputedStyle(probe).paddingTop) || 0;
+      document.body.removeChild(probe);
+      applyValue(envTop);
+    } catch (e) {}
+    try {
+      const mt = window.xhs && window.xhs.miniTool;
+      if (mt && typeof mt.getWindowInfo === 'function') {
+        Promise.resolve(mt.getWindowInfo()).then(info => {
+          if (!info) return;
+          const top = (info.safeArea && info.safeArea.top) || info.statusBarHeight || 0;
+          applyValue(top);
+        }).catch(() => {});
+      }
+    } catch (e) {}
+  }
+
   window.addEventListener('DOMContentLoaded', () => {
+    applyTopSafeInset();
     loadPersistedData();
     bindEvents();
     renderToolbar();

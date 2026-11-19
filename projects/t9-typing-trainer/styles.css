@@ -70,6 +70,7 @@
     .app-shell {
       width: 100%;
       max-width: 440px;
+      height: 100vh;
       height: 100dvh;
       max-height: 880px;
       background-color: var(--bg-device);
@@ -82,9 +83,16 @@
 
     @media (min-width: 480px) {
       .app-shell {
+        height: 94vh;
         height: 94dvh;
         border-radius: var(--radius-device);
         box-shadow: var(--shadow-device);
+      }
+      .top-header {
+        padding-top: 12px;
+      }
+      .toast-banner {
+        top: 54px;
       }
     }
 
@@ -92,7 +100,8 @@
        3. 顶部导航与实时数据仪表盘 (Header & Stats Dashboard)
        ========================================================================== */
     .top-header {
-      padding: 12px 16px 8px;
+      padding: 48px 16px 8px;
+      padding-top: var(--xhs-top-inset, 48px);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -578,7 +587,8 @@
        ========================================================================== */
     .keyboard-dock {
       background: var(--bg-keyboard);
-      padding: 8px 10px calc(12px + env(safe-area-inset-bottom));
+      padding: 8px 10px 12px;
+      padding: 8px 10px calc(12px + var(--safe-area-inset-bottom, env(safe-area-inset-bottom, 0px)));
       border-top: 1px solid #D1D5DB;
       display: flex;
       flex-direction: column;
@@ -816,8 +826,12 @@
        ========================================================================== */
     .modal-backdrop {
       position: absolute;
-      inset: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
       background: rgba(15, 23, 42, 0.48);
+      -webkit-backdrop-filter: blur(3px);
       backdrop-filter: blur(3px);
       display: none;
       align-items: flex-end;
@@ -1012,7 +1026,8 @@
 
     .toast-banner {
       position: absolute;
-      top: 54px;
+      top: 90px;
+      top: var(--xhs-toast-top, 90px);
       left: 50%;
       transform: translateX(-50%) translateY(-10px);
       background: rgba(15, 23, 42, 0.9);
