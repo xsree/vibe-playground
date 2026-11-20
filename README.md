@@ -40,6 +40,7 @@
 | [t9-typing-trainer](projects/t9-typing-trainer/) | Web 应用 (Vanilla JS) | 九宫格全拼盲打训练，支持键位速记、高频词连打、60 秒挑战与薄弱键位诊断 |
 | [duskward](projects/duskward/) | Web 游戏 (WebGPU) | 纯代码程序化生成的奥尼尔圆筒 3D 交互世界（WebGPU + Web Audio，零外部素材依赖） |
 | [abyssal-garden](projects/abyssal-garden/) | Web 游戏 (WebGPU) | 97 KB 单文件纯代码 WebGPU 海底漫游世界：海带森林、丁达尔光束、沉船与蝠鲼（来自 `Noniv/abyssal-garden`） |
+| [bookmark-note-generator](projects/bookmark-note-generator/) | Web 工具 (Vanilla JS) | 将网址与 Markdown 整理为 `data:text/html` 自包含离线书签笔记的生成与就地编辑工具 |
 
 ## local-demos：大体积第三方 AI 游戏（本地体验，不入库）
 

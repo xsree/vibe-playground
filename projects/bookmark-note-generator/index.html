@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>书签笔记生成器</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+  <h1>📒 书签笔记生成器</h1>
+  <p class="sub">把一组网址整理成一页笔记，存进一个 <code>data:</code> 书签：离线可以打开，也会跟着浏览器书签同步。本页不联网，可以另存到本地使用。</p>
+
+  <div class="grid">
+    <div class="card">
+      <h2>内容</h2>
+      <label class="f" for="title">笔记标题（网页标题）</label>
+      <input type="text" id="title" value="跨平台框架">
+
+      <div class="tabs">
+        <button class="tab on" data-p="p-md">✍️ Markdown</button>
+        <button class="tab" data-p="p-bm">📁 从书签导入</button>
+        <button class="tab" data-p="p-url">🔁 编辑已有笔记</button>
+      </div>
+
+      <div class="pane on" id="p-md">
+        <textarea id="src" class="code" rows="17" spellcheck="false"></textarea>
+        <div class="hint">支持 <code># 标题</code>、<code>- 列表</code>、<code>1. 有序列表</code>、<code>[文字](链接)</code>、自动识别网址、<code>**粗体**</code>、<code>~~删除线~~</code>、<code>`代码`</code>、<code>&gt; 引用</code>、<code>---</code>、<code>- [ ] 待办</code>，行首缩进两格表示子项。</div>
+      </div>
+
+      <div class="pane" id="p-bm">
+        <div class="drop" id="drop">
+          把浏览器导出的书签 HTML 文件拖到这里，或 <label class="btn" style="display:inline-flex">选择文件<input type="file" id="file" accept=".html,.htm" hidden></label>
+        </div>
+        <div id="bmPick" style="display:none;margin-top:12px">
+          <label class="f" for="folders">选择要转换的文件夹</label>
+          <select id="folders"></select>
+          <div class="row"><button class="btn pr" id="bmGo">转换为笔记 →</button></div>
+        </div>
+        <ol class="steps">
+          <li>Chrome / Edge：书签管理器（Ctrl+Shift+O）→ 右上角 ⋮ →「导出书签」。</li>
+          <li>Firefox：书签 →「管理书签」→「导入和备份」→「导出书签到 HTML」。</li>
+          <li>选中一个文件夹，转换后会切回 Markdown 页，你可以继续给每个网站加备注。</li>
+        </ol>
+      </div>
+
+      <div class="pane" id="p-url">
+        <textarea id="oldUrl" class="code" rows="8" spellcheck="false" placeholder="粘贴已有笔记书签的地址（data:text/html…）"></textarea>
+        <div class="row"><button class="btn pr" id="urlGo">读取 →</button></div>
+        <div class="hint">如果笔记带有源文本（「可编辑」模式或勾选了「保留源文本」），可以完整还原；否则只能提取出其中的链接。</div>
+      </div>
+
+      <div class="row">
+        <label><input type="checkbox" id="editable" checked> 笔记内可编辑（压缩后仅约 2.6 KB）</label>
+        <label id="keepWrap"><input type="checkbox" id="keep" checked> 保留源文本</label>
+        <label>编码 <select id="encMode">
+          <option value="auto">自动（取最短）</option>
+          <option value="zip">极限压缩（deflate）</option>
+          <option value="b64">Base64</option>
+          <option value="pct">百分号编码</option>
+        </select></label>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>预览</h2>
+      <iframe id="preview" sandbox="allow-scripts allow-modals"></iframe>
+    </div>
+  </div>
+
+  <div class="card out">
+    <h2>书签地址</h2>
+    <div class="stat">
+      <span>长度 <b id="len">0</b></span>
+      <span id="badge" class="badge g">—</span>
+      <span style="color:var(--mu)" id="alt"></span>
+    </div>
+    <div class="row" style="margin:0 0 10px">
+      <button class="btn pr" id="copy">📋 复制书签地址</button>
+      <a class="btn drag" id="dragLink" href="#" title="把我拖到书签栏">📌 拖到书签栏</a>
+      <button class="btn" id="dl">⬇️ 下载为 .html</button>
+    </div>
+    <textarea id="url" class="code" rows="3" readonly></textarea>
+    <ol class="steps">
+      <li><b>新建：</b>把「📌 拖到书签栏」拖到书签栏或书签文件夹里；拖不动就复制地址，然后新建书签，把地址粘贴到「网址」里。</li>
+      <li><b>修改：</b>可编辑笔记可以直接点右下角「编辑」，改完点「保存」（或按 Ctrl+S），会复制新地址；然后右键这个书签 →「修改」→ 用新地址替换网址。</li>
+      <li>内容里的 <code>#</code>、<code>%</code> 都会自动编码，不用自己处理。建议每个笔记控制在 64 KB 以内，方便同步。</li>
+    </ol>
+  </div>
+</div>
+<div id="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
